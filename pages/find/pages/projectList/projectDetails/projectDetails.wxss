@@ -1,0 +1,8 @@
+/* pages/ConstructionCompany/pages/projectDetails/projectDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.color-blue{
+  color: #1c97e5;
+}
+.one-btn button{
+  background-color: #FE3F44;
+}

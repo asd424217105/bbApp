@@ -1,0 +1,66 @@
+<!--pages/ConstructionCompany/pages/revisePersonnel/revisePersonnel.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='search-input'>
+        <button bindtap='addDepartment'>新增</button>
+      </view>
+      <!-- 人员列表 -->
+      <view class='revise-boxs'>
+        <view class='revise-box' wx:if="{{item.users.length != 0}}" wx:for="{{list}}" wx:key="*this">
+          <view>{{item.deptName}}</view>
+          <view>
+            <view class='revise-box-item' wx:for="{{item.users}}" wx:key="*this">
+              <view>
+                <image src='../../../resources/pic/phone.png' bindtap='tophone' data-phone='{{item.mobile}}'></image>
+                <view>{{item.realName}}</view>
+              </view>
+              <view>
+                <view>{{item.mobile}}</view>
+                <button data-id='{{item.userId}}' bindtap='editPersonnel'>编辑</button>
+                <button data-id='{{item.userId}}' bindtap='delPersonnel'>删除</button>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+      <!-- 编辑人员弹窗 -->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <form bindsubmit="formSubmit">
+          <view class="modal-content">
+            <view class='modal-item'>
+              <text>姓名：</text>
+              <input value='{{realName}}' name="realName" placeholder='请输入人员名称' placeholder-style='color:#ccc'></input>
+            </view>
+            <view class='modal-item'>
+              <text>手机号：</text>
+              <input value='{{mobile}}' name="mobile" placeholder='请输入手机号' placeholder-style='color:#ccc'></input>
+            </view>
+            <view class='modal-item'>
+              <text>指派部门：</text>
+              <picker bindchange="bindPickerChange" range="{{depArray}}" range-key="deptName">
+                <view wx:if="{{depValue == ''}}" style='color:#ccc'>请指派部门</view>
+                <view wx:else>{{depValue.deptName}}</view>
+              </picker>
+            </view>
+            <view class='modal-item'>
+              <text>用户类型：</text>
+              <picker bindchange="bindPickerChanges" range="{{userTypes}}" range-key="text">
+                <view wx:if="{{userTypeValue == ''}}" style='color:#ccc'>请选择用户类型</view>
+                <view wx:else>{{userTypeValue.text}}</view>
+              </picker>
+            </view>
+            <input hidden name='deptIds' value='{{depValue.id}}'></input>
+            <input hidden name='userType' value='{{userTypeValue.id}}'></input>
+          </view>
+          <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" bindtap="onConfirm" data-status="confirm" formType="submit">确定</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

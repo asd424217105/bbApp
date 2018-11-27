@@ -1,0 +1,8 @@
+<!--pages/foreman/pages/contractManage/contractManage.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      合同管理
+    </view>
+  </view>
+</view>

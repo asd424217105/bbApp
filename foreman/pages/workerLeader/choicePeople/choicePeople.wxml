@@ -1,0 +1,24 @@
+<!--pages/ConstructionCompany/pages/CheckReceivePeople/CheckReceivePeople.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='worker-title' wx:if="{{list.length != 0}}">
+        <text>人员名单</text>
+        <text bindtap='toOk'>确定</text>
+      </view>
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+        <view>
+          <checkbox-group bindchange="checkboxChange">
+            <view wx:for="{{list}}" wx:for-item="item" wx:key="item">
+              <label class="checkbox2">
+                <checkbox value="{{item.userId}}" checked="{{item.checked}}"/>
+                <text>{{item.realName}}</text>
+              </label>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无信息</view>
+    </view>
+  </view>
+</view>

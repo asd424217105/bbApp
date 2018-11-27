@@ -1,0 +1,57 @@
+<view class="container {{theme}} post">
+  <view class="page_head post_head">
+    <view class="head_img post">
+      <image src="{{head_img}}../../resources/pic/head_img_default.png"></image>
+      <span class="postNum">帖子：{{postNum}}</span>
+    </view>
+  </view>
+  <view class="page_body">
+    <view class="noPost" wx:if="{{list.length<=0}}">
+      <image src="../../resources/pic/noPost.png"></image>
+      <view class="text">没有信息,快点去<navigator open-type="navigate" url="../../../community/pages/workmate/workmate" class="link" hover-class="none">工友圈</navigator>活跃起来吧！</view>
+    </view>
+
+    <!-- 工友圈 -->
+    <view class='workmate-box' wx:elif="{{list.length>0}}">
+      <view class='workmate-list' wx:for="{{list}}" wx:for-item="items" wx:key="items" wx:for-index="idx">
+        <view class='workmate-list-left'>
+          <image wx:if="{{items.head_img != ''}}" src='{{items.head_img}}'></image>
+          <image wx:else src='/images/headpic.png'></image>
+        </view>
+        <view class='workmate-list-right'>
+          <view class='workmate-name'>{{items.real_name}}</view>
+          <view class="workmate-delete" bindtap="workmateDelete" data-id="{{items.id}}">删除</view>
+          <!-- 内容 -->
+          <view class='workmate-msg'>{{items.content}}
+            <view class='workmate-msg-img' wx:if="{{items.file_list.length>0}}">
+              <!-- 附件循环列表 -->
+              <view class='workmate-msg-item' wx:for="{{items.file_list}}" wx:key="index">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='../../../../images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </view>
+          <!-- 时间 -->
+          <view class='workmate-time'>
+            <text>{{items.ctime}}</text>
+          </view>
+          <!-- 回复 -->
+          <view class='workmate-comment' wx:if="{{items.reply_list.length>0}}">
+            <view wx:for="{{items.reply_list}}" wx:key="*this" bindtap='delComment' data-item='{{item}}'>
+              <text>{{item.real_name}}</text>：{{item.content}}
+              <view class='comment-img' wx:if="{{item.file_list.length>0}}">
+                <image src='{{item.newFilename}}' wx:for="{{item.file_list}}" wx:key="*this" data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    
+
+  </view>
+</view>

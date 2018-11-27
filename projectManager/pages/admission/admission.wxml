@@ -1,0 +1,38 @@
+<!--pages/foreman/pages/admission/admission.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='worker-title' wx:if="{{list.length != 0}}">
+        <text>班组名单</text>
+        <text bindtap='toOk'>确定</text>
+      </view>
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+        <view class='all'>
+          <checkbox-group bindchange="checkboxAll">
+            <label class="checkbox" wx:for="{{items}}" wx:for-item="item" wx:key="item">
+              <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </checkbox-group>
+        </view>
+        <view>
+          <checkbox-group bindchange="checkboxChange">
+            <view wx:for="{{list}}" wx:for-item="item" wx:key="item" class='checkboxitem'>
+              <label class="checkbox2" >
+                <checkbox value="{{item.id}}" checked="{{item.checked}}"/>
+                <image class='headimg' src='{{item.headImg || "/images/headpic.png"}}'></image>
+                <view class='checkboxitem-msg'>
+                  <view class='strong'>{{item.realName}}</view>
+                  <view class='time'>{{item.kindName}}</view>
+                </view>
+              </label>
+              <navigator url='../findWorkersList/teamDetails/teamDetails?userId={{item.userId}}'>
+                <image src='/images/right.png'></image>
+              </navigator>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无信息</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/my/pages/version/version.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";

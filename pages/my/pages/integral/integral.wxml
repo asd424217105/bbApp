@@ -1,0 +1,21 @@
+<view class="container {{theme}} gray">
+  <view class="integral">
+    <view class="integral-head">
+      <span>{{integral}}</span>
+    </view>
+    <view class="integral-title">
+      <span>记录</span>
+    </view>
+    <view class="integral-body">
+      <view class="integral-block" wx:for="{{integralArray}}" wx:key="index">
+        <view class="integral-left">
+          <span class="integralType">{{item.content}}</span>
+          <span class="integralTime">{{item.ctime}}</span>
+        </view>
+        <view class="integral-right">
+          <span class="{{item.integral>0?'add':'del'}}"><span wx:if="{{item.integral>0}}">+</span>{{item.integral}}</span>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

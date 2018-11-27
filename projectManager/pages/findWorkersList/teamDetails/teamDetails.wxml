@@ -1,0 +1,61 @@
+<!--pages/find/groupDetails/groupDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-head'>
+          <view class='check-head-left'>
+            <image wx:if="{{data.headImg == ''}}" src='/images/noheadimg.png'></image>
+            <image wx:else src='{{data.headImg}}'></image>
+          </view>
+          <view class='check-head-right'>
+            <view>{{data.realName}}
+              <image wx:if="{{data.certificationStatus == 0}}" src='/images/renzheng.png'></image>
+              <image wx:if="{{data.certificationStatus == 1}}" src='/images/norenzheng.png'></image>
+            </view>
+            <view>
+              <text wx:if="{{data.sex == 0}}">男</text>
+              <text wx:if="{{data.sex == 1}}">女</text>
+              <block wx:if="{{data.age && data.age != ''}}">| {{data.age}} </block>
+              <block wx:if="{{data.national != ''}}">|{{data.national}}</block>
+            </view>
+            <view>家乡：{{data.address}}</view>
+          </view>
+        </view>
+        <view class='check-item'>工种：{{data.kindName}}</view>
+        <view class='check-item'>工龄：{{data.workYear}}年</view>
+        <view class='check-item'>工人规模：{{data.personCount}}人</view>
+        <view class='check-item' wx:if="{{data.workStatus == 0}}">工作状态：工作中</view>
+        <view class='check-item' wx:if="{{data.workStatus == 1}}">工作状态：空闲中</view>
+        <view class='check-item'>联系电话：<text bindtap='totel' style='color:#1c97e5'>{{data.mobile}}</text> </view>
+        <view class='check-item'>期望工作地：{{data.cityName}}</view> 
+        <view class='check-minbox'>
+          <view>队伍介绍：</view>
+          <view>{{data.content}}</view>
+        </view>
+        
+        <!-- 项目经验 -->
+        <view class='check-minbox' wx:if="{{data.achievementList.length>0}}" >
+          <view class='strong'>项目经验：</view>         
+          <block wx:for="{{data.achievementList}}" wx:for-item="items" wx:key="items" wx:for-index="idx">
+            <view>{{items.projectName}}</view>
+            <view>{{items.begin_date}} {{items.cityName}}</view>
+            <view>项目简介：{{items.content}}</view>
+            <!-- 项目附件 -->
+            <view class='file-body'>
+              <!-- 附件循环列表 -->
+              <view class='file-body-item' wx:for="{{items.file_list}}" wx:key="*this">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </block>
+        </view>   
+      </view>
+    </view>
+  </view>
+</view>

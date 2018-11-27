@@ -1,0 +1,40 @@
+/* pages/foreman/pages/workersDetail/workersDetail.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+
+.check-box{
+  border-bottom: none;
+  padding-left: 25rpx;
+  padding-right: 25rpx;
+}
+.check-head{
+  background: #ecebeb;
+  padding: 30rpx 30rpx 25rpx 50rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  margin-bottom: 40rpx;
+  font-size: 28rpx;
+}
+.check-head-left{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 30rpx;
+  background-color: #fff;
+}
+.check-head-left image{
+  width: 150rpx;
+  height: 150rpx;
+}
+.check-head-right>view{
+  margin-bottom: 12rpx;
+}
+.check-head-right>view:nth-child(1) image{
+  width: 74rpx;
+  height: 25rpx;
+}
+.check-head-right>view:nth-last-child(1){
+  margin-bottom: 0;
+}
+.double-btn button{
+  background-color: #e51c23;
+}

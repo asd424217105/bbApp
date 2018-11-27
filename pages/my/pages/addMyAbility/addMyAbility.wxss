@@ -1,0 +1,11 @@
+/* pages/my/pages/addMyAbility/addMyAbility.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+@import "/pages/common/lib/comCheck.wxss";
+.container{display: block;}  
+.check-box{border: none;padding: 0;}
+.check-between{font-size: 32rpx;}
+.container .ability-box{width:710rpx;margin:0 auto;}
+.container .ability-box .content{margin-top:50rpx;margin-bottom:150rpx;}
+.container .ability-box .content textarea{width:666rpx;min-height:300rpx;font-size:30rpx;border:2rpx solid #BBBBBB;color: #000000;padding:20rpx;}

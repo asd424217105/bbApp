@@ -1,0 +1,63 @@
+<!--pages/ConstructionCompany/pages/projectDetails/projectDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text class='check-title'>{{data.projectName}}</text>
+          <text class='color-blue'>{{data.ctime}}</text>
+        </view>
+      </view>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text>承包金额：{{data.totalAmount}}元</text>
+          <text>活动类型：{{projectActiveType}}</text>
+        </view>
+        <view class='check-between'>
+          <text>工程规模：{{data.builtArea}}平</text>
+          <text>项目分类：{{projectType}}</text>
+        </view>
+      </view>
+      <view class='check-box'>
+        <view class='check-item'>是否重点项目：{{projectMajor}}</view>
+        <view class='check-item'>建设单位：{{data.merchName}}</view>
+        <view class='check-item'>项目编号：{{data.projectSn}}</view>
+        <view class='check-item'>项目建设编号：{{data.projectBuildSn}}</view>
+        <view class='check-item'>施工编码许可证：{{data.projectLicenseCode}}</view>
+      </view>
+      <view class='check-box'>
+        <view class='check-item'>发布人：{{data.createName}}</view> 
+        <view class='check-item'>开工日期：{{data.begindate}}</view>
+        <view class='check-item'>竣工日期：{{data.enddate}}</view>
+        <view class='check-between'>
+          <text>项目地址：{{data.cityName}}</text>
+          <!-- <text class='color-blue' bindtap='toLocation'>查看位置</text>       -->
+        </view>
+        <view class='check-item'>项目详细地址：{{data.address}}</view>
+        <view class='check-minbox'>
+          <view>项目描述：</view>
+          <view>{{data.content}}</view>
+        </view>
+        <!-- 项目附件 -->
+        <view class='check-minbox' wx:if="{{file_list.length>0}}">
+          <view>项目附件：</view>
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{file_list}}" wx:for-index="idx">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view> 
+        <!-- 删除项目  -->
+        <view class='one-btn' wx:if="{{data.projectStatus == 0}}">           
+          <button hover-class="button-hover" bindtap='delProject'>删除</button>            
+        </view>
+      </view>   
+    </view>
+  </view>
+</view>

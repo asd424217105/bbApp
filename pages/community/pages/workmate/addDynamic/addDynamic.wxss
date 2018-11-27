@@ -1,0 +1,49 @@
+/* pages/community/pages/addNote/addNote.wxss */
+@import "/pages/common/lib/upload.wxss";   
+
+.page-section-spacing{
+  padding: 20rpx;
+}
+
+.check-minbox{
+  margin-top: 10rpx;
+  margin-bottom: 35rpx;
+  font-size: 28rpx;
+}
+.check-minbox>view:nth-child(1){
+  margin-bottom: 0rpx;
+}
+.check-minbox textarea{
+  border: 2rpx solid #ccc;
+  padding: 10rpx;
+  height: 200rpx;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 单按钮提交 */
+.one-btn{
+  position: fixed;
+  bottom: 20rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.one-btn button{
+  width: 90%;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #e51c23;
+  border-radius: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.one-btn.yellow button{
+  background-color: #ff9800;
+}
+.one-btn button.button-hover{
+  background-color: gainsboro;
+}

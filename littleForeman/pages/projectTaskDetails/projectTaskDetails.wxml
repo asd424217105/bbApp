@@ -1,0 +1,62 @@
+<!--pages/index/pages/taskDetails/taskDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text class='check-title' wx:if="{{type==0}}">{{data.taskName}}</text>
+          <text class='check-title' wx:if="{{type==1}}">{{data.callName}}</text>
+          <text class='color-red'>{{data.ctime}}</text>
+        </view>
+      </view>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text>工资：{{data.totalAmount}}元</text>
+          <text wx:if="{{data.settlementType == 0}}">结算方式：天包</text>
+          <text wx:if="{{data.settlementType >= 1}}">结算方式：量包</text>
+        </view>
+        <view class='check-between'>
+          <text>开工日期：{{data.begindate}}</text>
+          <text>完工日期：{{data.enddate}}</text>
+        </view>
+      </view>
+      <view class='check-box'>
+        <view class='check-item' wx:if="{{data.merchantsName}}">建筑公司：{{data.merchantsName}}</view>
+        <view class='check-item' wx:if="{{data.projectName && type==0}}">所属项目：{{data.projectName}}</view>
+        <view class='check-item' wx:if="{{data.taskName && type==1}}">所属项目任务：{{data.taskName}}</view>
+        <view class='check-item' wx:if="{{data.callSn}}">招工编号：{{data.callSn}}</view>
+        <view class='check-item' wx:if="{{data.taskSn}}">招工编号：{{data.taskSn}}</view>
+        <view class='check-item'>所需工种：{{data.kindName}}</view>
+        <view class='check-item'>所需人数：{{data.personCount}}</view>
+        <!-- <view class='check-item'>联系邮箱：{{data.email}}</view> -->
+      </view>
+      <view class='check-box'>
+        <view class='check-item'>发布人：{{data.createName}}</view> 
+        <view class='check-between'>
+          <text>项目地址：{{data.cityName}}</text>
+          <!-- <text class='color-red' bindtap='toLocation'>查看位置</text>  -->
+        </view>
+        <view class='check-item'>项目详细地址：{{data.address}}</view>
+        <view class='check-minbox'>
+          <view>项目描述：</view>
+          <view>{{data.content}}</view>
+        </view>
+        <!-- 项目附件 -->
+        <view class='check-minbox' wx:if="{{file_list.length>0}}">
+          <view>项目附件：</view>
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{file_list}}" wx:for-index="idx" wx:key="*this">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+      </view>   
+    </view>
+  </view>
+</view>

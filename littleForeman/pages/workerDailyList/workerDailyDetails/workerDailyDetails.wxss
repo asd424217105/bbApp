@@ -1,0 +1,9 @@
+/* pages/index/pages/workerDailyList/workerDailyDetails/workerDailyDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";
+.check-box{
+  border-bottom: none;
+}
+.one-btn button{
+  background-color: #FE3F44;
+}

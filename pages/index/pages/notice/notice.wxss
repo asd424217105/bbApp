@@ -1,0 +1,33 @@
+/* pages/index/pages/notice/notice.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+
+/* 顶部切换 */
+.toptab{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+
+.check-box{
+  width: 85%;
+  background-color: #f1f1f1;
+  margin: 0 auto 20rpx;
+  border-bottom: none;
+  border-radius: 14rpx;
+  padding: 17rpx 28rpx;
+}
+.check-box:nth-child(2){
+  margin-top: 108rpx;
+}
+.check-box .check-between text:nth-child(2){
+  color: #666;
+}
+
+.check-between text{
+  height: 60rpx;
+}
+.check-item{
+  height: 72rpx;
+}
+.content{
+  font-size: 30rpx;
+}

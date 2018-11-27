@@ -1,0 +1,4 @@
+/* pages/index/pages/weather/weather.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 

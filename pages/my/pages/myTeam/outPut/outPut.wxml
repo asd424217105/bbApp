@@ -1,0 +1,19 @@
+<view class="container {{theme}}">
+  <view class="page-head">
+    <image class="logo" src="../../../../system/resources/pic/logo.png"></image>
+  </view>
+  <form class="page-body form-box" bindsubmit='formSubmit' bindreset='formReset'>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../../../system/resources/pic/mail.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入邮箱" name="rePass" type='password' selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class='page-foot'>
+      <button class="oneCenterBtn" type="primary" size="{{size}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" form-type='submit' open-type="getUserInfo" lang="zh_CN" hover-class="none">导出到邮箱</button>
+    </view>
+  </form>
+</view>

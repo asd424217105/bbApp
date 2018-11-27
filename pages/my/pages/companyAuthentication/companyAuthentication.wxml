@@ -1,0 +1,61 @@
+<view class="container {{theme}} gray">
+  <view class="page-head" wx:if="{{corp_state==0?true: false}}">  
+    <view class="alert">企业审核中。。。请耐心等待，如有疑问请联系后台管理员！</view>
+    <button class="oneCenterBtn" bindtap="alertOk">确定</button>
+  </view>
+  <view class="page-head" wx:if="{{corp_state==2?true: false}}">  
+    <view class="alert">审核没有通过，请重新提交认证，如有疑问请联系后台管理员！</view>
+  </view>
+  <form  bindsubmit="subRZ"  wx:if="{{corp_state==0?false: true}}">
+    <view class='check-box'>
+      <view class='check-between'>
+        <text>公司名称：</text>
+        <input placeholder='公司名称' placeholder-style='color:#ccc' name="corpName"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{corpName}}"></input>
+      </view>
+      <view class='check-between'>
+        <text>单位性质：</text>
+        <picker bindchange="bindPickerChange" data-type='CORP_TYPE' range="{{CORP_TYPEArray}}" value="{{sCorpType}}" range-key="text" disabled="{{corp_state==0?'disabled': ''}}">
+          <view wx:if="{{CORP_TYPE == ''}}" style='color:#ccc'>请选择单位性质</view>
+          <view wx:else>{{CORP_TYPE.text}}</view>
+        </picker>
+      </view>
+      <view class='check-between'>
+        <text>企业所在区域：</text>
+        <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" disabled="{{corp_state==0?'disabled': ''}}" >
+          <view wx:if="{{cityValue == ''}}" style='color:#ccc'>请选择企业所在区域</view>
+          <view wx:else>{{cityValue.name_path_level}}</view>
+        </picker>
+      </view>
+      <view class='check-between'>
+        <text>组织机构代码：</text>
+        <input placeholder='组织机构代码' placeholder-style='color:#ccc' name="corpCode" disabled="{{corp_state==0?'disabled': ''}}" value="{{corpCode}}" value="{{corpCode}}"></input>
+      </view>
+      <view class='check-between'>
+        <text>法人姓名：</text>
+        <input placeholder='法人姓名' placeholder-style='color:#ccc' name="legalPerson"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPerson}}"></input>
+      </view>
+      <view class='check-between'>
+        <text>法人证件号：</text>
+        <input placeholder='法人证件号' placeholder-style='color:#ccc' name="legalPersonIdentify"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPersonIdentify}}"></input>
+      </view>
+      <view class='check-between'>
+        <text>法人手机号：</text>
+        <input placeholder='法人手机号' placeholder-style='color:#ccc' name="legalPersonMobile"maxlength="11" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPersonMobile}}"></input>
+      </view>
+      <view class='check-between'>
+        <text>上传营业执照：</text>
+      </view>
+      <view class="imageView">
+        <button wx:if="{{!licenseImg}}" class="licenseUpload" hover-class="none" bindtap="licenseChooseWxImage" data-type="0" disabled="{{corp_state==0?'disabled': ''}}">
+          <image src="http://47.92.217.241:8083/bbgjupload/dataupload/other/license.jpg"></image>
+          <view class="text">上传营业执照</view>
+        </button>
+        <image wx:if="{{licenseImg}}" class="licenseImg" src="{{licenseImg}}" bindtap="previewImage" data-src="{{licenseImg}}"></image>
+        <cover-image src="../../resources/pic/close.png" hidden="{{licenseImgShow}}" data-id="{{fileIdLicense}}" data-idType="license" bindtap="deleteImage" class="close"></cover-image> 
+      </view>
+    </view>
+    <view class="page-head">
+      <button class="oneCenterBtn" form-type="submit">提交企业认证</button>
+    </view>
+  </form>
+</view>

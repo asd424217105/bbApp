@@ -1,0 +1,82 @@
+/* pages/index/pages/InvitationedList/InvitationedList.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+
+.worker-list{
+  padding: 15rpx 20rpx;
+  font-size: 28rpx;
+}
+.worker-list .all{
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+}
+.worker-list .checkboxitem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ecebeb;
+  border-radius: 10rpx;
+  padding: 20rpx 0 20rpx 20rpx;
+  margin-bottom: 20rpx;
+}
+.worker-list .checkboxitem .checkbox2{
+  display: flex;
+  flex-direction: row;
+}
+.worker-list .checkboxitem .checkbox2 .headimg{
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.worker-list .checkboxitem>navigator{
+  width: 88rpx;
+  height: 88rpx;
+}
+.worker-list .checkboxitem>navigator image{
+  width: 88rpx;
+  height: 88rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 400rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg .name text:nth-child(1){
+  margin-right: 20rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg .name text:nth-child(2){
+  color: #FE3F44;
+  font-size: 26rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg .time{
+  color: #666;
+}
+
+
+/* 双按钮 */
+.one-btn{
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #ffffff;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.one-btn button{
+  width: 88%;
+  color: #fff;
+  font-size: 28rpx;
+  background-color: #FE3F44;
+  border-radius: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+}
+.check-box button.button-hover{
+  background-color: gainsboro;
+}

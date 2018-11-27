@@ -1,0 +1,35 @@
+@import "../../../common/yellow.wxss";
+.container{min-height: auto;}
+.page-head{padding: 70rpx 132rpx 100rpx;}
+.showCode{display:block;}
+.hideCode{display:none;}
+
+
+
+/* .registerIcon image{height:150px;width:750rpx;}
+.registerForm .SubmitBtn{width:100%;height:auto;background-color:#ffffff;margin-top:0px ;margin-bottom:0px;padding-bottom:0px;display: flex;flex-direction: row;justify-content: space-between;align-items: center;}
+.registerForm .SubmitBtn button{width:65%;margin-top:30px;}
+.inputView{background: #ffffff;line-height: 44px;}
+.inputView image{width: 14px;height: 14px;margin-left:22px;}
+.inputView label{margin:15px 15px 15px 10px;color:#545454;font-size:14px;}
+.inputView input{flex:block;float:right;text-align: right;margin-top:11px;margin-right:22px;color:#cbcbcb;font-size:14px;}
+.inputView .getCode{
+  width:20%;
+  float: right;
+  position:relative;
+  display:block;
+  margin-left:auto;
+  margin-right:auto;
+  padding:0;
+  box-sizing:border-box;
+  font-size:14px;
+  text-align:center;
+  text-decoration:none;
+  line-height:46px;
+  border-radius:5px;
+  -webkit-tap-highlight-color:transparent;
+  overflow:hidden;
+  color:#000000;
+  background-color:#F8F8F8;
+}
+.line{width:100%;height:1px;background: #cbcbcb;margin-top:1px;} */

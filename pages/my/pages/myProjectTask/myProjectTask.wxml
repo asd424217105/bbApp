@@ -1,0 +1,60 @@
+<!--pages/index/pages/changeProject/changeProject.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing {{usertype>=4?"width5":""}}'>
+      <view class="toptab {{usertype >= 4?'blue':'' }}" wx:if="{{usertype>=4}}">
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}}">审核中</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">已拒绝</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">进行中</view>
+        <view bindtap='switchTab' data-id='5' class="{{idx==5?'selected':''}}">已完成</view>
+      </view>
+      <view class="toptab red" wx:if="{{usertype<4 && usertype>0}}">
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}}" wx:if="{{usertype==1 && changetype==0}}"><text>未确认</text></view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">进行中</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">已完成</view>
+      </view>
+      <view class="toptab yellow" wx:if="{{usertype==0}}">
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}}">未确认</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">进行中</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">已完成</view>
+      </view>
+      <!-- 建筑公司 -->
+      <view class='tasklist' wx:if="{{usertype>=4}}">
+        <view wx:if="{{projectList.length != 0}}" data-project='{{item}}' wx:for="{{projectList}}" wx:key="*this" class='task-item' bindtap='toDetails'>
+          <text class='strong {{item.id == selectId ? "selectblue" : ""}}' >{{item.projectName}}</text>
+          <text wx:if="{{item.cityName && item.cityName != ''}}">{{item.cityName}}</text>
+        </view>
+        <view wx:if="{{projectList.length == 0}}" class='no-message'>暂无项目</view>
+      </view>
+      <!-- 项目部门 -->
+      <view class='tasklist' wx:if="{{usertype==2 || usertype==3}}">
+        <view wx:if="{{projectList.length != 0}}" data-project='{{item}}' wx:for="{{projectList}}" wx:key="*this" class='task-item' bindtap='toDetails'>
+          <text class='strong {{item.projectId == selectId ? "selectblue" : "" }}' wx:if="{{item.projectName}}">{{item.projectName}}</text>
+          <text class='strong {{item.id == selectId2 ? "selectblue" : "" }}' wx:if="{{item.taskName}}">{{item.taskName}}</text>
+          <text wx:if="{{item.cityName && item.cityName != ''}}">{{item.cityName}}</text>
+        </view>
+        <view wx:if="{{projectList.length == 0}}" class='no-message'>暂无项目</view>
+      </view>
+      <!-- 班组长 -->
+      <view class='tasklist' wx:if="{{usertype==1}}">
+        <view wx:if="{{projectList.length != 0}}" data-project='{{item}}' wx:for="{{projectList}}" wx:key="*this" class='task-item' bindtap='toDetails'>
+          <text class='strong {{item.taskId == selectId ? "selectblue" : "" }}' wx:if="{{item.taskName}}">{{item.taskName}}</text>
+          <text class='strong {{item.callId == selectId2 ? "selectblue" : "" }}' wx:if="{{item.callName}}">{{item.callName}}</text>
+          <text wx:if="{{item.cityName && item.cityName != ''}}">{{item.cityName}}</text>
+        </view>
+        <view wx:if="{{projectList.length == 0}}" class='no-message'>暂无项目</view>
+      </view>
+      <!-- 工人 -->
+      <view class='tasklist' wx:if="{{usertype==0}}">
+        <view wx:if="{{projectList.length != 0}}" data-project='{{item}}' wx:for="{{projectList}}" wx:key="*this" class='task-item' bindtap='toDetails'>
+          <text class='strong {{item.callId == selectId ? "selectblue" : "" }}' wx:if="{{item.callName}}">{{item.callName}}</text>
+          <text wx:if="{{item.cityName && item.cityName != ''}}">{{item.cityName}}</text>
+        </view>
+        <view wx:if="{{projectList.length == 0}}" class='no-message'>暂无项目</view>
+      </view>
+    </view>
+  </view>
+</view>

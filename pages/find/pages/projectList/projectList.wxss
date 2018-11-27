@@ -1,0 +1,39 @@
+/* pages/ConstructionCompany/pages/projectList/projectList.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 项目列表 */
+.project-list{
+  margin-top: 90rpx;
+  font-size: 28rpx;
+}
+.project-list .project-item{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-top: 25rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.project-item view{
+  margin-bottom: 25rpx;
+}
+.project-item view text{
+  margin-left: 40rpx;
+}
+
+/* 添加项目 */
+.add-project{
+  position: fixed;
+  bottom: 20rpx;
+  left: 50%;
+  margin-left: -65rpx;
+  z-index: 5;
+  width: 130rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #1c97e5;
+}
+.add-project image{
+  width: 100rpx;
+  height: 100rpx;
+}

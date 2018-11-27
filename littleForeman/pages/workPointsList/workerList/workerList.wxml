@@ -1,0 +1,16 @@
+<!--pages/foreman/pages/myWorkers/myWorkers.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 验收列表 -->
+      <view class='workers-list' wx:if="{{list.length != 0}}">
+        <view class='workers-item' wx:for="{{list}}" wx:for-item="item" wx:key="item" data-id='{{item.userId}}'>
+          <text>{{item.realName}}</text>
+          <text>{{item.mobile}}</text>
+          <button bindtap='contract' data-id='{{item.userId}}'>查看计工</button>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无工人</view>
+    </view>
+  </view>
+</view>

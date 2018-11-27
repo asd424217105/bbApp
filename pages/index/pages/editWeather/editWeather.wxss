@@ -1,0 +1,6 @@
+/* pages/index/pages/editWeather/editWeather.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+.container.weather .oneCenterBtnLong{width: 720rpx;height: 80rpx;font-size:40rpx;border-radius: 20rpx;line-height: 80rpx;margin: 80rpx auto 0 auto;position: absolute;left: 15rpx;bottom: 100rpx;}
+.container.weather .oneCenterBtnLong .saveBtn{width: 720rpx;height: 80rpx;color: #ffffff;border-radius: 20rpx;line-height: 80rpx;}

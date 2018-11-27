@@ -1,0 +1,12 @@
+/* pages/my/pages/info/info.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+@import "/pages/common/lib/comCheck.wxss";
+.check-box{padding: 0;border-bottom: 0rpx;}
+.container.gray .achienement-box{background: transparent;width: 750rpx;padding: 0 0 20rpx 0;}
+.check-between{margin-bottom: 2rpx;background: #ffffff;padding:10rpx 20rpx;font-size:32rpx;}
+.check-between .import{height:80rpx;display:flex;align-items:center;line-height:80rpx;}
+.check-between .import span{color: red;height:80rpx;line-height:80rpx;}
+.container.gray .picker-dialog .titleBox span{float: right;margin-left: 170rpx;margin-right: 160rpx;}
+.container.gray .rightBtn{margin-right:10rpx;}

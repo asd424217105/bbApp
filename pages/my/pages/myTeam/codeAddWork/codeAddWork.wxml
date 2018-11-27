@@ -1,0 +1,14 @@
+<view class="container {{theme}}">
+  <view class="page-head">
+    <image class="logo" src="../../../resources/pic/logo.png"></image>
+  </view>
+  <view class="page-body">
+    <view class="recommend-box">
+      <view class="text">让朋友扫描二维码加入</view>
+      <image src="{{Rcode}}"></image>
+    </view>
+  </view>
+  <view class="page-foot">
+    <button class="oneCenterBtn" open-type="share">点击邀请朋友加入</button>
+  </view>
+</view>

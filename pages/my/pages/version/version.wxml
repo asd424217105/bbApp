@@ -1,0 +1,11 @@
+<view class="container {{theme}}">
+  <view class="page-head">
+    <image class="logo" src="../../resources/pic/logo.png"></image>
+  </view>
+  <view class="page-body">
+    <view class="versioin-box">
+      <span class="left">版本号：</span>
+      <span class="right">2018.10.08.0.124</span>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,48 @@
+<!--pages/index/pages/teamList/Daily/Daily.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='personlists'>
+        <view class='persontitle strong'>工人列表：({{workerNum}}人)</view>
+        <view class='personlist'>
+          <swiper style="height:{{lists[0].length>5?'420rpx':'210rpx'}}" indicator-dots="{{indicatorDots}}" duration="{{duration}}">
+            <block wx:for="{{lists}}" wx:for-index="idx" wx:for-item="itemx" wx:key="itemx">
+              <swiper-item>
+                <view class="{{workerId == items.userId?'blue':''}}" wx:for="{{itemx}}" wx:for-index="ids" wx:for-item="items" wx:key="items" bindtap='togglePeople' data-id='{{items.userId}}'>
+                  <image src='/images/headpic.png'></image>
+                  <text>{{items.realName}}</text>
+                </view>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class='no-message' wx:if="{{lists.length == 0}}">暂无工人</view>
+      </view>
+      <view class='dailylist' wx:if="{{lists.length != 0}}">
+        <view class='persontitle strong'>日报时间表：</view>
+        <view class='dailyitem' wx:for="{{list}}" wx:for-item="items" wx:for-index="ids" wx:key="items">
+          <view class='check-between'>
+            <text>{{items.realName}}</text>
+            <text>{{items.ctime}}</text>
+          </view>
+          <view>{{items.content}}</view>
+          <!-- 附件 -->
+          <view class='check-minbox' wx:if="{{items.file_list.length>0}}">
+            <view class='file-body'>
+              <!-- 附件循环列表 -->
+              <view class='file-body-item' wx:for="{{items.file_list}}" wx:key="*this">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{ids}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{ids}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </view>
+        </view>
+        <view class='no-message' wx:if="{{list.length == 0}}">暂无日报</view>
+      </view>
+    </view>
+  </view>
+</view>

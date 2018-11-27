@@ -1,0 +1,69 @@
+<!--pages/index/pages/notice/addNotice/addNotice.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <form bindsubmit="formSubmit">
+        <view class='check-item'>
+          <text>负责人：</text>
+          <text>{{userNames}}</text>
+          <text bindtap='addPeople' class='color-blue'>添加</text>
+        </view>
+        <view class='check-item' wx:if="{{usertype != 2 && usertype != 3}}">
+          <text>协助负责人：</text>
+          <text>{{userNames2}}</text>
+          <text bindtap='addPeoples' class='color-blue'>添加</text>
+        </view>
+        <!-- 开始日期 -->
+        <view class='check-between'>
+          <text>开始日期：</text>
+          <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+            <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择开始日期</view>
+            <view wx:else>{{date1}}</view>
+          </picker>
+        </view>
+        <!-- 结束日期 -->
+        <view class='check-between'>
+          <text>结束日期：</text>
+          <picker mode="date" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+            <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择结束日期</view>
+            <view wx:else>{{date2}}</view>
+          </picker>
+        </view>
+        <view class='check-minbox'>
+          <view>内容：</view>
+          <textarea placeholder="请输入内容..." placeholder-style="color:#ccc;" name="content"></textarea>
+        </view>
+        <!-- 上传附件 -->
+        <view class="voucher-box">
+          <view>添加附件：</view>
+          <view class="voucher">
+            <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{imgsrc.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+              </video>            
+              <!-- 删除附件按钮 -->
+              <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+            </view>
+            <view class="upload">
+              <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+            </view>
+          </view>
+        </view>
+        <input hidden='hidden' name="targetId" value='{{targetId}}'></input>
+        <input hidden='hidden' name="targetType" value='{{targetType}}'></input>
+        <input hidden='hidden' name="majorUserid" value='{{userIds}}'></input>
+        <input hidden='hidden' name="xtids" value='{{userIds2}}'></input>
+        <input hidden='hidden' name="beginDate" value='{{date1}}'></input>
+        <input hidden='hidden' name="endDate" value='{{date2}}'></input>
+        <input hidden='hidden' name="file_code" value='{{file_code}}'></input>
+        <!-- 按钮 -->
+        <view class="one-btn {{usertype >=4?'':'btnRed'}}">
+          <button hover-class="button-hover" formType="submit">提交</button>                 
+        </view>
+      </form>  
+    </view>
+  </view>
+</view>

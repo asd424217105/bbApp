@@ -1,0 +1,33 @@
+<view class="container yellow">
+  <view class="page-head">
+    <image class="logo" src="../../resources/pic/logo.png"></image>
+  </view>
+  <form class="page-body form-box">
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/phone.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入手机号码" bindinput="phoneInput" selection-start="-1" selection-end="-1" cursor="-1" maxlength="11"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/password.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入密码" type='password' bindinput="passInput" selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <navigator class="ftpass" openType="navigate" url="../rePass/rePass" hover-class="none">
+        忘记密码?
+    </navigator>
+    <view class="clear"></view>
+  </form>
+  <view class='page-foot'>
+    <button class="oneCenterBtn" type="primary" size="{{size}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="login" open-type='getUserInfo'>登录</button>
+    <button class="oneCenterBtn" type="primary" size="{{size}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="register" open-type='getUserInfo'>注册</button>
+  </view>
+</view>

@@ -1,0 +1,103 @@
+/* pages/ConstructionCompany/pages/revisePersonnel/revisePersonnel.wxss */
+@import "/pages/common/blue.wxss";
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 新增岗位框 */
+.search-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  font-size: 28rpx;
+}
+.search-input input{
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  width: 440rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  color: #666;
+}
+.search-input button{
+  background-color: #1c97e5;
+  color: #ffffff;
+  font-size: 28rpx;
+  width: 660rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  margin: 0;
+}
+
+/* 岗位列表 */
+.revise-boxs{
+  font-size: 28rpx;
+}
+.revise-box{
+  text-align: center;
+  margin-bottom: 16rpx;
+}
+.revise-box>view:nth-child(1){
+  height: 60rpx;
+  line-height: 60rpx;
+  color: #1c97e5;
+}
+.revise-box>view:nth-child(2){
+  border-top: 2rpx solid #ccc;
+  border-bottom: 2rpx solid #ccc;
+}
+.revise-box-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.revise-box-item>view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 80rpx;
+}
+.revise-box-item>view:nth-child(1) view{
+  width: 140rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.revise-box-item>view:nth-child(2) view{
+  width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.revise-box-item>view image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 20rpx;
+}
+.revise-box-item>view button{
+  font-size: 28rpx;
+  width: 110rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0;
+  margin: 0; 
+  color: #fff;
+  margin-left: 20rpx;
+}
+.revise-box-item>view button:nth-child(2){
+  background: #1c97e5;
+}
+.revise-box-item>view button:nth-child(3){
+  background: #e51c23;
+}

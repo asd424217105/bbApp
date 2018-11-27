@@ -1,0 +1,21 @@
+/* pages/ConstructionCompany/pages/personnel/personnel.wxss */
+.page-section-spacing{
+  padding: 20rpx 0;
+
+}
+.personnel-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+  background-color: #eceaea;
+  font-size: 28rpx;
+  padding-left: 60rpx;
+  padding-right: 60rpx;
+  margin-bottom: 20rpx;
+}
+.personnel-item image{
+  width: 40rpx;
+  height: 40rpx;
+}

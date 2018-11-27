@@ -1,0 +1,5 @@
+/* pages/foreman/pages/contractManage/contractManage.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+

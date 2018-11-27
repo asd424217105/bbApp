@@ -1,0 +1,35 @@
+<!--pages/community/pages/information/informationDetail/informationDetail.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <!-- 工友圈 -->
+    <view class='workmate-box'>
+      <view class='workmate-list'>
+        <view class='workmate-list-right'>
+          <!-- 内容 -->
+          <view class='workmate-msg'>
+            <view>{{list.news_title}}</view>
+            <view>
+              <text>来源于：{{list.news_src}}</text>
+              <text>发布时间：{{list.ctime}}</text>
+            </view>
+            <view class='news-content'>
+              <rich-text nodes="{{list.news_content}}" wx:if="{{list.news_exturl == ''}}"></rich-text>
+              <web-view src="{{list.news_exturl}}" wx:if="{{list.news_exturl}}"></web-view> 
+            </view>
+            <view class='workmate-msg-img' wx:if="{{list.file_list.length>0 && list.news_exturl == ''}}">
+              <!-- 附件循环列表 -->
+              <view class='workmate-msg-item' wx:for="{{list.file_list}}" wx:key="*this">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{list.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

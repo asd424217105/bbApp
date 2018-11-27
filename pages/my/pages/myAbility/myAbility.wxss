@@ -1,0 +1,6 @@
+/* pages/my/pages/myAbility/myAbility.wxss */
+@import "/pages/common/lib/upload.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+/* .container.red .page_body{} */

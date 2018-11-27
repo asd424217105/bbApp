@@ -1,0 +1,18 @@
+<!--pages/index/pages/workerDailyList/workerDailyList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 按钮列表 -->
+      <view class='btn-box'>
+        <navigator url='teams/teams?id={{targetId}}'>
+          <image src='../../images/myteam.png'></image>
+          <text>班组人员管理</text>
+        </navigator>
+        <navigator url='progressReport/progressReport?id={{targetId}}'>
+          <image src='../../images/workReport.png'></image>
+          <text>带班工作汇报</text>
+        </navigator>
+      </view>
+    </view>
+  </view>
+</view>

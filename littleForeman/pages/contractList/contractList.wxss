@@ -1,0 +1,15 @@
+/* pages/index/pages/contractList/contractList.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.page-section-spacing{
+  padding-top: 10rpx;
+}
+.contract{
+  width: 100%;
+  text-align: center;
+}
+.contract image{
+  width: 630rpx;
+  height: 350rpx;
+  margin-bottom: 30rpx;
+}
+

@@ -1,0 +1,19 @@
+<view class="container {{theme}} gray">
+  <view class="page_body">
+    <block wx:for="{{abilityList}}" wx:key="index">
+      <view class="ability-box">
+        <view class="title-box">
+          <view class="time-workType">{{workKindTextArray[index]}}</view>
+          <view class="time-workType">{{item.work_year}}年</view>
+          <button hover-class="none" bindtap="del" data-id="{{item.id}}">删除</button>
+          <button hover-class="none" bindtap="modify" data-id="{{item.id}}">编辑</button>
+        </view>
+        <view class="content">简介：{{item.content}}</view>
+      </view>
+    </block>
+  </view>
+  <view class="centerCircleBtn" animation="{{animationData}}">
+    <button hover-class="none" bindtap="add" open-type="getUserInfo" data-userid="{{userId}}">+</button>
+    <span>添加能力</span>
+  </view>
+</view>

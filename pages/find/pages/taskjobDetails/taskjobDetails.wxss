@@ -1,0 +1,24 @@
+/* pages/find/taskjobDetails/taskjobDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.check-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.check-title text:nth-child(1){
+  background: #e51c23;
+  color: #ffffff;
+  height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin-right: 13rpx;
+  padding: 7rpx;
+  min-width: 49rpx;
+}
+.color-red{
+  color: #e51c23;
+  font-size: 26rpx;
+}
+.double-btn button{
+  background-color: #e51c23;
+}

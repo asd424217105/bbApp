@@ -1,0 +1,179 @@
+.page-section-spacing{
+  padding: 0;
+}
+.check-box{
+  border-bottom: 2rpx solid #ccc;
+  padding: 10rpx 40rpx;
+}
+.check-box:nth-last-child(1){
+  border-bottom: none;
+}
+.check-between{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 28rpx;
+}
+.check-between text,
+.check-between input{
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.check-between input{
+  text-align: right;
+  width: 440rpx;
+  display: block;
+}
+.check-title{
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.check-item{
+  font-size: 28rpx;
+  height: 80rpx;
+  display: flex;
+  align-items: center;
+}
+.check-time text:nth-child(2){
+  color: blue;
+}
+.check-minbox{
+  margin-top: 10rpx;
+  margin-bottom: 25rpx;
+  font-size: 28rpx;
+}
+.check-minbox>view:nth-child(1){
+  margin-bottom: 0rpx;
+}
+.check-minbox>view:nth-child(2){
+  word-wrap:break-word;
+}
+.check-minbox textarea{
+  border: 2rpx solid #ccc;
+  padding: 10rpx;
+  height: 180rpx;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+/* 单按钮 */
+.one-btn{
+  margin-top: 60rpx;
+}
+.one-btn button{
+  width: 90%;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #1c97e5;
+  border-radius: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+/* 双按钮 */
+.double-btn{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-top: 60rpx;
+}
+.double-btn button{
+  width: 48%;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #1c97e5;
+  border-radius: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}
+.check-box button.button-hover{
+  background-color: gainsboro;
+}
+
+/* 附件列表 */
+.file-body{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.file-body .file-body-item{
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.file-body .file-body-item:nth-child(3n){
+  margin-right: 0rpx;
+}
+.file-body image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.file-body video{
+  width: 180rpx;
+  height: 180rpx;
+}
+.file-body cover-image{
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 777;
+}
+
+/* 上传图片 */
+.voucher-box{
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+.voucher-box>view:nth-child(1){
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.voucher{
+  display: flex;
+  flex-wrap: wrap ;
+}
+.upload{
+  width: 155rpx;
+  height: 155rpx;
+  border: 1rpx dashed #CBCBCB;
+  margin-bottom:20rpx;
+  margin-right: 25rpx; 
+  position: relative;
+}
+.uploadimg{
+  width: 155rpx;
+  height: 155rpx;
+}
+.close{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: -14rpx;
+  right: -14rpx;
+}
+
+/* 添加项目 */
+.add-project{
+  position: fixed;
+  bottom: 20rpx;
+  left: 50%;
+  margin-left: -65rpx;
+  z-index: 5;
+  width: 130rpx;
+  text-align: center;
+  font-size: 26rpx;
+  color: #1c97e5;
+}
+.add-project image{
+  width: 100rpx;
+  height: 100rpx;
+}

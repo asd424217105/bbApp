@@ -1,0 +1,8 @@
+/* pages/index/pages/leaveList/leaveList.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.page-section-spacing{
+  padding-top: 10rpx;
+}
+.check-item{
+  height: 65rpx;
+}

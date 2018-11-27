@@ -1,0 +1,35 @@
+<!--pages/foreman/pages/progressReport/progressReport.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}} strong">普通汇报</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}} strong">进度汇报</view>
+      </view>
+      <!-- 验收列表 -->
+      <view class='check-box' wx:for='{{list}}' wx:key="*this" data-id="{{item.id}}" bindtap='toCheckDetails'>
+        <view class='check-between'>
+          <text>汇报时间：{{item.ctime}}</text>
+          <text wx:if='{{item.readStatus==0}}' style='color:blue'>未阅</text>
+          <text wx:if='{{item.readStatus==1}}' style='color:green'>已阅</text>
+        </view>
+        <view class='check-item' wx:if="{{item.reportType ==1}}">进度情况：{{item.reportProgress}}%</view>
+        <view class='check-item' wx:if="{{item.createName}}">汇报人：{{item.createName}}</view>
+        <view class='check-item'>汇报类型：
+          <text wx:if='{{item.reportType==0}}'>普通汇报</text>
+          <text wx:if='{{item.reportType==1}}'>进度汇报</text>
+        </view>
+        <view class='check-minbox'>
+          <view class='strong'>汇报内容：</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无此类型汇报</view>
+      <!-- 发布动态 -->
+      <view class='add-project' bindtap='addThing' wx:if="{{typeid == 0}}"> 
+        <image src='/images/add_red.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

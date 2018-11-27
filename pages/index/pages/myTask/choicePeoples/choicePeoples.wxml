@@ -1,0 +1,31 @@
+<!--pages/foreman/pages/admission/admission.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='worker-title' wx:if="{{list.length != 0}}">
+        <text>工人名单</text>
+        <text bindtap='toOk'>确定</text>
+      </view>
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+          <checkbox-group bindchange="checkboxChange">
+             <!-- 建设公司端 -->
+            <view wx:for="{{list}}" wx:for-item="items" wx:key="items" wx:if="{{usertype>=4}}">
+              <label class="checkbox2" wx:for="{{items.user}}" wx:for-item="item" wx:key="item">
+                <checkbox value="{{item.userId}}" checked="{{item.checked}}"/>
+                <text wx:if="{{item.realName}}">{{item.realName}}</text>
+                <text wx:if="{{items.stationName}}">{{items.stationName}}</text>
+              </label>
+            </view>
+            <!-- 其他端 -->
+            <label class="checkbox2" wx:for="{{list}}" wx:for-item="item" wx:key="item" wx:if="{{usertype<=3}}">
+              <checkbox value="{{item.userId}}" checked="{{item.checked}}"/>
+              <text wx:if="{{item.userName}}">{{item.userName}}</text>
+              <text wx:if="{{item.realName}}">{{item.realName}}</text>
+              <text>{{item.mobile}}</text>
+            </label>
+          </checkbox-group>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无信息</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,132 @@
+<view class="container {{theme}}">
+  <view class="page-body">
+    <view class="page-section page-section-spacing calendar">
+      <view class="calendar-box">
+        <!-- 日历选择切换区 -->
+        <view class="calendar-box-section">
+          <view class="calendar-item-box">
+            <view class="calendar-tiem" bindtap='lastMonth'>
+              <image src="/images/left.png"></image>
+            </view>
+          </view>
+          <view class="calendar-item-box date-head" bindtap='toggleDialog'>
+            <view class="calendar-tiem">{{year}}-{{month}}-{{day}}</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem" bindtap='netxMonth'>
+              <image src="/images/right.png"></image>
+            </view>
+          </view>
+        </view>
+        <!-- 横线 -->
+        <view class="line"></view>
+        <!-- 日历表头 -->
+        <view class="calendar-box-section">
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">日</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">一</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">二</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">三</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">四</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">五</view>
+          </view>
+          <view class="calendar-item-box">
+            <view class="calendar-tiem">六</view>
+          </view>
+        </view>
+        <!-- 日历主体 -->
+        <view class="calendar-box-section">
+          <block wx:for="{{calendarDate}}" wx:key="index">
+            <view class="calendar-item-box" data-index="{{index}}" data-val="{{item.val}}" bindtap='calendarClick'>
+              <view class="calendar-tiem body {{item.val == day?'day':''}} {{item.other ?'other':''}}">{{item.list}}</view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+    <!-- 签到列表 -->
+    <view class="page-section page-section-spacing weathers">
+      <view class="weatherBox">
+        <view class="date">
+          <span>{{year}}-{{month}}-{{day}}</span>
+          <span>{{week}}</span>
+        </view>
+        <!-- 签到列表 -->
+        <view class='signin check-between' wx:for='{{list}}' wx:key="*this" data-id="{{item.id}}">
+          <text>{{item.time}}</text>
+          <image src='/images/address.png' bindtap='weizhi' data-item='{{item}}'></image>
+        </view>
+        <view class='no-message' wx:if="{{list.length == 0}}">暂无签到</view>
+      </view>
+    </view>
+
+  </view>
+
+  
+  
+  <view class="centerCircleBtn">
+    <button hover-class="none" open-type='getUserInfo' bindtap='toggleDialog2'>补</button>
+  </view>
+  
+  <!-- 模态窗1 -->
+  <view class="picker-dialog {{ showDialog ? 'picker-dialog--show' : '' }}">
+    <!-- 遮罩层 -->
+    <view class="picker-dialog__mask" bindtap="toggleDialog" />
+    <!-- 弹出内容 -->
+    <view class="picker-dialog__container">
+      <view style="padding: 5% 5% 15%;">
+        <form bindsubmit='submit' bindreset="reset">
+          <view bindtap='pickerReset' class="picker-button picker-dialog-reset">取消</view>
+          <view bindtap='pickerSubmit' class="picker-button picker-dialog-submit">确定</view>
+          <picker-view value="{{calendarSValue}}" bindchange="DateChange" indicator-style="height: 36px;" style="width: 100%; height: 36px;text-align:center;">
+            <picker-view-column>
+              <view wx:for="{{years}}" wx:key="{{index}}" style="line-height: 36px">{{item}}年</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{months}}" wx:key="{{index}}" style="line-height: 36px">{{item}}月</view>
+            </picker-view-column>
+            <picker-view-column>
+              <view wx:for="{{days}}" wx:key="{{index}}" style="line-height: 36px">{{item}}日</view>
+            </picker-view-column>
+          </picker-view>
+        </form>
+      </view>
+    </view>
+  </view>
+
+  <!-- 模态窗2 -->
+  <view class="picker-dialog {{ showDialog2 ? 'picker-dialog--show' : '' }}">
+    <!-- 遮罩层 -->
+    <view class="picker-dialog__mask" bindtap="toggleDialog2" />
+    <!-- 弹出内容 -->
+    <view class="picker-dialog__container">
+      <view style="padding: 5% 5% 15%;">
+        <form bindsubmit='submit' bindreset="reset" class='useratt'>
+          <view bindtap='pickerReset2' class="picker-button picker-dialog-reset">取消</view>
+          <view bindtap='pickerSubmit2' class="picker-button picker-dialog-submit">确定</view>
+          <!-- 日期选择 -->
+          <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+            <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择补签日期</view>
+            <view wx:else>{{date1}}</view>
+          </picker>
+          <!-- 时间选择 -->
+          <picker mode="time" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+            <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择补签时间</view>
+            <view wx:else>{{date2}}</view>
+          </picker>
+        </form>
+      </view>
+    </view>
+  </view>
+
+</view>

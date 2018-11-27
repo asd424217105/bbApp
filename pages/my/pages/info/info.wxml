@@ -1,0 +1,140 @@
+<view class="container {{theme}} gray">
+  <view class="page_head">
+    <view class="head_img">
+      <image src="{{head_img}}"></image>
+    </view>
+    <view class="head_text">
+      <!-- <button bindtap="changeHeadImg" hover-class="none">更换头像></button> -->
+    </view>
+    <button bindtap="goRZ" hover-class="none" class="rz" wx:if="{{certification_status>0}}">去认证</button>
+  </view>
+  <view class="page-body">
+    <form bindsubmit="submit">
+      <view class="achienement-box">
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>姓名：</text>
+            <input placeholder='请输入姓名' placeholder-style='color:#ccc' value="{{realName}}" name="realName" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <text>证件类型：</text>
+            <input placeholder='请输入证件类型' placeholder-style='color:#ccc' value="{{cardType}}" name="cardType" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <text>证件号码：</text>
+            <input placeholder='请输入证件号码' placeholder-style='color:#ccc' value="{{idCard}}" name="idCard" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <text>性别：</text>
+            <input placeholder='请输入性别' placeholder-style='color:#ccc' value="{{sex}}" name="sex" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <text>民族：</text>
+            <input placeholder='请输入民族' placeholder-style='color:#ccc' value="{{nation}}" name="nation" disabled="disabled"></input>
+          </view>
+          <!-- 出生年月日 -->
+          <view class='check-between'>
+            <text>出生年月日：</text>
+            <input placeholder='请输入出生年月日' placeholder-style='color:#ccc' value="{{Bdate}}" name="Bdate" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <span class="import"><span>*</span>籍贯：</span>
+            <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" >
+              <view wx:if="{{cityValue == ''}}" style='color:#ccc'>请选择籍贯</view>
+              <view wx:else>{{cityValue.name_path_level}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>住址：</text>
+            <input placeholder='请输入住址' placeholder-style='color:#ccc' value="{{address}}" name="address"maxlength="58"></input>
+          </view>
+          <view class='check-between'>
+            <text>政治面貌：</text>
+            <picker bindchange="bindPickerChange" data-type='POLITICAL_LANDSCAPE' range="{{POLITICAL_LANDSCAPEArray}}" value="{{sPoliticalLandscape}}" range-key="text">
+              <view wx:if="{{POLITICAL_LANDSCAPE.text == ''}}" style='color:#ccc'>请选择政治面貌</view>
+              <view wx:else>{{POLITICAL_LANDSCAPE.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>手机号：</text>
+            <input placeholder='请输入手机号' placeholder-style='color:#ccc' value="{{mobile}}" name="mobile" disabled="disabled"></input>
+          </view>
+          <view class='check-between'>
+            <text>文化程度：</text>
+            <picker bindchange="bindPickerChange" data-type='EDUCATION_LEVEL' range="{{EDUCATION_LEVELArray}}" value="{{sEducationLevel}}" range-key="text">
+              <view wx:if="{{EDUCATION_LEVEL.text == ''}}" style='color:#ccc'>请选择文化程度</view>
+              <view wx:else>{{EDUCATION_LEVEL.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <span class="import"><span>*</span>是否有重大病史：</span>
+            <picker bindchange="bindPickerChange" data-type='MEDICAL_HISTORY' range="{{MEDICAL_HISTORYArray}}" value="{{sMedicalHistory}}" range-key="text">
+              <view wx:if="{{MEDICAL_HISTORY.text == ''}}" style='color:#ccc'>请选择是否有重大病史</view>
+              <view wx:else>{{MEDICAL_HISTORY.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>当前工种：</text>
+            <input placeholder='请输入当前工种' placeholder-style='color:#ccc' value="{{swork_kindName}}" bindtap="toggleDialog" disabled='disabled'></input>
+          </view>
+          <!-- 开始工作日期 -->
+          <view class='check-between'>
+            <span class="import"><span>*</span>开始工作日期：</span>
+            <picker mode="date" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+              <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择开始工作日期</view>
+              <view wx:else>{{date2}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <span class="import"><span>*</span>希望工作范围：</span>
+            <picker mode="multiSelector" bindchange="bindCityPickerChange1" bindcolumnchange="bindCityColumnChange1" value="{{multiIndex1}}" range="{{cityNameArray1}}" >
+              <view wx:if="{{cityValue1 == ''}}" style='color:#ccc'>请选择希望工作范围</view>
+              <view wx:else>{{cityValue1.name_path_level}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>紧急联系人：</text>
+            <input placeholder='请输入紧急联系人' placeholder-style='color:#ccc' value="{{emergencyContact}}" name="emergencyContact"maxlength="18"></input>
+          </view>
+          <view class='check-between'>
+            <text>紧急联系人电话：</text>
+            <input placeholder='请输入紧急联系人电话' placeholder-style='color:#ccc' value="{{emergencyContactMobile}}" name="emergencyContactMobile"maxlength="11"></input>
+          </view>
+        </view>
+
+        <view class="oneCenterBtnLong">
+          <button class="saveBtn" formType="submit" hover-class="none">修改完善</button>
+        </view>
+      </view>
+    </form>
+  </view>
+
+  <!-- {{ showDialog ? 'picker-dialog--show' : '' }} -->
+  <view class="picker-dialog {{ showDialog ? 'picker-dialog--show' : '' }}">
+    <!-- 遮罩层 -->
+    <view class="picker-dialog__mask" bindtap="toggleDialog" />
+    <!-- 弹出内容 -->
+    <view class="picker-dialog__container">
+      <view style="padding: 0% 0% 5%;">
+        <form bindsubmit='submit' bindreset="reset">
+          <view class="titleBox">
+            <view bindtap='pickerReset' class="picker-button picker-dialog-submit rightBtn">关闭</view>
+            <span>选择工种</span>
+            <view bindtap='pickerSubmit' class="picker-button picker-dialog-submit">确定</view>
+          </view>
+          <view class="contentBox">
+            <scroll-view scroll-y="true">
+             <!-- bindchange="checkboxChange" -->
+              <checkbox-group bindchange="checkboxChange">
+                <label class="checkbox" wx:for="{{WORK_KINDArray}}" wx:key="index">
+                  <checkbox value="{{item.id}}" checked="{{item.checked}}"/><span class="Rtext">{{item.kind_name}}</span>
+                </label>
+              </checkbox-group>
+            </scroll-view>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+
+</view>

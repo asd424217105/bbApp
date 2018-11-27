@@ -1,0 +1,43 @@
+<!--pages/index/pages/notice/notice.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class="toptab {{usertype>=4 ? 'blue' : usertype==0 ? 'yellow' : ''}}">
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">我负责的</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">我协助的</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}" wx:if="{{usertype!=0}}">我发布的</view>
+      </view>
+      <!-- 通知列表 -->
+      <view class='check-box' wx:for='{{list}}' wx:for-item="items" wx:for-index="idx" wx:key="key">
+        <view class='check-between'>
+          <text class='strong'>{{items.targetName}}</text>
+          <text>{{items.ctime}}</text>
+        </view>
+        <view class='check-item'>创建人：{{items.createName}}</view>
+        <view class='check-item'>负责人员：{{items.majorName}}</view>
+        <view class='check-item'>{{items.content}}</view>
+        <!-- 附件 -->
+        <view class='check-minbox' wx:if="{{items.file_list.length>0}}">
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{items.file_list}}" wx:for-item="item" wx:key="item">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+      </view>
+      <!-- 添加项目 -->
+      <view class='add-project' bindtap='addProject'> 
+        <image wx:if="{{usertype == 4||usertype == 5}}" src='/images/add_blue.png'></image>
+        <image wx:if="{{usertype == 1||usertype == 2||usertype == 3}}" src='/images/add_red.png'></image>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无任务</view>  
+    </view>
+  </view>
+</view>

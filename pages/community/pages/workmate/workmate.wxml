@@ -1,0 +1,64 @@
+<!--pages/community/pages/workmate/workmate.wxml-->
+<view class="container {{theme}}">
+  <view class='page-body'>
+    <!-- 工友圈 -->
+    <view class='workmate-box'>
+      <view class='workmate-list' wx:for="{{list}}" wx:for-item="items" wx:key="items" wx:for-index="idx">
+        <view class='workmate-list-left'>
+          <image wx:if="{{items.head_img != ''}}" src='{{items.head_img}}'></image>
+          <image wx:else src='/images/headpic.png'></image>
+        </view>
+        <view class='workmate-list-right'>
+          <view class='workmate-name'>{{items.real_name}}</view>
+          <!-- 内容 -->
+          <view class='workmate-msg'>{{items.content}}
+            <view class='file-body' wx:if="{{items.file_list.length>0}}">
+              <!-- 附件循环列表 -->
+              <view class='file-body-item' wx:for="{{items.file_list}}" wx:key="item" wx:for-index="ids" wx:for-item="item">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </view>
+          <!-- 时间 -->
+          <view class='workmate-time'>
+            <text>{{items.ctime}}</text>
+            <image src='../../resources/pic/comment_btn.png' bindtap='commentBtn' data-id='{{items.id}}' data-idx="{{idx}}"></image>
+          </view>
+          <!-- 回复 -->
+          <view class='workmate-comment' wx:if="{{items.reply_list.length>0}}">
+            <view wx:for="{{items.reply_list}}" wx:key="itemz" wx:for-item="itemz" bindtap='delComment' data-idx="{{idx}}" data-item='{{itemz}}'>
+              <text>{{itemz.real_name}}</text>：{{itemz.content}}
+              <!-- 评论的图片 -->
+              <!-- <view class='comment-img' wx:if="{{item.file_list.length>0}}">
+                <image src='{{item.newFilename}}' wx:for="{{item.file_list}}" wx:key="*this" data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+              </view> -->
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 评论输入框弹窗 -->
+    <!-- <cover-view class="modal-mask" bindtap="hideModal" wx:if="{{showModal}}"></cover-view> -->
+    <view class="modal-dialog" wx:if="{{showModal}}">
+      <form bindsubmit="formSubmit">
+        <view class="modal-content">
+          <view class='modal-item'>
+            <input focus bindconfirm="bindconfirm" bindblur="bindblur" bindinput="bindinput" placeholder='评论' placeholder-style='color:#ccc' value='{{inputValue}}'></input>
+            <text class='send' bindtap='send'>发送</text>
+          </view>
+        </view>
+      </form>
+    </view>
+    <!-- 发布动态 -->
+    <view class='add-project' bindtap='addNote' animation="{{animationData}}"> 
+      <image wx:if="{{usertype == 4 || usertype == 5}}" src='/images/add_blue.png'></image>
+      <image wx:if="{{usertype == 1 || usertype == 2 || usertype == 3}}" src='/images/add_red.png'></image>
+      <image wx:if="{{usertype == 0}}" src='/images/add_yellow.png'></image>
+    </view>
+  </view>
+</view>

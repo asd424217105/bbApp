@@ -1,0 +1,46 @@
+/* pages/foreman/pages/findWorkers/findWorkers.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";
+.workkind view{
+  width: 400rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.workkind view text{
+  margin-left: 12rpx;
+}
+
+/* 单位 */
+.wages>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.wages input{
+  width: 300rpx;
+}
+.unit{
+  margin-left: 15rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.unit view{
+  text-align: right;
+}
+
+/* 单按钮 */
+.one-btn{
+  margin-top: 60rpx;
+}
+.one-btn button{
+  width: 100%;
+  color: #fff;
+  font-size: 30rpx;
+  background-color: #FE3F44;
+  border-radius: 10rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+}

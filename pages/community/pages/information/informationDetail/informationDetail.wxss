@@ -1,0 +1,67 @@
+/* pages/community/pages/information/informationDetail/informationDetail.wxss */
+.workmate-list{
+  font-size: 28rpx;
+  background-color: #fff;
+}
+/* 内容 */
+.workmate-msg{
+  word-wrap:break-word;
+}
+.workmate-msg view:nth-child(1){
+  padding-top: 20rpx;
+  font-size: 32rpx;
+  text-align: center;
+}
+.workmate-msg view:nth-child(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1rpx solid #ccc;
+  height: 70rpx;
+  font-size: 26rpx;
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.workmate-msg .news-content{
+  padding: 25rpx;
+}
+.workmate-msg-img{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.workmate-msg-img .workmate-msg-item{
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.workmate-msg-img .workmate-msg-item:nth-child(3n){
+  margin-right: 0rpx;
+}
+.workmate-msg-item image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.workmate-msg-item video{
+  width: 180rpx;
+  height: 180rpx;
+}
+.workmate-msg-item cover-image{
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 777;
+}
+/* 时间 */
+.workmate-time{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70rpx;
+  font-size: 24rpx;
+  color: #666;
+}

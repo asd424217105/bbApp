@@ -1,0 +1,22 @@
+<!--pages/index/pages/workerDailyList/workerDailyList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 验收列表 -->
+      <view class='check-box' wx:for='{{list}}' wx:key="*this" data-id="{{item.id}}" bindtap='toDetails'>
+        <view class='check-between'>
+          <text>{{item.realName}}</text>
+          <text>{{item.ctime}}</text>
+        </view>
+        <view class='check-minbox'>
+          <view>内容：{{item.content}}</view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无日报</view>
+      <!-- 发布日报 -->
+      <view class='add-project' bindtap='addThing' wx:if="{{usertype == 0 }}"> 
+        <image src='/images/add_yellow.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

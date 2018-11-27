@@ -1,0 +1,23 @@
+/* pages/index/pages/workerDailyList/workerDailyList.wxss */
+.page-section-spacing{
+  padding: 20rpx;
+}
+
+.btn-box{
+  display: flex;
+  flex-direction: row;
+}
+.btn-box navigator{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  width: 180rpx;
+  height: 180rpx;
+}
+.btn-box navigator image{
+  width: 72rpx;
+  height: 72rpx;
+  margin-bottom: 20rpx;
+}

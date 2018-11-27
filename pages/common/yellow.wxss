@@ -1,0 +1,318 @@
+/* 页面基础通用样式 */
+.container.yellow button{background-color: #FEBA01}
+.container.yellow .page-head .logo{width: 480rpx;height: 160rpx;}
+/*form表单样式*/
+.container.yellow .form-box{display: flex;flex-direction: column;}
+.container.yellow .form-box .input-view{width: 600rpx;height:80rpx;margin:0 auto;font-size:28rpx;display: flex;flex-direction: row;align-items: center;align-content: center;padding:0 0 0 40rpx;}
+.container.yellow .form-box .input-view .input-icon{width: 32rpx;height: 32rpx;}
+.container.yellow .form-box .input-view .input-icon image{width: 32rpx;height: 32rpx;}
+.container.yellow .form-box .input-view .input-label{padding: 0 20rpx 0 0;}
+.container.yellow .form-box .input-view .input-label label{}/*padding: 0 40rpx 0 40rpx;*/
+.container.yellow .form-box .input-view .input-text{padding: 0 40rpx 0 40rpx;}/*width: 100%;*/
+.container.yellow .form-box .input-view .input-text.left-none{padding: 0 40rpx 0 0;}
+.container.yellow .form-box .input-view .input-text input{width: 300rpx;}
+.container.yellow .form-box .line{width: 600rpx;height:1px;padding:0;margin:0 auto;background-color:#cccccc;}
+.container.yellow .form-box .ftpass{width:140rpx;font-size:28rpx;color:#FEAB41;text-align: right;padding: 20rpx 100rpx 0 0;float: right;}
+.container.yellow .form-box .getCode{}/*margin-right:20rpx;*/
+.container.yellow .form-box .getCode button{font-size: 24rpx;padding: 0;width: 160rpx;height:60rpx;}
+.container.yellow .form-box .errorText{}
+.container.yellow .clear{clear: both;}
+/*单选按钮样式*/
+/*  重写 radio 样式  */
+/* 未选中的 背景样式 */
+.container.yellow radio-group .Rtext{
+  margin-right:30rpx;
+}
+.container.yellow radio .wx-radio-input{
+   border-radius: 50%;/* 圆角 */
+   width: 40rpx;
+   height: 40rpx;
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+.container.yellow radio .wx-radio-input.wx-radio-input-checked{
+   border: none;
+   background: #FEBA01;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+.container.yellow radio .wx-radio-input.wx-radio-input-checked::before{
+   border-radius: 50%;/* 圆角 */
+   border-color: #FEBA01;
+   width: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   height: 40rpx; /* 选中后对勾大小，不要超过背景的尺寸 */
+   line-height: 40rpx;
+   text-align: center;
+   font-size:30rpx; /* 对勾大小 30rpx */
+   color:#fff; /* 对勾颜色 白色 */
+   background: #FEBA01;
+   transform:translate(-50%, -50%) scale(1);
+   -webkit-transform:translate(-50%, -50%) scale(1);
+}
+/*居中按钮*/
+.container.yellow .oneCenterBtn{width: 600rpx;height: 80rpx;font-size:36rpx;border-radius: 40rpx;line-height: 80rpx;color:#ffffff;}
+.container.yellow .oneCenterBtnLong{width: 710rpx;height: 80rpx;font-size:40rpx;border-radius: 20rpx;line-height: 80rpx;margin: 80rpx auto 20rpx auto;}/*width: 720rpx;position: absolute;left: 15rpx;bottom: 100rpx;*/
+.container.yellow .oneCenterBtnLong .saveBtn{width: 710rpx;height: 80rpx;color: #ffffff;border-radius: 20rpx;line-height: 80rpx;}
+/*底部弹出框*/
+.container.yellow .picker-btn{height:60rpx;padding:0 40rpx;font-size:28rpx;line-height:60rpx;color:#ffffff;}/*background-color: transparent !important;border:1px solid #ffffff;*/
+.container.yellow .picker-dialog__mask {position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 10;background: rgba(0, 0, 0, 0.7);display: none;}
+.container.yellow .picker-dialog__container {position: fixed;left: 0;bottom: 0;width: 750rpx;background: white;transform: translateY(150%);transition: all 0.4s ease;z-index: 11;}
+.container.yellow .picker-dialog--show .picker-dialog__container {transform: translateY(0);}
+.container.yellow .picker-dialog--show .picker-dialog__mask {display: block;}
+/*模态框中的内容*/
+.container.yellow .picker-button{display: inline-block;width:50px;text-align: center;font-size:20px;color:#707070;margin-bottom:20px;}
+.container.yellow .picker-dialog-submit{float: right;color:#FEAB41;}
+/* radio-group{margin:10rpx 0rpx;}
+radio-group>label{width:22.5%;display: inline-block;border:1px solid #ddd;padding:10px 0px;margin:0px 2px 2px;}
+
+radio-group label radio{width:100%;z-index: 3;display: none;}
+.checked{background:#48c23d;color:#fff;}
+radio-group label .picker-text{width:100%;text-align: center;display: inline-block;} */
+
+/*首页通用记事本晴雨表*/
+.container.yellow .common-modular{padding:40rpx 0rpx 40rpx 36rpx;display:flex;}
+.container.yellow .common-modular-section{width: 316rpx;height:220rpx;margin-right:40rpx;box-sizing:border-box;}
+.container.yellow .common-modular-section navigator{width: 320rpx;height:220rpx;border-radius: 20rpx;}
+.container.yellow .common-modular-section image{width: 320rpx;height: 220rpx;}
+/*首页等待中的任务*/
+.container.yellow .watting.page-section{height: 80rpx;box-sizing: border-box;border-top: 1px solid #EEEEEE;border-bottom: 1px solid #EEEEEE;}
+.container.yellow .waittingWork{width: 750rpx;height: 80rpx;font-size: 32rpx;line-height: 80rpx;display: flex;overflow: hidden;}
+.container.yellow .waittingWork image{width: 54rpx;height: 54rpx;margin:13rpx 12rpx 0 30rpx;}
+.container.yellow .waittingWork label{width: 300rpx;}
+.container.yellow .waittingWork navigator{color:#D2BA72;text-align: right;width: 280rpx;}
+.container.yellow .waittingWork navigator span{width: 280rpx;}
+/*首页切换任务*/
+.container.yellow .noTabSection .changeWork{width: 750rpx;height: 100rpx;font-size: 28rpx;line-height: 100rpx;display: flex;overflow: hidden;box-sizing: border-box;border-bottom: 1px solid #EEEEEE;}
+.container.yellow .noTabSection .changeWork label{width: 460rpx;margin-left:60rpx;font-size: 32rpx;color: #169CD9;font-weight: 600;}
+.container.yellow .noTabSection .changeWork navigator{color:#FEBA01;text-align: right;width: 160rpx;}
+.container.yellow .noTabSection .changeWork navigator span{width: 160rpx;}
+.container.yellow .TabSection .changeWork{width: 750rpx;height: 100rpx;font-size: 28rpx;line-height: 100rpx;display: flex;overflow: hidden;box-sizing: border-box;border-bottom: 1px solid #EEEEEE;}
+.container.yellow .TabSection .changeWork label{width: 460rpx;margin-left:60rpx;font-size: 32rpx;color: #169CD9;font-weight: 600;}
+.container.yellow .TabSection .changeWork navigator{color:#FEBA01;text-align: right;width: 160rpx;}
+.container.yellow .TabSection .changeWork navigator span{width: 160rpx;font-size: 32rpx;}
+/*首页任务按钮区域*/
+.container.yellow .nav-tabs{width: 100%;height: 75rpx;display: flex;   }
+.container.yellow .tab-content{flex: 1;}
+.container.yellow .default{line-height:75rpx;text-align:center;flex:1;border-bottom:2rpx solid #eee;color:#000;font-weight:bold;font-size:32rpx;  }
+.container.yellow .active{line-height:75rpx;text-align:center;color:#F9CC51;flex:1;border-bottom:2rpx solid #FEBA01;font-weight:bold;font-size:32rpx;}
+.container.yellow .show{display:block;flex: 1;}
+.container.yellow .hidden{display:none;flex: 1;}
+.container.yellow .tabSwiper{display: block;width: 750rpx;height:460rpx;}
+.container.yellow .tabSwiper-long{display: block;width: 750rpx;height:750rpx;}
+.container.yellow .functionButtonView{display: flex;flex-wrap: wrap;width: 750rpx;overflow: hidden;}
+.container.yellow .functionButtonView .viewButton{width: 150rpx;text-align: center;display: flex;align-items:center;flex-direction: column;margin:40rpx 0 0 30rpx;font-size:24rpx;color:#222222;}
+.container.yellow .functionButtonView .viewButton image{width: 102rpx;height: 102rpx;margin-bottom:20rpx;}
+.container.yellow .functionButtonView .viewButton label{font-size:32rpx;}
+
+/* 晴雨表 */
+.container.yellow .page-section-spacing.calendar{padding:24rpx;margin: 0;}
+.container.yellow .calendar-box{width: 700rpx;display: flex;flex-direction: column;font-size: 28rpx;}
+.container.yellow .calendar-box .line{width: 700rpx;height: 2rpx;background: #c9c9c9;margin-top:10rpx;}
+.container.yellow .calendar-box-section{width: 700rpx;display: flex;justify-content: space-around;margin-top:10rpx;flex-wrap: wrap}
+.container.yellow .calendar-item-box{width: 14.2%;text-align: center;box-sizing: border-box;}
+.container.yellow .calendar-item-box.date-head{width:180rpx;}
+.container.yellow .calendar-tiem image{width: 36rpx;height: 50rpx;}
+.container.yellow .calendar-tiem.body{width:100rpx;height:100rpx;line-height:100rpx;margin: 0 auto;}
+.container.yellow .calendar-tiem.day{background: #F8DC8F;}
+.container.yellow .calendar-tiem.other{color:#c9c9c9;}
+.container.yellow .page-section-spacing.weathers{margin: 0;padding:50rpx;}
+.container.yellow .weatherBox{display: flex;flex-direction: column;font-size: 28rpx;}
+.container.yellow .weatherBox .date{margin:0 0 20rpx 0;}
+.container.yellow .weatherBox .date span{margin-right: 60rpx;}
+.container.yellow .weatherBox .content{display: flex;margin-bottom:20rpx;}
+.container.yellow .weatherBox .content .text{width: 190rpx;}
+.container.yellow .weatherBox .content span{margin-left:22rpx;}
+.container.yellow .weatherBox .redtext{color:#FEBA01;}
+.container.yellow .weatherBox .recorder{text-align: right;margin-top:50rpx;}
+.container.yellow .weatherBox .recorder span{margin-right:30rpx;}
+.container.yellow .centerCircleBtn{position: fixed;bottom:20rpx;left:319rpx;text-align: center;}
+.container.yellow .centerCircleBtn button{width: 100rpx;height: 100rpx;line-height:100rpx;font-size:60rpx;text-align: center;border-radius: 50rpx;color:#ffffff;margin-bottom: 10rpx;}
+.container.yellow .centerCircleBtn span{font-size: 28rpx;color:#FEBA01;}
+/*编辑晴雨表*/
+.container.yellow .editWeatherTitle{text-align: right;font-size: 24rpx;color: #FEBA01;margin: 15rpx 0;}
+.container.yellow .editWeatherTitle span{margin: 0 60rpx 0 40rpx;}
+.container.yellow .editBlock{display:flex;width: 750rpx;height: 750rpx;border-top: 1px solid #c9c9c9;}
+.container.yellow .editBlock .weatherBox{width: 375rpx;height: 750rpx;}
+.container.yellow .editBlock .weatherBox .weatherBlock{width: 375rpx;height:375rpx;display: flex;flex-direction: column;align-items: center;}
+.container.yellow .editBlock .weatherBox .weatherBlock.am{border-right: 1px solid #c9c9c9;border-bottom: 1px solid #c9c9c9;}
+.container.yellow .editBlock .weatherBox .weatherBlock.pm{border-right: 1px solid #c9c9c9;}
+.container.yellow .editBlock .weatherBox .weatherBlock .zwf{width: 200rpx;height: 200rpx;margin:50rpx 0 30rpx 0}
+.container.yellow .editBlock .weatherBox .weatherBlock image{width: 200rpx;height: 200rpx;margin:50rpx 0 30rpx 0}
+.container.yellow .editBlock .weatherBox .weatherBlock button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .editBlock .weatherBox .weatherBlock button{background: none;padding:0;margin:0;font-size: 28rpx;color: #FEBA01;letter-spacing: 2rpx;}
+.container.yellow .editBlock .textBox{width: 375rpx;height: 750rpx;font-size:28rpx;}
+.container.yellow .editBlock .textBlock{width: 375rpx;height:375rpx;display: flex;flex-direction: column;align-items: center;}
+.container.yellow .editBlock .textBlock.am{border-bottom: 1px solid #c9c9c9;}
+.container.yellow .editBlock .textBlock .time{font-size: 32rpx;margin-top:50rpx;}
+.container.yellow .editBlock .textBlock .tem{margin-top:50rpx;width: 220rpx;display: flex;}
+.container.yellow .editBlock .textBlock .tem span{width: 100rpx;display: block;line-height:60rpx;}
+.container.yellow .editBlock .textBlock .tem .dw{width: 20rpx;display: block;line-height:60rpx;}
+.container.yellow .editBlock .textBlock .tem input{width: 100rpx;border-bottom: 1px solid #000000;text-align: center;margin-right:6rpx;}
+.container.yellow .editBlock .textBlock .wind{margin-top:50rpx;width: 220rpx;display: flex;}
+.container.yellow .editBlock .textBlock .wind span{width: 100rpx;display: block;line-height:60rpx;}
+.container.yellow .editBlock .textBlock .wind .dw{width: 20rpx;display: block;line-height:60rpx;}
+.container.yellow .editBlock .textBlock .wind input{width: 100rpx;border-bottom: 1px solid #000000;text-align: center;margin-right:6rpx;}
+.container.yellow .picker-button{font-size:32rpx;}
+.container.yellow .picker-dialog .titleBox{width:750prx;height:80rpx;background:#FFBA00;color:#ffffff;font-size:28rpx;line-height:80rpx;}
+.container.yellow .picker-dialog .titleBox span{width:200rpx;display:block;float:left;margin-left:270rpx;text-align:center;}
+.container.yellow .picker-dialog .titleBox .picker-dialog-submit{font-size:28rpx;color:#ffffff;}
+.container.yellow .picker-dialog .contentBox{width:750rpx;height:395rpx;overflow: hidden;}
+.container.yellow .picker-dialog .contentBox scroll-view{height: 395rpx;}
+.container.yellow .picker-dialog .contentBox .btnBox{display: flex;width: 2400rpx;height: 395rpx;flex-wrap: wrap;}
+.container.yellow .picker-dialog .contentBox .weatherBtn::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .picker-dialog .contentBox .weatherBtn{background: none;padding:0;margin:10rpx 25rpx;width: 100rpx;height: 180rpx;line-height: 1;}
+.container.yellow .picker-dialog .contentBox image{width: 100rpx;height: 100rpx;}
+.container.yellow .picker-dialog .contentBox span{font-size:24rpx;}
+
+/* 记事本样式 */
+.container.yellow .noteBox{width: 750rpx;display: flex;flex-wrap: wrap;overflow: hidden;}
+.container.yellow .noteBox .noteCell{width: 350rpx;height: 350rpx;background: #c9c9c9;position: relative;font-size:32rpx;margin: 16rpx 0 0 16rpx;}
+.container.yellow .noteBox .noteCell .littleBlock{width: 20rpx;height: 20rpx;background: #FEBA01;position: absolute;top: 20rpx;left: 20rpx;}
+.container.yellow .noteBox .noteCell .noteCon{width: 310rpx;/*height: 250rpx;*/position: absolute;top: 60rpx;left: 20rpx;display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 5;overflow: hidden;}
+.container.yellow .noteBox .noteCell .noteDate{width: 310rpx;height: 40rpx;line-height: 40rpx;position: absolute;bottom: 0;left: 20rpx;font-size: 28rpx;}
+
+/*编辑记事本样式*/
+.container.yellow .editHead{width: 750rpx;height:40rpx;line-height: 40rpx;margin-bottom: 20rpx;margin-top:20rpx;}
+.container.yellow .editHead .time{font-size: 30rpx;line-height: 40rpx;float: left;width: 300rpx;margin-left:40rpx;}
+.container.yellow .editHead button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .editHead button{background: none;padding:0;margin:0;font-size: 30rpx;color: #FEBA01;letter-spacing: 2rpx;float: right;line-height: 40rpx;margin-right:80rpx;}
+.container.yellow .editContent{width: 660rpx;margin: 0 auto;}
+.container.yellow .editContent .content{margin-bottom: 40rpx;}
+.container.yellow .editContent .content textarea{width: 660rpx;min-height: 300rpx;font-size: 30rpx;}
+
+/* 查看滚动新闻样式 */
+.container.yellow .timeAndFrom{padding:0rpx 30rpx 30rpx;display: flex;font-size: 12px;}
+.container.yellow .timeAndFrom .time{width: 360rpx;color: #c9c9c9;}
+.container.yellow .timeAndFrom .newsFrom{width: 260rpx;color: #FEBA01;}
+
+/*我的样式*/
+.container.yellow .page_head{width: 750rpx;height:280rpx;background: #FEBA01;/*background: linear-gradient(to right, #FDD51E , #FDAA04);  标准的语法（必须放在最后） */overflow: hidden;}
+.container.yellow .head_img{width: 140rpx;height: 140rpx;float: left;border-radius:20rpx;margin: 35rpx 0 0 90rpx;}
+.container.yellow .head_img image{width: 140rpx;height: 140rpx;border-radius:20rpx;}
+.container.yellow .head_text{width:300rpx;height:200rpx;float:left;margin-left:50rpx;margin: 40rpx 0 0 50rpx;display: flex;flex-direction: column;letter-spacing: 2rpx;}
+.container.yellow .head_text span{color: #ffffff;margin-top:0rpx;}
+.container.yellow .head_text .name{font-size:36rpx;}
+.container.yellow .head_text .phone{font-size:28rpx;}
+.container.yellow .head_text .integral{font-size:28rpx;}
+.container.yellow .page_rz{width:600rpx;height:76rpx;background:#FEDF89;line-height:76rpx;font-size:28rpx;margin:10rpx 0;position: relative;padding-left: 150rpx;}
+.container.yellow .page_rz button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .page_rz button{background: none;padding:0;margin:0;font-size: 40rpx;font-weight: 600;color: #FEBA01;letter-spacing: 2rpx;line-height: 76rpx;position: absolute;top:0;right: 150rpx;}
+.container.yellow .page_body{width: 750rpx;letter-spacing:2rpx;}
+.container.yellow .page_body .page_section{width: 750rpx;margin-bottom:20rpx;}
+.container.yellow .page_body .page_section .page_block{width: 750rpx;height: 92rpx;line-height: 92rpx;background: #ffffff;color: #000000;overflow: hidden;margin-bottom: 2rpx;position: relative;}
+.container.yellow .page_body .page_section .page_block .page_left{float: left;display:flex;align-items:center;height:92rpx;width: 500rpx;}
+.container.yellow .page_body .page_section .page_block .page_left image{width: 50rpx;height: 50rpx;margin: -4rpx 0 0 30rpx;}
+.container.yellow .page_body .page_section .page_block .page_left span{font-size: 32rpx;line-height:92rpx;margin: 0 0 0 40rpx;}
+.container.yellow .page_body .page_section .page_block .page_right{float:right;overflow:hidden;width: 50rpx;height: 50rpx;margin:15rpx 30rpx 0 0;}
+.container.yellow .page_body .page_section .page_block .page_right image{width:50rpx;height:50rpx;}
+.container.yellow .page_body .page_section .page_block .sjf{font-size: 24rpx;line-height: 92rpx;position: absolute;top: 0rpx;right: 100rpx;color:#E51C23;font-weight: 600;}
+
+/*推荐好友*/
+.container.yellow .page-body .recommend-box{width: 360rpx;height: 380rpx;text-align: center;margin:30rpx auto 0 auto;}
+.container.yellow .page-body .recommend-box .text{font-size: 26rpx;color: #FEBA01;}
+.container.yellow .page-body .recommend-box image{width: 300rpx;height: 300rpx;}
+
+/*我的信息*/
+.container.yellow .page_head .rz::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .page_head .rz{background: none;padding:0;margin:0;font-size: 28rpx;color: #000000;line-height: 40rpx;margin-left: 40rpx;position: absolute;top: 30rpx;right: 120rpx;}
+.container.yellow .page_head .head_text{width: 350rpx;margin:40rpx 0 0 50rpx;position: relative;}
+.container.yellow .page_head .head_text button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .page_head .head_text button{background: none;padding:0;margin:0;font-size: 28rpx;color: #ffffff;line-height: 40rpx;margin-left: 40rpx;position:absolute;left:0;bottom:80rpx;}
+
+/*  重写 checkbox 样式  */
+/* 未选中的 背景样式 */
+.container.yellow checkbox-group .Rtext{
+  margin-right:30rpx;
+  font-size:30rpx !important;
+  line-height: 40rpx;
+}
+.container.yellow .checkbox {margin:0 20rpx 20rpx 30rpx;height:40rpx;width:200rpx;display:inline-block;}
+.container.yellow checkbox .wx-checkbox-input{
+  width: 40rpx; /* 背景的宽 */
+  height: 40rpx; /* 背景的高 */
+}
+/* 选中后的 背景样式 （红色背景 无边框 可根据UI需求自己修改） */
+.container.yellow checkbox .wx-checkbox-input.wx-checkbox-input-checked{
+  border: none;
+  background: #FEBA01;
+}
+/* 选中后的 对勾样式 （白色对勾 可根据UI需求自己修改） */
+.container.yellow checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+  border-color: #FEBA01;
+  width: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  height: 40rpx;/* 选中后对勾大小，不要超过背景的尺寸 */
+  line-height: 40rpx;
+  text-align: center;
+  font-size:30rpx; /* 对勾大小 30rpx */
+  color:#fff; /* 对勾颜色 白色 */
+  background: #FEBA01;
+  transform:translate(-50%, -50%) scale(1);
+  -webkit-transform:translate(-50%, -50%) scale(1);
+}
+
+/*我的积分*/
+.container.gray{background: #F9F7F7;}
+.container.yellow .integral{width: 750rpx;color: #000000;}
+.container.yellow .integral .integral-head{width: 750rpx;height: 300rpx;line-height: 300rpx;background: #FEBA01;text-align: center;}
+.container.yellow .integral .integral-head span{font-size: 56rpx;color: #ffffff;}
+.container.yellow .integral .integral-title{width: 750rpx;height: 60rpx;line-height:60rpx;background: #ffffff;overflow: hidden;font-size: 32rpx;margin:24rpx 0;}
+.container.yellow .integral .integral-title span{margin-left: 50rpx;}
+.container.yellow .integral .integral-body{width: 750rpx;font-size: 32rpx;}
+.container.yellow .integral .integral-body .integral-block{width: 750rpx;height: 120rpx;overflow: hidden;margin-bottom:2rpx;background: #ffffff;}
+.container.yellow .integral .integral-body .integral-block .integral-left{float:left;width: 280rpx;height: 80rpx;margin:20rpx 0 0 20rpx;display:flex;flex-direction:column;}
+/* .container.yellow .integral .integral-body .integral-block .integral-left .integralType{} */
+.container.yellow .integral .integral-body .integral-block .integral-right{float: right;width: 200rpx;height: 120rpx;line-height:120rpx;text-align: right;font-size: 38rpx;margin-right: 60rpx;}
+.container.yellow .integral .integral-body .integral-block .integral-right .add{color: #E61C23;}
+.container.yellow .integral .integral-body .integral-block .integral-right .del{color: #03D73A;}
+
+/*我的帖子*/
+.container.post{justify-content: flex-start;}
+.container.yellow .post_head{height: 300rpx;}
+.container.yellow .post{width:260rpx;height:auto;margin:35rpx auto 0 auto;float: none;text-align: center;}
+.container.yellow .post image{width: 160rpx;height: 160rpx;}
+.container.yellow .post .postNum{font-size:36rpx;color: #ffffff;display: block;}
+.container.yellow .page_body{letter-spacing: normal;}
+.container.yellow .page_body .noPost{width: 500rpx;height: 390rpx;text-align: center;margin: 60rpx auto;}
+.container.yellow .page_body .noPost image{width: 280rpx;height: 300rpx;}
+.container.yellow .page_body .noPost .text{font-size: 28rpx;}
+.container.yellow .page_body .noPost .text .link{font-size: 36rpx;color: #FEBA01;font-weight: 600;display:inline-block;margin:0 10rpx;}
+.container.yellow .workmate-name{
+  color: #FEBA01;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.container.yellow .workmate-delete{
+  color: #FEBA01;
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.container.yellow .workmate-comment text{
+  color: #FEBA01;
+}
+
+/*我的业绩*/
+.container.yellow .achienement-box{width: 710rpx;padding: 20rpx;overflow: hidden;margin-bottom: 2rpx;background: #ffffff;}
+.container.yellow .achienement-box .title-box{font-size:32rpx;display: flex;height: 40rpx;line-height: 40rpx;overflow: hidden;}
+.container.yellow .achienement-box .title-box .title{width: 502rpx;font-weight: 600;overflow: hidden;text-overflow:ellipsis;}
+.container.yellow .achienement-box .title-box button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .achienement-box .title-box button{background: none;padding:0;margin:0;font-size: 32rpx;color: #FEBA01;line-height: 40rpx;margin-left: 40rpx;}
+.container.yellow .achienement-box .time-workType-box{height: 40rpx;line-height: 40rpx;display: flex;font-size: 32rpx;overflow: hidden;margin:20rpx 0;}
+.container.yellow .achienement-box .time-workType-box .time{width: 400rpx;}
+.container.yellow .achienement-box .time-workType-box .time span{margin:0 10rpx;}
+.container.yellow .achienement-box .time-workType-box .time-workType{width: 300rpx;margin-left: 40rpx;margin-right: 16rpx;text-align: right;}
+.container.yellow .achienement-box .content{font-size: 32rpx;margin-bottom: 20rpx;}
+
+/*我的能力*/
+.container.yellow .ability-box{width: 710rpx;padding: 20rpx;overflow: hidden;margin-bottom: 2rpx;background: #ffffff;}
+.container.yellow .ability-box .title-box{font-size:32rpx;display: flex;height: 40rpx;line-height: 40rpx;overflow: hidden;margin:20rpx 0;}
+.container.yellow .ability-box .title-box .time-workType{width: 180rpx;margin-left: 16rpx;margin-right: 40rpx;text-align: left;overflow: hidden;}
+.container.yellow .ability-box .title-box .year{width: 180rpx;margin-left: 16rpx;margin-right: 40rpx;text-align: left;overflow: hidden;}
+.container.yellow .ability-box .title-box button::after{border: none;background: none;padding:0;margin:0;}
+.container.yellow .ability-box .title-box button{background: none;padding:0;margin:0;font-size: 32rpx;color: #FEBA01;line-height: 40rpx;margin-left: 40rpx;}
+.container.yellow .ability-box .time-workType-box{height: 40rpx;line-height: 40rpx;display: flex;font-size: 32rpx;overflow: hidden;margin:20rpx 0;}
+.container.yellow .ability-box .time-workType-box .time{width: 400rpx;}
+.container.yellow .ability-box .time-workType-box .time-workType{width: 300rpx;margin-left: 40rpx;margin-right: 16rpx;text-align: right;}
+.container.yellow .ability-box .content{font-size: 32rpx;}
+
+/*版本号*/
+.container.yellow .versioin-box{width:660rpx;margin:0 auto;color: #FF9800;}
+.container.yellow .versioin-box .left{float: left;width: 160rpx;height: 40rpx;line-height: 40rpx;}
+.container.yellow .versioin-box .right{float:right;width: 260rpx;height: 40rpx;line-height: 40rpx;}

@@ -1,0 +1,39 @@
+<!--pages/foreman/pages/applicationList/applicationList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 按钮 -->
+      <view class='double-btn' wx:if="{{list.length != 0}}">
+        <button hover-class="button-hover" bindtap='toOk'>确认</button>                 
+        <button hover-class="button-hover" bindtap='toNo'>拒绝</button>                 
+      </view>   
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+        <view class='all'>
+          <checkbox-group bindchange="checkboxAll">
+            <label class="checkbox" wx:for="{{items}}" wx:for-item="item" wx:key="item">
+              <checkbox value="{{item.name}}" checked="{{item.checked}}"/>{{item.value}}
+            </label>
+          </checkbox-group>
+        </view>
+        <view>
+          <checkbox-group bindchange="checkboxChange">
+            <view wx:for="{{list}}" wx:for-item="item" wx:key="item" class='checkboxitem'>
+              <label class="checkbox2" >
+                <checkbox value="{{item.inviId}}" checked="{{item.checked}}"/>
+                <image class='headimg' src='{{item.headImg || "/images/headpic.png"}}'></image>
+                <view class='checkboxitem-msg'>
+                  <view class='strong'>{{item.userName}}</view>
+                  <view class='time'>{{item.ctime}}</view>
+                </view>
+              </label>
+              <navigator url='../../myWorkers/workersDetail/workersDetail?id={{item.userId}}'>
+                <image src='/images/right.png'></image>
+              </navigator>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>    
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无信息</view>
+    </view>
+  </view>
+</view>

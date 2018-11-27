@@ -1,0 +1,5 @@
+/* pages/my/pages/changeUserType/changeUserType.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+.container.my{justify-content:flex-start;background: #F9F7F7;}

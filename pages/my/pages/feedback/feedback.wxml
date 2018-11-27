@@ -1,0 +1,46 @@
+<view class="container {{theme}} gray">
+  <view class="page_body">
+    <block wx:for="{{feedbackList}}" wx:key="index">
+      <view class="feed-box">
+        <view class="text">{{item.content}}</view>
+        <!-- 显示附件 -->
+        <view class="voucher-box">
+          <view>附件：</view>
+          <view class="voucher">
+            <view class="upload" wx:for="{{item.file_list}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.newFilename}}" data-src="{{imgsrc.newFilename}}" data-index="{{index}}" data-type="0" bindtap="previewImage" class="uploadimg"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{imgsrc.fileType == 5}}" id='myVideo' id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='../../../../images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+              </video>            
+            </view>
+          </view>
+        </view>
+        <view class="time">{{item.ctime}}</view>
+        <view wx:if="{{item.reply_list.length>0}}" class="reFeedback">
+          <view class="reName">{{item.reply_list[0].real_name}}</view>
+          <view class="text">{{item.reply_list[0].content}}</view>
+          <!-- 显示附件 -->
+          <view class="voucher-box">
+            <view>附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{item.reply_list[0].file_list}}" wx:for-item="reImgsrc" wx:for-index="reIdx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{reImgsrc.fileType == 3}}" src="{{reImgsrc.newFilename}}" data-src="{{reImgsrc.newFilename}}" data-index="{{index}}" data-type="1" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{reImgsrc.fileType == 5}}" id='myVideo' id="video-{{reIdx}}" bindplay="bindplay" src="{{reImgsrc.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='../../../../images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{reIdx}}' class='bindplayimg'></cover-image>
+                </video>            
+              </view>
+            </view>
+          </view>
+          <view class="time">{{item.reply_list[0].ctime}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="creatFeedBack" animation="{{animationData}}">
+    <button hover-class="none" bindtap="creatFeedBack">请点此留下你的意见或建议</button>
+  </view>
+</view>

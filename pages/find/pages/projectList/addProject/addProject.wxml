@@ -1,0 +1,121 @@
+<!--pages/ConstructionCompany/pages/addProject/addProject.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <form bindsubmit="formSubmit">
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>工程名称：</text>
+            <input placeholder='请输入工程名称' placeholder-style='color:#ccc' name="projectName"></input>
+          </view>
+        </view>
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>承包金额（元）：</text>
+            <input placeholder='请输入承包金额' placeholder-style='color:#ccc' name="totalAmount" type='digit'></input>
+          </view>
+          <view class='check-between'>
+            <text>活动类型：</text>
+            <picker bindchange="bindPickerChange" data-type='projectActiveType' range="{{projectActiveTypeArray}}" range-key="text">
+              <view wx:if="{{projectActiveType == ''}}" style='color:#ccc'>请选择活动类型</view>
+              <view wx:else>{{projectActiveType.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>项目分类：</text>
+            <picker bindchange="bindPickerChange" data-type='projectType' range="{{projectTypeArray}}" range-key="text">
+              <view wx:if="{{projectType == ''}}" style='color:#ccc'>请选择项目分类</view>
+              <view wx:else>{{projectType.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>是否重点项目：</text>
+            <picker bindchange="bindPickerChange" data-type='projectMajor' range="{{projectMajorArray}}" range-key="text">
+              <view wx:if="{{projectMajor == ''}}" style='color:#ccc'>请选择是否重点项目</view>
+              <view wx:else>{{projectMajor.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>项目编号：</text>
+            <input placeholder='请输入项目编号' placeholder-style='color:#ccc' name="projectSn"></input>
+          </view>
+          <view class='check-between'>
+            <text>项目建设编号：</text>
+            <input placeholder='请输入项目建设编号' placeholder-style='color:#ccc' name="projectBuildSn"></input>
+          </view>
+          <view class='check-between'>
+            <text>工程规模（平）：</text>
+            <input placeholder='请输入工程规模' placeholder-style='color:#ccc' name="builtArea" type='digit'></input>
+          </view>
+        </view>
+        <view class='check-box'>
+          <!-- 开工日期 -->
+          <view class='check-between'>
+            <text>开工日期：</text>
+            <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+              <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择开工日期</view>
+              <view wx:else>{{date1}}</view>
+            </picker>
+          </view>
+          <!-- 竣工日期 -->
+          <view class='check-between'>
+            <text>竣工日期：</text>
+            <picker mode="date" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+              <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择竣工日期</view>
+              <view wx:else>{{date2}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>工程地址：</text>
+              <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" >
+                <view wx:if="{{cityValue == ''}}" style='color:#ccc'>请选择工程地址</view>
+                <view wx:else>{{cityValue.name_path_level}}</view>
+              </picker>
+          </view>
+          <view class='check-between'>
+            <text>工程详细地址：</text>
+            <input placeholder='请输入工程详细地址' placeholder-style='color:#ccc' name="address"></input>
+          </view>
+          <view class='check-between'>
+            <text>施工许可证编码：</text>
+            <input placeholder='请输入施工许可证编码' placeholder-style='color:#ccc' name="projectLicenseCode"></input>
+          </view>
+          <view class='check-minbox'>
+            <view>工程概况：</view>
+            <textarea placeholder="请输入工程概况..." placeholder-style="color:#ccc;" name="content"></textarea>
+          </view>
+          <!-- 上传附件 -->
+          <view class="voucher-box">
+            <view>添加附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{imgsrc.fileType == 5}}" id='myVideo' id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+                </video>            
+                <!-- 删除附件按钮 -->
+                <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+              </view>
+              <view class="upload">
+                <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+              </view>
+            </view>
+          </view>
+          <input hidden value='{{projectActiveType.code}}' name="projectActiveType">活动类型</input>
+          <input hidden value='{{projectType.code}}' name="projectType">项目分类</input>
+          <input hidden value='{{projectMajor.code}}' name="projectMajor">是否重点</input>
+          <input hidden value='{{date1}}' name="begindate">开工时间</input>
+          <input hidden value='{{date2}}' name="enddate">竣工时间</input>
+          <input hidden value='{{cityValue.id}}' name="cityId">工程地址</input>
+          <input hidden value='{{file_code}}' name="file_code">图片编号</input>
+          <!-- 按钮 -->
+          <view class='one-btn'>
+            <button hover-class="button-hover" formType="submit">提交</button>                 
+          </view>
+        </view>
+      </form>  
+    </view>
+  </view>
+</view>

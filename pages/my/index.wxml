@@ -1,0 +1,860 @@
+<view class="container {{theme}} my">
+  <view wx:if="{{userType == 0}}">
+    <view class="page_head">
+      <view class="head_img">
+        <image src="{{head_img}}"></image>
+      </view>
+      <view class="head_text">
+        <span class="name">{{name}}</span>
+        <span class="phone">{{phone}}</span>
+        <span class="integral_little">积分：{{integral}}</span>
+      </view>
+    </view>
+    <view class="page_rz" wx:if="{{certification_status > 0}}">
+      <span>您还未进行实名认证</span>
+      <button bindtap="goRZ">立即认证</button>
+    </view>
+    <view class="page_body">
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/recommend/recommend" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tj.png"></image>
+              <span>推荐好友赚积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+            <span class="sjf">送20个积分</span>
+          </view>
+        </navigator>
+      </view>
+      <view class="page_section" >
+        <navigator open-type="navigate" url="pages/info/info" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/userInfo.png"></image>
+              <span>个人信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=0" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我的工作</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/integral/integral" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/integral.png"></image>
+              <span>我的积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAchievement/myAchievement" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yj.png"></image>
+              <span>我的业绩</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAbility/myAbility" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/nl.png"></image>
+              <span>我的能力</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/note/note" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/notes.png"></image>
+              <span>记事本</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/weather/weather" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/weathers.png"></image>
+              <span>晴雨表</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/myPost/myPost" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tz.png"></image>
+              <span>我的帖子</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+      
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/feedback/feedback" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yjfk.png"></image>
+              <span>意见反馈</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/help.png"></image>
+              <span>帮助中心</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myWorkTeam/myWorkTeam" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myTeam.png"></image>
+              <span>我的班组</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/setting/setting" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/setting.png"></image>
+              <span>设置</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/changeUserType/changeUserType" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/change.png"></image>
+              <span>切换身份</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+    </view>
+  </view>
+  <view  wx:if="{{userType == 1}}">
+    <view class="page_head">
+      <view class="head_img">
+        <image src="{{head_img}}"></image>
+      </view>
+      <view class="head_text">
+        <span class="name">{{name}}</span>
+        <span class="phone">{{phone}}</span>
+        <span class="integral_little">积分：{{integral}}</span>
+      </view>
+    </view>
+    <view class="page_rz" wx:if="{{certification_status > 0}}">
+      <span>您还未进行实名认证</span>
+      <button bindtap="goRZ">立即认证</button>
+    </view>
+    <view class="page_body">
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/recommend/recommend" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tj.png"></image>
+              <span>推荐好友赚积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+            <span class="sjf">送20个积分</span>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/info/info" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/userInfo.png"></image>
+              <span>个人信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=0" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我的项目任务</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=1" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我发布的工作</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/integral/integral" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/integral.png"></image>
+              <span>我的积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAchievement/myAchievement" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yj.png"></image>
+              <span>我的业绩</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAbility/myAbility" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/nl.png"></image>
+              <span>我的能力</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/note/note" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/notes.png"></image>
+              <span>记事本</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/weather/weather" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/weathers.png"></image>
+              <span>晴雨表</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/myPost/myPost" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tz.png"></image>
+              <span>我的帖子</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+      
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/feedback/feedback" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yjfk.png"></image>
+              <span>意见反馈</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/help.png"></image>
+              <span>帮助中心</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myTeam/myTeam" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myTeam.png"></image>
+              <span>我的队伍</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/setting/setting" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/setting.png"></image>
+              <span>设置</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/changeUserType/changeUserType" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/change.png"></image>
+              <span>切换身份</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+    </view>
+  </view>
+
+  <view  wx:if="{{userType == 2}}">
+    <view class="page_head">
+      <view class="head_img">
+        <image src="{{head_img}}"></image>
+      </view>
+      <view class="head_text">
+        <span class="name">{{name}}</span>
+        <span class="phone">{{phone}}</span>
+        <span class="integral_little">积分：{{integral}}</span>
+      </view>
+    </view>
+    <view class="page_rz" wx:if="{{certification_status > 0}}">
+      <span>您还未进行实名认证</span>
+      <button bindtap="goRZ">立即认证</button>
+    </view>
+    <view class="page_body">
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/recommend/recommend" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tj.png"></image>
+              <span>推荐好友赚积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+            <span class="sjf">送20个积分</span>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/info/info" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/userInfo.png"></image>
+              <span>个人信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=0" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我的项目</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/integral/integral" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/integral.png"></image>
+              <span>我的积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/myPost/myPost" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tz.png"></image>
+              <span>我的帖子</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myTeam.png"></image>
+              <span>合作班组</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/note/note" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/notes.png"></image>
+              <span>记事本</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/weather/weather" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/weathers.png"></image>
+              <span>晴雨表</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+      
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/feedback/feedback" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yjfk.png"></image>
+              <span>意见反馈</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/help.png"></image>
+              <span>帮助中心</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/setting/setting" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/setting.png"></image>
+              <span>设置</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view  wx:if="{{userType == 3}}">
+    <view class="page_head">
+      <view class="head_img">
+        <image src="{{head_img}}"></image>
+      </view>
+      <view class="head_text">
+        <span class="name">{{name}}</span>
+        <span class="phone">{{phone}}</span>
+        <span class="integral_little">积分：{{integral}}</span>
+      </view>
+    </view>
+    <view class="page_rz" wx:if="{{certification_status > 0}}">
+      <span>您还未进行实名认证</span>
+      <button bindtap="goRZ">立即认证</button>
+    </view>
+    <view class="page_body">
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/recommend/recommend" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tj.png"></image>
+              <span>推荐好友赚积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+            <span class="sjf">送20个积分</span>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/info/info" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/userInfo.png"></image>
+              <span>个人信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=0" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我的工作</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=1" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我发布的工作</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/integral/integral" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/integral.png"></image>
+              <span>我的积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAchievement/myAchievement" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yj.png"></image>
+              <span>我的业绩</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myAbility/myAbility" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/nl.png"></image>
+              <span>我的能力</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/note/note" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/notes.png"></image>
+              <span>记事本</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/weather/weather" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/weathers.png"></image>
+              <span>晴雨表</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/myPost/myPost" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tz.png"></image>
+              <span>我的帖子</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+      
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/feedback/feedback" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yjfk.png"></image>
+              <span>意见反馈</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/help.png"></image>
+              <span>帮助中心</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/setting/setting" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/setting.png"></image>
+              <span>设置</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/changeUserType/changeUserType" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/change.png"></image>
+              <span>切换身份</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+    </view>
+  </view>
+
+  <view  wx:if="{{userType == 4}}">
+    <view class="page_head">
+      <view class="head_img">
+        <image src="{{head_img}}"></image>
+      </view>
+      <view class="head_text">
+        <span class="name">{{name}}</span>
+        <span class="phone">{{phone}}</span>
+        <span class="integral_little">积分：{{integral}}</span>
+      </view>
+    </view>
+    <view class="page_rz" wx:if="{{certification_status > 0}}">
+      <span>您还未进行实名认证</span>
+      <button bindtap="goRZ">立即认证</button>
+    </view>
+    <view class="page_body">
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/recommend/recommend" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tj.png"></image>
+              <span>推荐好友赚积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+            <span class="sjf">送20个积分</span>
+          </view>
+        </navigator>
+      </view>
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/info/info" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/userInfo.png"></image>
+              <span>个人信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/companyInfo/companyInfo" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/gsxx.png"></image>
+              <span>公司信息</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/myProjectTask/myProjectTask?type=0" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/myWork.png"></image>
+              <span>我的项目</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/integral/integral" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/integral.png"></image>
+              <span>我的积分</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/note/note" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/notes.png"></image>
+              <span>记事本</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="/pages/index/pages/weather/weather" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/weathers.png"></image>
+              <span>晴雨表</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <!-- <navigator open-type="navigate" url="pages/myPost/myPost" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/tz.png"></image>
+              <span>我的帖子</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator> -->
+      </view>
+      
+
+      <view class="page_section">
+        <navigator open-type="navigate" url="pages/feedback/feedback" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/yjfk.png"></image>
+              <span>意见反馈</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/help.png"></image>
+              <span>帮助中心</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+        <navigator open-type="navigate" url="pages/setting/setting" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="resources/pic/setting.png"></image>
+              <span>设置</span>
+            </view>
+            <view class="page_right">
+              <image src="resources/pic/right.png"></image>
+            </view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+</view>

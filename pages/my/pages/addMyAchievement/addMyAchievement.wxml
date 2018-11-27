@@ -1,0 +1,68 @@
+<view class="container {{theme}}">
+  <view class="page-body">
+    <form bindsubmit="submit">
+      <view class="achienement-box">
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>项目名称：</text>
+            <input placeholder='请输入项目名称' placeholder-style='color:#ccc' value="{{projectName}}" name="projectName"maxlength="18"></input>
+          </view>
+          <!-- 开工日期 -->
+          <view class='check-between'>
+            <text>开始时间：</text>
+            <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+              <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择开工日期</view>
+              <view wx:else>{{date1}}</view>
+            </picker>
+          </view>
+          <!-- 竣工日期 -->
+          <view class='check-between'>
+            <text>结束时间：</text>
+            <picker mode="date" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+              <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择竣工日期</view>
+              <view wx:else>{{date2}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>担任角色：</text>
+            <picker bindchange="bindPickerChange" data-type='ROLE_TYPE' range="{{ROLE_TYPEArray}}" value="{{sRoleType}}" range-key="text">
+              <view wx:if="{{ROLE_TYPE == ''}}" style='color:#ccc'>请选择担任角色</view>
+              <view wx:else>{{ROLE_TYPE.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>工作内容：</text>
+          </view>
+          <view class="content">
+            <textarea name="content" auto-height="{{true}}" value="{{content}}" maxlength="-1" placeholder="{{ptext}}"></textarea>
+          </view>
+        </view>
+        
+        <view class="upLoadBox">
+          <!-- 上传附件 -->
+          <view class="voucher-box">
+            <view>添加附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{imgsrc.fileType == 5}}" id='myVideo' id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='../../../../images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+                </video>            
+                <!-- 删除附件按钮 -->
+                <cover-image src="../../resources/pic/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+              </view>
+              <view class="upload">
+                <image src="../../../../images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view class="oneCenterBtnLong">
+          <button class="saveBtn" formType="submit" hover-class="none">确定</button>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

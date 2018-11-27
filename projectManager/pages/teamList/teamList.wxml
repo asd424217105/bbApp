@@ -1,0 +1,23 @@
+<!--pages/index/pages/teamList/teamList.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='revise-list' wx:if="{{list.length != 0}}">
+        <view class='revise-item' wx:for="{{list}}" wx:key="*this" data-item='{{item}}' bindtap='teamListDetail'>
+          <view>
+            <text>{{item.userName}}</text>
+            <text wx:if="{{item.kindName != ''}}">工种：{{item.kindName}}</text>
+            <text>队伍：{{item.personCount}}人</text>
+          </view>
+          <view>
+            <button data-item='{{item}}' catchtap='toDaily'>日报</button>
+            <button data-item='{{item}}' catchtap='toAtt'>考勤</button>
+            <button data-item='{{item}}' catchtap='toContract'>合同</button>
+            <button data-item='{{item}}' catchtap='toEvaluate'>评价</button>
+          </view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无班组</view>
+    </view>
+  </view>
+</view>

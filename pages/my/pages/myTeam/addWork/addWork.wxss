@@ -1,0 +1,20 @@
+/* pages/my/pages/myTeam/addWork/addWork.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+.container {justify-content: flex-start;}
+.page-head{padding-bottom:0rpx;}
+.check-box{border: none;}
+.imageView{width: 680rpx;margin-top:30rpx;position: relative;}
+.imageView .close{width: 44rpx;height: 44rpx;position: absolute;top: -14rpx;right: -14rpx;z-index: 999;}
+.imageView button::after{border: none;background: none !important;padding:0;margin:0;}
+.imageView button{width: 460rpx;height: 390rpx;background: none !important;padding:0;margin:0 auto;font-size: 40rpx;font-weight: 600;color: #000000;letter-spacing: 2rpx;line-height: 76rpx;}
+/* .positiveUpload{width: 460rpx;height: 360rpx;margin: 0 auto;padding:0;border-radius: 40rpx;} */
+.positiveUpload image{width: 460rpx;height: 300rpx;}
+.positiveUpload .text{font-size: 32rpx;color: #000000;}
+/* .backUpload{width: 680rpx;height: 400rpx;margin: 0;padding:0;border-radius: 40rpx;} */
+.backUpload image{width: 460rpx;height: 300rpx;}
+.backUpload .text{font-size: 32rpx;color: #000000;}
+.positiveImg{width: 680rpx;height: 400rpx;}
+.backImg{width: 680rpx;height: 400rpx;}

@@ -1,0 +1,373 @@
+/* pages/find/find.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+.page-section-spacing{
+  padding: 0;
+}
+.no-message{
+  height: 900rpx;
+  line-height: 900rpx;
+  text-align: center;
+  font-size: 30rpx;
+
+}
+
+/* 项目部模块----------------------------------- */
+
+/* 搜索框 */
+.container.red .x-find .search-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 120rpx;
+  font-size: 28rpx;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: #ffffff;
+  border-bottom: 1rpx solid #ccc;
+  padding-left: 45rpx;
+  padding-right: 45rpx;
+  z-index: 99;
+  box-sizing: border-box;
+}
+.container.red .x-find .search-input input{
+  border: 1rpx solid #e51c23;
+  border-radius: 8rpx;
+  width: 450rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  color: #666;
+  position: relative;
+}
+.container.red .x-find .search-input button{
+  background-color: #e51c23;
+  color: #ffffff;
+  font-size: 28rpx;
+  width: 130rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  position: absolute;
+  top: 0rpx;  
+  right: 0rpx;
+  border-radius: 0 8rpx 8rpx 0;
+  z-index: 100;
+}
+.container.red .x-find .search-input picker{
+  background-color: #e51c23;
+  color: #ffffff;
+  font-size: 28rpx;
+  padding-left: 15rpx;
+  padding-right: 15rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  border-radius: 8rpx;
+  text-align: center;
+  position: relative;
+}
+.container.red .x-find .search-input picker image{
+  width: 34rpx; 
+  height: 34rpx;
+  position: absolute;
+  right: -37rpx;
+  top: 15rpx;
+}
+/* 班组列表 */
+.container.red .x-find{
+  background-color: #e1e1e1;
+  margin-top: 120rpx;
+}
+.container.red .x-find .find-box{
+  font-size: 26rpx;
+}
+.container.red .x-find .find-item{
+  padding: 20rpx 15rpx 10rpx;
+  margin-bottom: 18rpx;
+  background: #fff;
+}
+.container.red .x-find .find-item-top{
+  display: flex;
+  flex-direction: row;
+}
+.container.red .x-find .find-headimg{
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+  border: 1rpx solid #eee;
+  border-radius: 15rpx;
+}
+.container.red .x-find .find-headimg image{ 
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 15rpx;
+}
+.container.red .x-find .find-msg{
+  width: 520rpx;
+}
+.container.red .x-find .find-msg .find-msg-name{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+.container.red .x-find .find-msg .find-msg-name>view{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50rpx;
+}
+.container.red .x-find .find-msg .find-msg-name>view .renzheng{
+  width: 74rpx;
+  height: 32rpx;
+  text-align: center;
+  line-height: 34rpx;
+  color: #fff;
+  border-radius: 6rpx;
+  font-size: 18rpx;
+  margin-left: 15rpx;
+}
+.container.red .x-find .find-msg .find-msg-name>view .renzheng.no{
+  background-color: #ccc;
+}
+.container.red .x-find .find-msg .find-msg-name>view .renzheng.yes{
+  background-color: #ec4828;
+}
+.container.red .x-find .find-msg .find-msg-name>view:nth-child(1) text{
+  font-size: 32rpx;
+}
+.container.red .x-find .find-msg .find-msg-name>view:nth-child(2) text{
+  font-size: 26rpx;
+  color: #e51c23;
+  max-width: 270rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.container.red .x-find .find-msg .find-msg-name>view:nth-child(2) image{
+  width: 36rpx;
+  height: 36rpx;
+  position: relative;
+  top: -2rpx;
+}
+.container.red .x-find .find-msg .find-msg-workYear{
+  margin-bottom: 5rpx;
+}
+.container.red .x-find .find-msg .find-msg-workYear text{
+  margin-right: 30rpx;
+}
+.container.red .x-find .find-msg .find-msg-category{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.container.red .x-find .find-msg .find-msg-category text{
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+  /* background-color: #ecebeb; */
+  /* border-radius: 8rpx; */
+}
+.container.red .x-find .find-item-bottom{
+  margin-top: 10rpx;
+}
+
+
+/* 班组模块------------------------------------------*/
+.container.red .b-find{
+  font-size: 26rpx;
+}
+.container.red .b-find .address{
+  font-size: 28rpx;
+  min-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 20rpx;
+  color: #999;
+  position: fixed;
+  top: 90rpx;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #ccc; 
+}
+.container.red .b-find .address picker{
+  background: #e2e2e2;
+  padding: 10rpx 20rpx;
+  border-radius: 5rpx;
+  color: #999;
+}
+.container.red .b-find .address .find-picker{
+  width: 380rpx;
+}
+.container.red .b-find .address picker view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container.red .b-find .address picker text{
+  max-width: 280rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.container.red .b-find .address picker image{
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 15rpx;
+}
+.container.red .b-find .find-box{
+  border-top: 1rpx solid #999;
+  font-size: 26rpx;
+  margin-top: 180rpx;
+}
+.container.red .b-find .find-item{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20rpx;
+  border-bottom: 1rpx solid #999;
+  padding: 20rpx 0rpx 10rpx 30rpx;
+}
+.container.red .b-find .find-item-left{
+  width: 450rpx;
+}
+.container.red .b-find .find-item-left>view{
+  margin-bottom: 15rpx;
+}
+.container.red .b-find .find-item-left>view:nth-last-child(1){
+  margin-bottom: 5rpx;
+}
+.container.red .b-find .find-item-left>view:nth-child(1){
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.container.red .b-find .find-item-right{
+  width:270rpx; 
+}
+.container.red .b-find .find-item-right>view:nth-child(1){
+  width:350rpx;
+  font-size: 32rpx;
+  font-weight: bold; 
+  margin-top: 50rpx;
+  margin-bottom: 40rpx;
+  padding-left: 20rpx;
+}
+.container.red .b-find .find-item-right>view:nth-child(2){
+  color: #e51c23;
+  font-size: 24rpx;
+  padding-left: 50rpx;
+}
+
+
+/* 工人模块------------------------------------------*/
+.container.yellow .g-find{
+  font-size: 26rpx;
+}
+.container.yellow .g-find .address{
+  font-size: 28rpx;
+  min-height: 80rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  padding-right: 20rpx;
+  color: #999;
+  position: fixed;
+  top: 90rpx;
+  width: 100%;
+  background-color: #ffffff;
+  border-bottom: 1rpx solid #ccc; 
+}
+.container.yellow .g-find .address picker{
+  background: #e2e2e2;
+  padding: 10rpx 20rpx;
+  border-radius: 5rpx;
+  color: #999;
+}
+.container.yellow .g-find .address .find-picker{
+  width: 380rpx;
+}
+.container.yellow .g-find .address picker view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.container.yellow .g-find .address picker text{
+  max-width: 280rpx;
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.container.yellow .g-find .address picker image{
+  width: 35rpx;
+  height: 35rpx;
+  margin-left: 15rpx;
+}
+.container.yellow .g-find .find-box{
+  border-top: 1rpx solid #999;
+  font-size: 26rpx;
+  margin-top: 170rpx;
+}
+.container.yellow .g-find .find-item{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20rpx;
+  border-bottom: 1rpx solid #999;
+  padding: 20rpx 0rpx 10rpx 30rpx;
+}
+.container.yellow .g-find .find-item-left{
+  width: 450rpx;
+}
+.container.yellow .g-find .find-item-left>view{
+  margin-bottom: 15rpx;
+}
+.container.yellow .g-find .find-item-left .settlementType{
+  background: #ff9800;
+  color: #ffffff;
+  height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin-right: 13rpx;
+  padding: 7rpx;
+  min-width: 49rpx;
+}
+.container.yellow .g-find .find-item-left>view:nth-last-child(1){
+  margin-bottom: 5rpx;
+}
+.container.yellow .g-find .find-item-left>view:nth-child(1){
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.container.yellow .g-find .find-item-right{
+  width:270rpx; 
+}
+.container.yellow .g-find .find-item-right>view:nth-child(1){
+  width:350rpx;
+  font-size: 32rpx;
+  font-weight: bold; 
+  margin-top: 50rpx;
+  margin-bottom: 40rpx;
+  padding-left: 20rpx;
+}
+.container.yellow .g-find .find-item-right>view:nth-child(2){
+  color: #ff9800;
+  font-size: 24rpx;
+  padding-left: 50rpx;
+}
+
+

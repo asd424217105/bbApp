@@ -1,0 +1,23 @@
+/* pages/index/pages/workPointsList/workPointsList.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.page-section-spacing{
+  padding-top: 10rpx;
+}
+
+.check-box{
+  width: 85%;
+  background-color: #f1f1f1;
+  margin: 0 auto 20rpx;
+  border-bottom: none;
+  border-radius: 14rpx;
+}
+.check-box:nth-child(1){
+  margin-top: 20rpx;
+}
+.check-box .check-between text:nth-child(2){
+  color: #666;
+}
+
+.check-item{
+  height: 65rpx;
+}

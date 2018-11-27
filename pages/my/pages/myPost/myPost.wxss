@@ -1,0 +1,102 @@
+/* pages/my/pages/myPost/myPost.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+
+.workmate-box{
+  padding-top: 20rpx;
+  padding-bottom: 50rpx;
+}
+.workmate-list{
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  padding: 20rpx 25rpx;
+  border-bottom: 1rpx solid #999;
+}
+.workmate-list:nth-last-child(1){
+  border-bottom: none;
+}
+.workmate-list-left{
+  width: 100rpx;
+}
+.workmate-list-left image{
+  width: 100rpx;
+  height: 100rpx;
+}
+.workmate-list-right{
+  box-sizing: border-box;
+  width: 600rpx;
+  padding-left: 20rpx;
+}
+
+/* 内容 */
+.workmate-name{
+  width: 500rpx;
+  display: inline-block;
+}
+.workmate-delete{
+  width: 80rpx;
+  display: inline-block;
+}
+.workmate-msg{
+  word-wrap:break-word;
+}
+.workmate-msg-img{
+  display: flex;
+  flex-direction: row;
+}
+.workmate-msg-img .workmate-msg-item{
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  position: relative;
+}
+.workmate-msg-img .workmate-msg-item:nth-child(3n){
+  margin-right: 0rpx;
+}
+.workmate-msg-item image{
+  width: 180rpx;
+  height: 180rpx;
+}
+.workmate-msg-item video{
+  width: 180rpx;
+  height: 180rpx;
+}
+.workmate-msg-item cover-image{
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 777;
+}
+/* 时间 */
+.workmate-time{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70rpx;
+  font-size: 24rpx;
+  color: #777;
+}
+.workmate-time image{
+  width: 40rpx;
+  height: 35rpx;
+}
+/* 评论 */
+.workmate-comment{
+  background-color: #ecebeb;
+  padding: 5rpx 10rpx 5rpx 15rpx;
+  word-wrap:break-word;
+  font-size: 26rpx;
+}
+
+.comment-img image{
+  width: 160rpx;
+  height: 160rpx;
+  margin-right: 20rpx;
+}
+.comment-img image:nth-child(3n){
+  margin-right: 0rpx;
+}

@@ -1,0 +1,29 @@
+<!--pages/index/pages/InvitationedList/InvitationedList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>  
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+        <view>
+           <checkbox-group bindchange="checkboxChange">
+            <view wx:for="{{list}}" wx:for-item="item" wx:key="item" class='checkboxitem'>
+              <label class="checkbox2" >
+                <image class='headimg' src='{{item.headImg || "/images/headpic.png"}}'></image>
+                <view class='checkboxitem-msg'>
+                  <view class='name'>
+                    <text class='strong'>{{item.userName}}</text>
+                    <text wx:if="{{item.inviStatus==0}}">（对方未处理）</text>
+                  </view>
+                  <view class='time'>{{item.ctime}}</view>
+                </view>
+              </label>
+              <navigator url='../teamDetails/teamDetails?userId={{item.userId}}'>
+                <image src='/images/right.png'></image>
+              </navigator>
+            </view>
+          </checkbox-group>
+        </view>
+      </view>    
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无邀约人员</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,3 @@
+/* pages/ConstructionCompany/pages/addProject/addProject.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";

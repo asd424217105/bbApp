@@ -1,0 +1,16 @@
+/* pages/my/pages/feedback/feedback.wxss */
+@import "/pages/common/lib/upload.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+/* .container.red{}
+.container.red .page_body{} */
+.container .page_body .feed-box{width:690rpx;background:#ffffff;margin:20rpx 0;padding:30rpx;overflow:hidden;}
+.container .page_body .feed-box .reName{font-weight: 600;margin: 20rpx 0;}
+.container .page_body .feed-box .text{font-size:32rpx;margin-bottom:30rpx;}
+.container .page_body .feed-box .time{font-size:32rpx;margin-top:30rpx;}
+.container .page_body .feed-box .reFeedback{background: #EFEFEF;width:650rpx;overflow:hidden;padding: 0 20rpx;margin-top:20rpx;}
+.container .creatFeedBack{position:fixed;bottom:0rpx;left:0rpx;width:750rpx;height:120rpx;background:#EFEFEF;overflow: hidden;}
+.container .creatFeedBack button::after{border: none;padding:0;margin:0;color: #000000;}
+.container .creatFeedBack button{width: 580rpx;height: 60rpx;background-color: #ffffff;padding:0;margin:30rpx auto 0rpx auto;font-size: 32rpx;color: #000000;letter-spacing: 2rpx;line-height: 60rpx;}
+.voucher-box>view:nth-child(1){font-size:32rpx}

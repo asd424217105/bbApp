@@ -1,0 +1,171 @@
+<!--pages/index/index.wxml-->
+<view class="container {{theme}}">
+  <view class='page-body'>
+    <view class="page-section page-section-spacing swiper">
+      <swiper
+        indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" circular="{{circular}}" vertical="{{vertical}}"
+        interval="{{interval}}" duration="{{duration}}" previous-margin="{{previousMargin}}px" next-margin="{{nextMargin}}px">
+        <block wx:for="{{newsList}}" wx:key="key" wx:for-index="idx" wx:for-item="item">
+          <swiper-item>
+            <navigator url="pages/news/news?id={{item.id}}" hover-class="none">
+              <image class="swiper-item" src="{{item.news_img}}"></image>
+            </navigator>
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="page-section page-section-spacing platformNumBox">
+      <!-- <view class="common-modular">
+        <view class="common-modular-section note">
+          <navigator url="pages/note/note" hover-class='none'>
+            <image src="resources/pic/note.png"></image>
+          </navigator>
+        </view>
+        <view class="common-modular-section weather">
+          <navigator url="pages/weather/weather" hover-class='none'>
+            <image src="resources/pic/weather.png"></image>
+          </navigator>
+        </view>
+      </view> -->
+      <view class='platformNumTitle'>平台数据统计：</view>
+      <view class='platformNum'>
+        <view wx:for="{{platformNum}}" wx:key='key' wx:for-index="idx" wx:for-item="item">{{item.name}}： <text>{{item.dataSum}}</text>         </view>
+      </view>
+    </view>
+    <view class="page-section page-section-spacing watting" wx:if="{{userType <2}}">
+      <view class="waittingWork">
+        <image src="resources/pic/redHorn.png"></image>
+        <label>待处理邀请</label>
+        <navigator class="ftpass" url="pages/beInvited/beInvited" hover-class="none">
+            <span>查看</span>> {{workName}}
+        </navigator>
+      </view>
+    </view>
+    <!-- 工人 -->
+    <view class="page-section page-section-spacing" wx:if="{{userType == 0}}">
+      <view class="noTabSection">
+        <view class="changeWork">
+          <label>{{doingWorkName}}</label>
+          <navigator class="ftpass" url="{{changeWorkUrl}}?id={{doingWorkId}}&type=0" hover-class="none">
+              <span>切换工作></span>
+          </navigator>
+        </view>
+        <view class="functionButtonView" wx:if="{{!w_toggle}}">
+          <view class="viewButton" wx:for="{{fBtnUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{doingWorkId}}&type=0&projectId={{projectId}}&upId={{upId}}" bindtap='toBtnDetil'>
+            <image src="{{item.btnSrc}}"></image>
+            <label>{{item.btnName}}</label>
+          </view>
+        </view>
+        <!-- 带班 -->
+        <view class="functionButtonView" wx:if="{{w_toggle}}">
+          <view class="viewButton" wx:for="{{fBtnUrl2}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{doingWorkId}}&type=0&projectId={{projectId}}&upId={{upId}}" bindtap='toBtnDetil'>
+            <image src="{{item.btnSrc}}"></image>
+            <label>{{item.btnName}}</label>
+          </view>
+        </view>
+      </view>
+      <view class="TabSection"></view>
+    </view>
+    <!-- 班组长 -->
+    <view class="page-section page-section-spacing" wx:if="{{userType == 1}}">
+      <view class="TabSection">
+        <!--可滑动切换tanbar-->
+        <view class="nav-tabs">
+            <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" data-current="{{idx}}" bindtap="swichNav">
+              {{itemName}}
+            </view>
+        </view>
+        <swiper current="{{currentTab}}" class="tab-content tabSwiper-long" duration="300"  bindchange="bindChange">  
+          <swiper-item class="swiper-item-tab">
+            <view class="changeWork">
+              <label>{{doingWorkName}}</label>
+              <navigator class="ftpass" url="{{changeWorkUrl}}?id={{doingWorkId}}&type={{currentTab}}" hover-class="none">
+                  <span>切换任务></span>
+              </navigator>
+            </view>
+            <view class="functionButtonView">
+              <view class="viewButton" wx:for="{{fBtnUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{doingWorkId}}&type={{currentTab}}&projectId={{projectId}}&upId={{upId}}" bindtap='toBtnDetil'>
+                <image src="{{item.btnSrc}}"></image>
+                <label>{{item.btnName}}</label>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item class="swiper-item-tab">
+            <view class="changeWork">
+              <label>{{callName}}</label>
+              <navigator class="ftpass" url="{{changeWorkUrl}}?id={{callId}}&type={{currentTab}}" hover-class="none">
+                  <span>切换任务></span>
+              </navigator>
+            </view>
+            <view class="functionButtonView">
+              <view class="viewButton" wx:for="{{fBtnUrl2}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{callId}}&type={{currentTab}}&upId={{upId2}}" bindtap='toBtnDetil'>
+                <image src="{{item.btnSrc}}"></image>
+                <label>{{item.btnName}}</label>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>  
+      </view>
+    </view>
+    <!-- 项目部 -->
+    <view class="page-section page-section-spacing" wx:if="{{userType == 2 || userType == 3}}">
+      <view class="TabSection">
+        <!--可滑动切换tanbar-->
+        <view class="nav-tabs">
+            <view class="tab-list  {{currentTab == idx?'active':'default'}}" wx:for="{{tabArray}}" wx:for-index="idx" wx:for-item="itemName" wx:key="idx" data-current="{{idx}}" bindtap="swichNav">
+              {{itemName}}
+            </view>
+        </view>
+        <swiper current="{{currentTab}}" class="tab-content tabSwiper-long" duration="300"  bindchange="bindChange">  
+          <swiper-item class="swiper-item-tab">
+            <view class="changeWork">
+              <label>{{doingWorkName}}</label>
+              <navigator class="ftpass" url="{{changeWorkUrl}}?id={{doingWorkId}}&type={{currentTab}}" hover-class="none">
+                  <span>切换任务></span>
+              </navigator>
+            </view>
+            <view class="functionButtonView">
+              <view class="viewButton" wx:for="{{fBtnUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{doingWorkId}}&type={{currentTab}}" bindtap='toBtnDetil' wx:if="{{item.ifType!=userType}}">
+                <image src="{{item.btnSrc}}"></image>
+                <label>{{item.btnName}}</label>
+              </view>
+            </view>
+          </swiper-item>
+          <swiper-item class="swiper-item-tab">
+            <view class="changeWork">
+              <label>{{callName}}</label>
+              <navigator class="ftpass" url="{{changeWorkUrl}}?id={{callId}}&type={{currentTab}}" hover-class="none">
+                  <span>切换任务></span>
+              </navigator>
+            </view>
+            <view class="functionButtonView">
+              <view class="viewButton" wx:for="{{fBtnUrl2}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{callId}}&type={{currentTab}}&projectId={{projectId}}" bindtap='toBtnDetil'>
+                <image src="{{item.btnSrc}}"></image>
+                <label>{{item.btnName}}</label>
+              </view>
+            </view>
+          </swiper-item>
+        </swiper>  
+      </view>
+      <view class="TabSection"></view>
+    </view>
+    <!-- 建筑公司 -->
+    <view class="page-section page-section-spacing" wx:if="{{userType == 4}}">
+      <view class="noTabSection">
+        <view class="changeWork">
+          <label>{{doingWorkName}}</label>
+          <navigator class="ftpass" url="{{changeWorkUrl}}?id={{doingWorkId}}&type=1" hover-class="none">
+              <span>切换项目></span>
+          </navigator>
+        </view>
+        <view class="functionButtonView">
+          <view class="viewButton" wx:for="{{fBtnUrl}}" wx:key="key" wx:for-index="idx" wx:for-item="item" data-url="{{item.url}}?id={{doingWorkId}}&type=1" bindtap='toBtnDetil'>
+            <image src="{{item.btnSrc}}"></image>
+            <label>{{item.btnName}}</label>
+          </view>
+        </view>
+      </view>
+      <view class="TabSection"></view>
+    </view>
+  </view>
+</view>

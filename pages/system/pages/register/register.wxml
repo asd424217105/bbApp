@@ -1,0 +1,83 @@
+<view class="container yellow">
+  <view class="page-head">
+    <image class="logo" src="../../resources/pic/logo.png"></image>
+  </view>
+  <form class="page-body form-box" bindsubmit='formSubmit' bindreset='formReset'>
+    <view class="input-view" wx:if="{{recommCode?false:true}}" >
+      <view class="input-label">
+        <label>用户类型：</label>
+      </view>
+      <view class="input-text left-none">
+        <radio-group class="radio-group" bindchange="radioChange">
+          <label class="radio" wx:for="{{userTypeArray}}" wx:key="index">
+            <radio value="{{item.code}}" checked="{{item.code == userType ? 'checked' : ''}}"/><span class="Rtext">{{item.text}}</span>
+          </label>
+        </radio-group>
+      </view>
+    </view>
+    <!-- <view class="line"></view>   -->
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/userInfo.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入真实姓名" name="realName" bindinput="codeInput" selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/phone.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入手机号码" name="phone" bindinput="phoneInput" selection-start="-1" selection-end="-1" cursor="-1" maxlength="11"></input>
+      </view>
+      <view class="getCode">
+        <button type="primary" size="{{size}}" loading="{{loading}}" plain="{{plain}}" disabled="{{disabled}}" bindtap="getCode">{{time}}</button>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/mail.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入验证码" name="code" bindinput="codeInput" selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/password.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请输入密码" name="pass" type='password' bindinput="passInput" selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <view class="input-view">
+      <view class="input-icon">
+        <image src="../../resources/pic/password.png"></image>
+      </view>
+      <view class="input-text">
+        <input placeholder="请再次输入密码" name="rePass" type='password' bindinput="rePassInput" selection-start="-1" selection-end="-1" cursor="-1"></input>
+      </view>
+    </view>
+    <view class="line"></view>
+    <!-- 推荐码显示隐藏视图 -->
+    <view class="{{ codeShow ? 'showCode' : 'hideCode' }}">
+      <view class="input-view">
+        <view class="input-icon">
+          <image src="../../resources/pic/code.png"></image>
+        </view>
+        <view class="input-text">
+          <input placeholder="请输入推荐码" name="recommCode" bindinput="recommCodeInput" value="{{recommCode}}" selection-start="-1" selection-end="-1" cursor="-1" disabled="disabled"></input>
+        </view>
+      </view>
+      <view class="line"></view>
+    </view>
+    <view class='page-foot'>
+      <button class="oneCenterBtn" type="primary" loading="{{loading}}" form-type='submit' open-type="getUserInfo" lang="zh_CN">确定</button>
+    </view>
+  </form>
+</view>

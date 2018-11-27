@@ -1,0 +1,15 @@
+<!--pages/index/pages/teamList/Daily/Daily.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='contract'>
+        <image wx:for="{{file_list}}" wx:key="*this" src='{{item.newFilename}}' wx:if="{{item.fileType == 3}}" data-list="{{file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+      </view>
+      <view class='no-message' wx:if="{{file_list.length == 0}}">暂无合同</view>
+      <!-- 添加合同 -->
+      <view class='add-project' bindtap='addThing' wx:if="{{file_list.length == 0}}"> 
+        <image src='/images/add_red.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

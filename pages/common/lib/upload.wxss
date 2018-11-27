@@ -1,0 +1,46 @@
+/* -------上传图片css------- */
+
+.voucher-box{
+  font-size: 28rpx;
+  margin-top: 15rpx;
+}
+.voucher-box>view:nth-child(1){
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.voucher{
+  display: flex;
+  flex-wrap: wrap ;
+}
+.upload{
+  width: 180rpx;
+  height: 180rpx;
+  border: 1rpx dashed #CBCBCB;
+  margin-bottom:20rpx;
+  margin-right: 25rpx; 
+  position: relative;
+}
+.upload .uploadimg{
+  width: 180rpx;
+  height: 180rpx;
+}
+.upload video{
+  width: 180rpx;
+  height: 180rpx;
+}
+.upload .bindplayimg{
+  width: 180rpx;
+  height: 180rpx;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 777;
+}
+.upload .close{
+  width: 44rpx;
+  height: 44rpx;
+  position: absolute;
+  top: -14rpx;
+  right: -14rpx;
+  z-index: 999;
+}

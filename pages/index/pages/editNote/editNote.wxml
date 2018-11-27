@@ -1,0 +1,38 @@
+<view class="container {{theme}}">
+  <view class="page-body">
+    <view class="editHead">
+      <view class="time">
+        {{cDate}}
+      </view>
+      <button bindtap="subNote">完成</button>
+      <button wx:if="{{id>0}}" bindtap="delNote">删除</button>
+      <view class="clear"></view>
+    </view>
+    <view class="editContent">
+      <view class="content">
+        <textarea auto-height="{{true}}" value="{{noteContent}}" bindinput='noteEdit' maxlength="-1"></textarea>
+      </view>
+      <view class="upLoadBox">
+        <!-- 上传附件 -->
+        <view class="voucher-box">
+          <view>添加附件：</view>
+          <view class="voucher">
+            <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{imgsrc.fileType == 5}}" id='myVideo' id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='../../../../images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+              </video>            
+              <!-- 删除附件按钮 -->
+              <cover-image src="../../resources/pic/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+            </view>
+            <view class="upload">
+              <image src="../../../../images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

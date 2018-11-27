@@ -1,0 +1,30 @@
+<!--pages/index/pages/workerDailyList/workerDailyDetails/workerDailyDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-item'>日报时间：{{checkData.ctime}}</view>
+        <view class='check-item'>工人名称：{{checkData.realName}}</view>
+        <view class='check-minbox'>
+          <view>日报内容：</view>
+          <view>{{checkData.content}}</view>
+        </view>
+        <!-- 附件 -->
+        <view class='check-minbox' wx:if="{{file_list1.length>0}}">
+          <view>日报附件：</view>
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{file_list1}}" wx:for-index="idx" wx:key="*this">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{file_list1}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}1" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}1' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<view class="container {{theme}}">
+  <view class="page-head">
+    <image class="logo" src="../../resources/pic/logo.png"></image>
+  </view>
+  <view class="page-body">
+    <view class="content-box">
+      <rich-text nodes="{{content}}"></rich-text>
+    </view>
+  </view>
+</view>

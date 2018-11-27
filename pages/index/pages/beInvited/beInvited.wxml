@@ -1,0 +1,30 @@
+<!--pages/foreman/pages/beInvited/beInvited.wxml-->
+<view class="container {{theme}}">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 班组长端 ------------------------------------ -->
+      <view class='b-find'>
+        <view class='find-box'>
+          <view class='find-item' wx:for="{{list}}" wx:key="*this" bindtap='toDetil' data-id='{{item.taskId||item.callId}}'> 
+            <view class='find-item-left'>
+              <view wx:if="{{item.taskName}}">{{item.taskName}}</view>
+              <view wx:if="{{item.callName}}">{{item.callName}}</view>
+              <view>施工地点：{{item.cityName}}</view>
+              <view>发布日期：{{item.ctime}}</view>
+              <view>预算金额：{{item.totalAmount}}元</view>
+            </view>
+            <view class='find-item-right' wx:if="{{usertype == 1}}">
+              <button catchtap='toNotJoin' data-id='{{item.taskId}}'>取消加入</button>
+            </view>
+            <view class='find-item-right yellow' wx:if="{{usertype == 0}}">
+              <button catchtap='toNotJoin' data-id='{{item.callId}}'>取消加入</button>
+            </view>
+          </view>
+          <view class='no-message' wx:if="{{list.length == 0}}">
+            暂无信息
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

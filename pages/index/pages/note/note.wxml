@@ -1,0 +1,23 @@
+<view class="container {{theme}}">
+  <view class="page-body">
+    <view class="noteBox">
+    <!-- {{noteList}} -->
+      <block wx:for="{{noteList}}" wx:key="index">
+        <navigator hover-class="none" url="../../pages/editNote/editNote?id={{item.id}}">
+          <view class="noteCell">
+            <view class="littleBlock"></view>
+            <view class="noteCon">{{item.content}}</view>
+            <view class="noteDate">{{item.ctime}}</view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+  </view>
+
+  <view class="centerCircleBtn">
+    <button hover-class="none" open-type='getUserInfo' bindtap='editWeather'>+</button>
+    <span>新建</span>
+  </view>
+  
+
+</view>

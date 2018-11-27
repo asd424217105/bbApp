@@ -1,0 +1,5 @@
+/* pages/index/pages/workerDailyList/workerDailyList.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.check-item{
+  height: 65rpx;
+}

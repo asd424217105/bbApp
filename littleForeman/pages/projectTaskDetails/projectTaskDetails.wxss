@@ -1,0 +1,6 @@
+/* pages/index/pages/taskDetails/taskDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.color-red{
+  color: #e51c23;
+  font-size: 26rpx;
+}

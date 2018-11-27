@@ -1,0 +1,18 @@
+/* pages/my/pages/companAuthentication/companAuthentication.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+@import "/pages/common/lib/comCheck.wxss";
+.container {justify-content: flex-start;}
+.page-head{padding-bottom:0rpx;padding-top:0rpx;text-align: center;}
+.page-head .alert{font-size: 28rpx;margin-top:50rpx;}
+.check-box{border: none;}
+.alert{color: red;}
+.imageView{width: 680rpx;margin-top:30rpx;position: relative;}
+.imageView .close{width: 44rpx;height: 44rpx;position: absolute;top: -14rpx;right: -14rpx;z-index: 999;}
+.imageView button::after{border: none;background: none !important;padding:0;margin:0;}
+.imageView button{width: 460rpx;height: 750rpx;background: none !important;padding:0;margin:0 auto;font-size: 40rpx;font-weight: 600;color: #000000;letter-spacing: 2rpx;line-height: 76rpx;}
+/* .positiveUpload{width: 460rpx;height: 360rpx;margin: 0 auto;padding:0;border-radius: 40rpx;} */
+.licenseUpload image{width: 460rpx;height: 650rpx;}
+.licenseUpload .text{font-size: 32rpx;color: #000000;}
+.licenseImg{width: 680rpx;height: 900rpx;}

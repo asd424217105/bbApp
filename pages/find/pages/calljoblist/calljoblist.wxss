@@ -1,0 +1,24 @@
+/* pages/find/calljoblist/calljoblist.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.check-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.check-title text:nth-child(1){
+  background: #ff9800;
+  color: #ffffff;
+  height: 30rpx;
+  font-size: 24rpx;
+  text-align: center;
+  margin-right: 13rpx;
+  padding: 7rpx;
+  min-width: 49rpx;
+}
+.color-yellow{
+  color: #ff9800;
+  font-size: 26rpx;
+}
+.double-btn button{
+  background-color: #ff9800;
+}

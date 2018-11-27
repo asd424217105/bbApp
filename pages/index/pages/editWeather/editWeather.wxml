@@ -1,0 +1,78 @@
+<view class="container {{theme}} weather">
+  <view class="editWeatherTitle">
+    {{year}}-{{month}}-{{day}}<span>{{week}}</span>
+  </view>
+  <view class="page-body">
+    <form bindsubmit='editSubmit'>
+      <view class="editBlock">
+        <view class="weatherBox">
+          <view class="weatherBlock am">
+            <block wx:if="{{amWeatherVal>=0}}">
+              <image src="../../resources/pic/weather_{{amWeatherVal}}.png"></image>
+              <span>{{amWeather}}</span>
+            </block>
+            <block wx:else>
+              <view class="zwf"></view>
+            </block>
+            <button bindtap="toggleDialog" data-ifAm="0">选择天气</button>
+          </view>
+          <view class="weatherBlock pm">
+            <block  wx:if="{{pmWeatherVal>=0}}">
+              <image src="../../resources/pic/weather_{{pmWeatherVal}}.png"></image>
+              <span>{{pmWeather}}</span>
+            </block>
+            <block wx:else>
+              <view class="zwf"></view>
+            </block>
+            <button bindtap="toggleDialog" data-ifAm="1">选择天气</button>
+          </view>
+        </view>
+        <view class="textBox">
+          <view class="textBlock am">
+            <view class="time">上午</view>
+            <view class="tem"><span>温度：</span><input value="{{amTemperature}}" maxlength='2' name="amTemperatureVal"></input><span class="dw">℃</span></view>
+            <view class="wind"><span>风力：</span><input value="{{amWindPower}}" maxlength='2' name="amWindPowerVal"></input><span class="dw">级</span></view>
+          </view>
+          <view class="textBlock pm">
+            <view class="time">下午</view>
+            <view class="tem"><span>温度：</span><input value="{{pmTemperature}}" maxlength='2' name="pmTemperatureVal"></input><span class="dw">℃</span></view>
+            <view class="wind"><span>风力：</span><input value="{{pmWindPower}}" maxlength='2' name="pmWindPowerVal"></input><span class="dw">级</span></view>
+          </view>
+        </view>
+      </view>
+      <view class="oneCenterBtnLong">
+        <button class="saveBtn" formType="submit">保存</button>
+      </view>
+    </form>
+  </view>
+  
+  <!-- {{ showDialog ? 'picker-dialog--show' : '' }} -->
+  <view class="picker-dialog {{ showDialog ? 'picker-dialog--show' : '' }}">
+    <!-- 遮罩层 -->
+    <view class="picker-dialog__mask" bindtap="toggleDialog" />
+    <!-- 弹出内容 -->
+    <view class="picker-dialog__container">
+      <view style="padding: 0% 0% 5%;">
+        <form bindsubmit='submit' bindreset="reset">
+          <view class="titleBox">
+            <span>选择天气</span>
+            <view bindtap='pickerReset' class="picker-button picker-dialog-submit">关闭</view>
+          </view>
+          <view class="contentBox">
+            <scroll-view scroll-x="true">
+              <view class="btnBox">
+                <block wx:for="{{weatherSelectArray}}" wx:key="index">
+                  <button class="weatherBtn" bindtap="pickerSubmit" data-weather="{{item.code}}">
+                    <image src="../../resources/pic/weather_{{item.code}}.png"></image>
+                    <span>{{item.text}}</span>
+                  </button>
+                </block>
+              </view>
+            </scroll-view>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+
+</view>

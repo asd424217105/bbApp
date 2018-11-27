@@ -1,0 +1,23 @@
+/* pages/index/pages/workPointsList/workPointsList.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+
+.signin image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.signin{
+  background-color: #ecebeb;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  margin-bottom: 25rpx;
+  border-radius: 12rpx;
+}
+.no-message{
+  margin-top: 60rpx;
+}
+.centerCircleBtn button{
+  font-size: 40rpx !important;
+}

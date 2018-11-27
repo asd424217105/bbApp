@@ -1,0 +1,14 @@
+<!--pages/ConstructionCompany/pages/CheckReceivePeople/CheckReceivePeople.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='worker-list' wx:if="{{list.length != 0}}">
+        <view wx:for="{{list}}" wx:for-item="items" wx:key="items" class='station'>
+          <text>{{items.realName}}</text>
+          <button bindtap='toAtt' data-id='{{items.userId}}'>查看考勤</button>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">项目暂无人员</view>
+    </view>
+  </view>
+</view>

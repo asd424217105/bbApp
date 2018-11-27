@@ -1,0 +1,25 @@
+<!--pages/ConstructionCompany/pages/personnel/personnel.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <navigator url='reviseDepartment/reviseDepartment'>
+        <view class='personnel-item'>
+          <text>部门管理</text>
+          <image src='../../resources/pic/right-arr.png'></image>
+        </view>
+      </navigator>
+      <navigator url='revisePersonnel/revisePersonnel'>
+        <view class='personnel-item'>
+          <text>人员管理</text>
+          <image src='../../resources/pic/right-arr.png'></image>
+        </view>
+      </navigator>
+      <navigator url='reviseStation/reviseStation'>
+        <view class='personnel-item'>
+          <text>岗位管理</text>
+          <image src='../../resources/pic/right-arr.png'></image>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,34 @@
+<!--pages/community/pages/addNote/addNote.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-minbox'>
+        <view>添加文字：</view>
+        <textarea placeholder="请输入帖子信息..." placeholder-style="color:#ccc;" bindinput="bindKeyInput"></textarea>
+      </view>
+      <!-- 上传附件 -->
+      <view class="voucher-box">
+        <view>添加附件：</view>
+        <view class="voucher">
+          <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+            <!-- 数组里的图片 -->
+            <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+            <!-- 数组里的视频 -->
+            <video wx:if="{{imgsrc.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+              <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+            </video>            
+            <!-- 删除附件按钮 -->
+            <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+          </view>
+          <view class="upload">
+            <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 提交按钮 -->
+    <view class="one-btn {{usertype == 0?'yellow':''}}">
+      <button hover-class="button-hover" bindtap='Submit'>提交</button>                 
+    </view>
+  </view>
+</view>

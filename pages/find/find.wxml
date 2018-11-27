@@ -1,0 +1,167 @@
+<!--pages/find/find.wxml-->
+<view class="container {{theme}}">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 建筑公司端 -->
+      <view class='find' wx:if="{{userType == 4}}">
+        <navigator url="pages/projectList/projectList"><image src='resources/pic/find_project.png'></image></navigator>
+        <navigator url="pages/personnel/personnel"><image src='resources/pic/find_personnel.png'></image></navigator>
+      </view>
+      <!-- 项目部端 -------------------------------------- -->
+      <view class='x-find' wx:if="{{userType == 2 || userType == 3}}">
+        <!-- tab切换 -->
+        <view class='search-input'>
+          <input value='' bindinput="bindKeyInput" maxlength="11" placeholder='手机号搜索' placeholder-style='color:#ccc'>
+            <button bindtap='searchBtn'>搜索</button>
+          </input>
+          <!-- 选择工种 -->
+          <picker bindchange="bindworkkind" range="{{workkindArray}}" range-key="kind_name" class='workkind'>
+            <view wx:if="{{workkind == ''}}">选择工种</view>
+            <view wx:else>
+              <text>{{workkind.kind_name}}</text>
+              <image src='/images/close.png' catchtap='emptyKind'></image>
+            </view>
+          </picker>
+        </view>
+        <!-- 班组长列表 -->
+        <view class='find-box'>
+          <view class='find-item' wx:for="{{list}}" wx:key="*this" bindtap='toDetil' data-id='{{item.id}}'>
+            <view class='find-item-top'>
+              <view class='find-headimg'>
+                <image wx:if="{{item.headImg == ''}}" src='/images/noheadimg.png'></image>
+                <image wx:else src='{{item.headImg}}'></image>
+              </view>
+              <view class='find-msg'>
+                <view class='find-msg-name'>
+                  <view>
+                    <text>{{item.realName}}</text>
+                    <view class='renzheng no' wx:if="{{item.certificationStatus == 1}}">未认证</view>
+                    <view class='renzheng yes' wx:if="{{item.certificationStatus == 0}}">已认证</view>
+                  </view>
+                  <view wx:if="{{item.address}}">
+                    <image src='resources/pic/address.png'></image>
+                    <text class='x_address'>{{item.address}}</text>
+                  </view>
+                </view>
+                <view class='find-msg-workYear'>
+                  <text wx:if="{{item.national != ''}}">{{item.national}}</text>
+                  <text>工龄：{{item.workYear}}年</text>
+                  <text>队伍：{{item.personCount}}人</text>
+                </view>
+                <view class='find-msg-category'>
+                  <text>{{item.kindName}}</text>
+                </view>
+              </view>
+            </view>
+            <view class='find-item-bottom'>{{item.content}}</view>
+          </view>
+          <view class='no-message' wx:if="{{list.length == 0}}">
+            暂无信息
+          </view>
+        </view>
+      </view>
+      <!-- 班组长端 ------------------------------------ -->
+      <view class='b-find' wx:if="{{userType == 1}}">
+        <!-- tab切换 -->
+        <view class='toptab'>
+          <view bindtap='switchTab' data-id='0' class="{{currentId==0?'selected':''}}">未报名列表</view>
+          <view bindtap='switchTab' data-id='1' class="{{currentId==1?'selected':''}}">已报名列表</view>
+        </view>
+        <view class='address' wx:if="{{currentId==0}}">
+          <!-- 选择意向地址 -->
+          <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" class="find-picker">
+            <view wx:if="{{cityValue == ''}}" style='color:#999'>请选择意向地址</view>
+            <view wx:else>
+              <text>{{cityValue.name_path_level}}</text>
+              <image src='/images/close.png' catchtap='emptyAddress'></image>
+            </view>
+          </picker>
+          <!-- 选择工种 -->
+          <picker bindchange="bindworkkind" range="{{workkindArray}}" range-key="kind_name" class='workkind'>
+            <view wx:if="{{workkind == ''}}" style='color:#999'>请选择所需工种</view>
+            <view wx:else>
+              <text>{{workkind.kind_name}}</text>
+              <image src='/images/close.png' catchtap='emptyKind'></image>
+            </view>
+          </picker>
+        </view>
+        <view class='find-box' style="margin-top:{{currentId==0?'170rpx':'89rpx'}}">
+          <view class='find-item' bindtap='toDetil' data-id='{{item.taskId}}' data-invi='{{item.inviStatus}}' wx:for="{{list}}" wx:for-item="item" wx:key="item" wx:for-index="idx"> 
+            <view class='find-item-left'>
+              <view>{{item.taskName}}</view>
+              <view>施工地点：{{item.cityName}}</view>
+              <view wx:if="{{currentId == 0}}">发布日期：{{item.ctime}}</view>
+              <view wx:if="{{currentId == 1}}">报名日期：{{item.bmCtime}}</view>
+              <view>预算金额：{{item.totalAmount}}元</view>
+              <view>需要人数：{{item.personCount}}</view>
+            </view>
+            <view class='find-item-right'>
+              <view wx:if="{{currentId==0}}">诚邀您的加入！</view>
+              <view wx:if="{{currentId==0}}">查看详情>></view>
+              <view wx:if="{{currentId==1}}" style='color:red'>已报名此信息！</view>
+              <view wx:if="{{currentId==1 && item.inviStatus==0}}" style='color:blue'>对方处理中...</view>
+              <view wx:if="{{currentId==1 && item.inviStatus!=0 && item.inviStatus!=3}}" style='color:green'>对方已同意</view>
+              <view wx:if="{{currentId==1 && item.inviStatus==3}}" style='color:red'>对方拒绝加入</view>
+            </view>
+          </view>
+          <view class='no-message' wx:if="{{list.length == 0}}">
+            暂无信息
+          </view>
+        </view>
+      </view>
+      <!-- 工人端---------------------------------------- -->
+      <view class='g-find' wx:if="{{userType == 0}}">
+        <!-- tab切换 -->
+        <view class='toptab yellow'>
+          <view bindtap='switchTab' data-id='0' class="{{currentId==0?'selected':''}}">未报名列表</view>
+          <view bindtap='switchTab' data-id='1' class="{{currentId==1?'selected':''}}">已报名列表</view>
+        </view>
+        <view class='address' wx:if="{{currentId==0}}">
+          <!-- 选择意向地址 -->
+          <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" class="find-picker">
+            <view wx:if="{{cityValue == ''}}" style='color:#999'>请选择意向地址</view>
+            <view wx:else>
+              <text>{{cityValue.name_path_level}}</text>
+              <image src='/images/close.png' catchtap='emptyAddress'></image>
+            </view>
+          </picker>
+          <!-- 选择工种 -->
+          <picker bindchange="bindworkkind" range="{{workkindArray}}" range-key="kind_name" class='workkind'>
+            <view wx:if="{{workkind == ''}}" style='color:#999'>请选择所需工种</view>
+            <view wx:else>
+              <text>{{workkind.kind_name}}</text>
+              <image src='/images/close.png' catchtap='emptyKind'></image>
+            </view>
+          </picker>
+        </view>
+        <view class='find-box' style="margin-top:{{currentId==0?'170rpx':'89rpx'}}">
+          <view class='find-item' bindtap='toDetil' data-id='{{item.callId}}' data-invi='{{item.inviStatus}}' wx:for="{{list}}" wx:for-item="item" wx:key="item" wx:for-index="idx"> 
+            <view class='find-item-left'>
+              <view wx:if="{{item.settlementType == 0}}"><text class='settlementType'>日工</text>{{item.callName}}</view>
+              <view wx:if="{{item.settlementType >= 1}}"><text class='settlementType'>包工</text>{{item.callName}}</view>
+              <view>施工地点：{{item.cityName}}</view>
+              <view wx:if="{{currentId == 0}}">发布日期：{{item.ctime}}</view>
+              <view wx:if="{{currentId == 1}}">报名日期：{{item.bmCtime}}</view>
+              <view>工资：{{item.callUnitPrice}}元
+                <block wx:for="{{taskJilUnitArray}}" wx:for-item="itemz" wx:key="itemz" wx:for-index="idz">
+                  <block wx:if="{{itemz.code == item.callJilUnit && item.settlementType!=0}}">/每{{itemz.text}}</block>
+                </block>
+              </view>
+            </view>
+            <view class='find-item-right'>
+              <view wx:if="{{currentId==0}}">诚邀您的加入！</view>
+              <view wx:if="{{currentId==0}}">查看详情>></view>
+              <view wx:if="{{currentId==1}}" style='color:red'>已报名此信息！</view>
+              <view wx:if="{{currentId==1 && item.inviStatus==0}}" style='color:blue'>对方处理中...</view>
+              <view wx:if="{{currentId==1 && item.inviStatus!=0 && item.inviStatus!=3}}" style='color:green'>对方已同意</view>
+              <view wx:if="{{currentId==1 && item.inviStatus==3}}" style='color:red'>对方拒绝加入</view>
+            </view>
+          </view>
+          <view class='no-message' wx:if="{{list.length == 0}}">
+            暂无信息
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

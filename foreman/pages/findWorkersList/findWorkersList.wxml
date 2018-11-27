@@ -1,0 +1,53 @@
+<!--pages/foreman/pages/findWorkersList/findWorkersList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='1' class="{{callStatus==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='2' class="{{callStatus==2?'selected':''}}">进行中</view>
+      </view>
+      <!-- 招工列表  班组长 -->
+      <view class='find-worker-list' wx:if="{{usertype == 1}}">
+        <view class='find-worker-item' wx:for="{{list}}" wx:for-item="item" wx:key="item" bindtap='toDetail' data-id='{{item.callId}}'>
+          <view wx:if="{{item.settlementType == 0}}"><text class='settlementType'>日工</text>{{item.callName}}</view>
+          <view wx:if="{{item.settlementType >= 1}}"><text class='settlementType'>包工</text>{{item.callName}}</view>
+          <view>
+            <text wx:if="{{item.callUnitPrice}}" class='price'>
+              <text>工资：{{item.callUnitPrice}}元</text>
+              <text wx:for="{{taskJilUnitArray}}" wx:for-item="itemz" wx:key="itemz" wx:for-index="idz">
+                <text wx:if="{{itemz.code == item.callJilUnit && item.settlementType!=0}}">/每{{itemz.text}}</text>
+              </text>
+            </text>
+            <text>地点：{{item.cityName}}</text>
+          </view>
+          <view>
+              <button catchtap='applicationList' data-id='{{item.callId}}'>报名列表</button>
+              <button catchtap='InvitationedList' data-id='{{item.callId}}'>邀约列表</button>
+              <button catchtap='comeIn' data-id='{{item.callId}}'>待进场人员</button>
+          </view>
+        </view>
+      </view>
+      <!-- 招工列表  项目部-->
+      <view class='find-worker-list' wx:if="{{usertype == 2 || usertype == 3}}">
+        <view class='find-worker-item' wx:for="{{list}}" wx:for-item="item" wx:key="item" bindtap='toDetail' data-id='{{item.id}}'>
+          <view wx:if="{{item.taskName}}">{{item.taskName}}</view>
+          <view>
+            <text wx:if="{{item.workTime}}">工期：{{item.workTime}}天</text>
+            <text>地点：{{item.cityName}}</text>
+          </view>
+          <view>
+              <button catchtap='applicationList' data-id='{{item.id}}'>报名列表</button>
+              <button catchtap='InvitationedList' data-id='{{item.id}}'>邀约列表</button>
+              <button catchtap='comeIn' data-id='{{item.id}}'>待入场人员</button>
+          </view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无招工信息</view>
+      <!-- 发布动态 -->
+      <view class='add-project' bindtap='addThing'> 
+        <image src='/images/add_red.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

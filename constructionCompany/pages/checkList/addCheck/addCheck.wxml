@@ -1,0 +1,49 @@
+<!--pages/ConstructionCompany/pages/addCheck/addCheck.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-between'>
+        <view>验收类型：</view>
+        <picker bindchange="acceptType" range="{{acceptTypeArray}}" range-key="text">
+          <view wx:if="{{acceptType == ''}}" style='color:#ccc'>请选择验收类型</view>
+          <view wx:else>{{acceptType.text}}</view>
+        </picker>
+      </view>
+      <view class='check-minbox'>
+        <view>工作描述：</view>
+        <textarea placeholder="请输入工作描述..." placeholder-style="color:#ccc;" maxlength="-1" bindinput="bindKeyInput"></textarea>
+      </view>
+      <!-- 上传附件 -->
+      <view class="voucher-box">
+        <view>添加附件：</view>
+        <view class="voucher">
+          <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+            <!-- 数组里的图片 -->
+            <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+            <!-- 数组里的视频 -->
+            <video wx:if="{{imgsrc.fileType == 5}}" id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+              <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+            </video>            
+            <!-- 删除附件按钮 -->
+            <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+          </view>
+          <view class="upload">
+            <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+          </view>
+        </view>
+      </view>
+      <!-- 接收人 -->
+      <view class='check-minbox'>
+        <view class='strong'>接收人：</view>
+        <view>
+          <text wx:for="{{userNames}}" wx:key="*this">{{item}}</text>
+          <text bindtap='addPeople' class='color-blue'>添加</text>
+        </view>
+      </view>
+    </view>
+    <!-- 提交按钮 -->
+    <view class='one-btn'>
+      <button hover-class="button-hover" bindtap='Submit'>提交</button>                 
+    </view>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+/* pages/my/pages/jumpPage/jumpPage.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+.content-box{width:660rpx;margin:0 auto;}

@@ -1,0 +1,8 @@
+/* pages/my/pages/myTeam/outPut/outPut.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+.container{min-height: auto;}
+.page-head{padding: 70rpx 132rpx 100rpx;}
+.showCode{display:block;}
+.hideCode{display:none;}

@@ -1,0 +1,97 @@
+<!--pages/index/pages/leaveList/leaveDetails/leaveDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text>请假时间：{{checkData.ctime}}</text>
+          <text wx:if='{{checkData.leave_status==0}}' style='color:blue'>待审</text>
+          <text wx:if='{{checkData.leave_status==1}}' style='color:green'>已批准</text>
+          <text wx:if='{{checkData.leave_status==2}}' style='color:red'>驳回</text>
+        </view>
+        <view class='check-item' wx:if="{{checkData.user_name}}">姓名：{{checkData.user_name}}</view>
+        <view class='check-item' wx:if="{{checkData.leave_type == 0}}">请假类型：事假</view>
+        <view class='check-item' wx:if="{{checkData.leave_type == 1}}">请假类型：病假</view>
+        <view class='check-item' wx:if="{{checkData.leave_type == 2}}">请假类型：其他</view>
+        <view class='check-item'>请假开始时间：{{checkData.begin_date}}</view>
+        <view class='check-item'>请假结束时间：{{checkData.end_date}}</view>
+        <view class='check-item'>请假时长（半天为单位）：{{checkData.leave_time}}</view>
+        <view class='check-minbox'>
+          <view class='strong'>请假内容：</view>
+          <view>{{checkData.leave_content}}</view>
+        </view>
+        <!-- 请假附件 -->
+        <view class='check-minbox' wx:if="{{file_list1.length>0}}">
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{file_list1}}" wx:for-item="item" wx:for-index="ids" wx:key="key">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{file_list1}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}1" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}1' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+        <!-- 批复同意或不同意 -->
+        <block wx:if="{{checkData.leave_status == 1||checkData.leave_status == 2}}">
+          <view wx:for="{{replyList}}" wx:for-item="items" wx:for-index="ids" wx:key="items">
+            <!-- 批复意见 -->
+            <view class='check-item strong'>批复人：{{items.real_name}}</view>
+            <view class='check-item strong'>批复时间：{{items.ctime}}</view>
+            <view class='check-item strong'>批复意见：{{items.content}}</view>
+            <!-- 批复附件 -->
+            <view class='check-minbox' wx:if="{{items.file_list.length>0}}">
+              <view>批复附件：</view>
+              <view class='file-body'>
+                <!-- 附件循环列表 -->
+                <view class='file-body-item' wx:for="{{items.file_list}}" wx:for-index="idx" wx:for-item="item" wx:key="item">
+                  <!-- 数组里的图片 -->
+                  <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{file_list2}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+                  <!-- 数组里的视频 -->
+                  <video wx:if="{{item.fileType == 5}}" id="video-{{ids}}{{idx}}2" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                    <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}2' hidden='{{videoBtnHidden}}'></cover-image> 
+                  </video>
+                </view>  
+              </view>
+            </view>
+          </view>
+        </block>
+        <!-- 待阅读 -->
+        <block wx:if="{{checkData.leave_status == 0 && usertype>0}}">
+          <!-- 阅读意见 -->
+          <view class='check-minbox'>
+            <view class='strong'>批复意见：</view>
+            <textarea placeholder="请输入批复意见..." placeholder-style="color:#ccc;" bindinput="bindKeyInput"></textarea>
+          </view>
+          <!-- 上传附件 -->
+          <view class="voucher-box">
+            <view>添加附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{imgsrc.fileType == 5}}" id="video-{{idx}}2" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}2' class='bindplayimg'></cover-image>
+                </video>            
+                <!-- 删除附件按钮 -->
+                <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+              </view>
+              <view class="upload">
+                <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+              </view>
+            </view>
+          </view>
+          <!-- 按钮 -->
+          <view class='double-btn'>
+            <button hover-class="button-hover" bindtap='agree' data-id='1'>同意</button>                       
+            <button hover-class="button-hover" bindtap='agree' data-id='2'>不同意</button>                       
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>
+

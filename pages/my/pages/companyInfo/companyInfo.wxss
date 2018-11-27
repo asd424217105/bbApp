@@ -1,0 +1,18 @@
+/* pages/my/pages/companyInfo/companyInfo.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+@import "/pages/common/lib/comCheck.wxss";
+.check-box{padding: 0;border-bottom: 0rpx;}
+.container.gray .achienement-box{background: transparent;width: 750rpx;padding: 0 0 20rpx 0;}
+.check-between{margin-bottom: 2rpx;background: #ffffff;padding:10rpx 20rpx;}
+.check-between .import{height:80rpx;display:flex;align-items:center;line-height:80rpx;}
+.check-between .import span{color: red;height:80rpx;line-height:80rpx;}
+.container.gray .picker-dialog .titleBox span{float: right;margin-left: 170rpx;margin-right: 180rpx;}
+.imageView{width: 680rpx;margin:30rpx auto 0 auto;position: relative;}
+.imageView .close{width: 44rpx;height: 44rpx;position: absolute;top: -14rpx;right: -14rpx;z-index: 999;}
+.imageView button::after{border: none;background: none !important;padding:0;margin:0;}
+.imageView button{width: 460rpx;height: 750rpx;background: none !important;padding:0;margin:0 auto;font-size: 40rpx;font-weight: 600;color: #000000;letter-spacing: 2rpx;line-height: 76rpx;}
+.licenseUpload image{width: 460rpx;height: 650rpx;}
+.licenseUpload .text{font-size: 32rpx;color: #000000;}
+.licenseImg{width: 680rpx;height: 900rpx;}

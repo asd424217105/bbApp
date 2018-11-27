@@ -1,0 +1,61 @@
+<!--pages/index/pages/workPointsList/workPointsDetails/workPointsDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text>创建时间：{{list.ctime}}</text>
+          <text wx:if='{{list.workerStatus==0}}' style='color:blue'>核对中</text>
+          <text wx:if='{{list.workerStatus==1}}' style='color:red'>申诉中</text>
+          <text wx:if='{{list.workerStatus==2}}' style='color:green'>正常</text>
+        </view>
+        <view class='check-item'>创建人 ：{{list.createName}}</view>
+        <view class='check-item' wx:if="{{list.projectName}}">工人名称：{{list.userName}}</view>
+        <view class='check-item'>工分：{{list.workIntegral}}</view>
+        <view class='check-item'>每工分金额：{{list.amount}}元</view>
+        <view class='check-item' wx:if="{{list.reduceAmount}}">扣减金额 ：{{list.reduceAmount}}</view>
+        <view class='check-minbox' wx:if="{{list.memo}}">
+          <view class='strong'>备注：</view>
+          <view>{{list.memo}}</view>
+        </view>
+        <!-- 编辑岗位弹窗 -->
+        <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+        <view class="modal-dialog" wx:if="{{showModal}}">
+          <form bindsubmit="formSubmit">
+            <view class="modal-content">
+              <view class='modal-item'>
+                <text>工分：</text>
+                <input placeholder="请输入工分" value='{{list.workIntegral}}' type='number' name="workIntegral"></input>
+              </view>
+              <view class='modal-item'>
+                <text>计价金额：</text>
+                <input placeholder="请输入计价金额" value='{{list.amount}}' type='number' name="amount"></input>
+              </view>
+              <view class='modal-item'>
+                <text>扣减金额：</text>
+                <input placeholder="请输入扣减金额" value='{{list.reduceAmount}}' type='number' name="reduceAmount"></input>
+              </view>
+              <view class='check-minbox'>
+                <view>备注(选填)：</view>
+                <textarea placeholder="请输入备注..." value='{{list.memo}}' name="memo"></textarea>
+              </view>
+              <input hidden name="id" value='{{targetId}}'></input>
+            </view>
+            <view class="modal-footer">
+              <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+              <button class="btn-confirm" bindtap="onConfirm" data-status="confirm" formType="submit">确定</button>
+            </view>
+          </form>
+        </view>
+        <!-- 按钮 -->
+        <view class='one-btn' wx:if="{{list.workerStatus==0}}">
+          <button hover-class="button-hover" bindtap='del' data-id='{{list.id}}'>删除</button>                       
+        </view>
+        <view class='double-btn' wx:if="{{list.workerStatus==1}}">
+          <button hover-class="button-hover" bindtap='edit'>修改</button>                       
+          <button hover-class="button-hover" bindtap='del' data-id='{{list.id}}'>删除</button>                       
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

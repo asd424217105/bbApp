@@ -1,0 +1,33 @@
+/* pages/index/pages/notice/addNotice/addNotice.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";
+.page-section-spacing{
+  padding: 20rpx;
+}
+.check-minbox{
+  margin-top: 10rpx;
+  margin-bottom: 35rpx;
+  font-size: 28rpx;
+}
+.check-minbox text{
+  margin-right: 20rpx;
+}
+.check-minbox>view:nth-child(1){
+  margin-bottom: 0rpx;
+}
+.check-minbox textarea{
+  border: 2rpx solid #ccc;
+  padding: 10rpx;
+  height: 200rpx;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 28rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.color-blue{
+  color: #1c97e5;
+}
+.one-btn button{
+  background-color: #FE3F44;
+}

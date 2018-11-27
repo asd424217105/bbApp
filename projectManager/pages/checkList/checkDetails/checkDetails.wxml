@@ -1,0 +1,98 @@
+<!--pages/ConstructionCompany/pages/checkDetails/checkDetails.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='check-box'>
+        <view class='check-between'>
+          <text>申请时间：{{checkData.ctime}}</text>
+          <text wx:if='{{checkData.acceptStatus==0}}' style='color:blue'>待验</text>
+          <text wx:if='{{checkData.acceptStatus==1}}' style='color:green'>已通过</text>
+          <text wx:if='{{checkData.acceptStatus==2}}' style='color:red'>未通过</text>
+        </view>
+        <view class='check-item'>报验人：{{checkData.createName}}</view>
+        <view class='check-item' wx:if="{{checkData.recvName}}">选择验收人：{{checkData.recvName}}</view>
+        <view class='check-item' wx:if="{{checkData.projectName}}">报验项目：{{checkData.projectName}}</view> 
+        <view class='check-item'>报验类型：
+          <text wx:if='{{checkData.acceptType==0}}'>每天</text>
+          <text wx:if='{{checkData.acceptType==1}}'>阶段</text>
+          <text wx:if='{{checkData.acceptType==2}}'>完工</text>
+        </view>
+        <view class='check-minbox'>
+          <view>报验内容：</view>
+          <view>{{checkData.content}}</view>
+        </view>
+        <!-- 报验附件 -->
+        <view class='check-minbox' wx:if="{{file_list1.length>0}}">
+          <view>报验附件：</view>
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{file_list1}}" wx:for-index="idx" wx:key="*this">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{file_list1}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}1" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}1' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+        <!-- 验收同意或不同意 -->
+        <block wx:if="{{checkData.acceptStatus == 1||checkData.acceptStatus == 2}}">
+          <view wx:for="{{replyList}}" wx:key="*this">
+            <!-- 验收意见 -->
+            <view class='check-item strong'>验收人：{{item.realName}}</view>
+            <view class='check-item strong'>验收时间：{{item.ctime}}</view>
+            <view class='check-item strong'>验收意见：{{item.content}}</view>
+            <!-- 验收附件 -->
+            <view class='check-minbox' wx:if="{{file_list2.length>0}}">
+              <view class='strong'>验收附件：</view>
+              <view class='file-body'>
+                <!-- 附件循环列表 -->
+                <view class='file-body-item' wx:for="{{file_list2}}" wx:for-index="idx" wx:key="*this">
+                  <!-- 数组里的图片 -->
+                  <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' wx:key="*this" data-list="{{file_list2}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+                  <!-- 数组里的视频 -->
+                  <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}2" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                    <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}2' hidden='{{videoBtnHidden}}'></cover-image> 
+                  </video>
+                </view>  
+              </view>
+            </view>
+          </view>
+        </block>
+        <!-- 待验收 -->
+        <block wx:if="{{checkData.acceptStatus == 0 && typeid == 1}}">
+          <!-- 验收意见 -->
+          <view class='check-minbox'>
+            <view class='strong'>验收意见：</view>
+            <textarea placeholder="请输入验收意见..." placeholder-style="color:#ccc;" bindinput="bindKeyInput"></textarea>
+          </view>
+          <!-- 上传附件 -->
+          <view class="voucher-box">
+            <view>添加附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{imgsrc.fileType == 5}}" id="video-{{idx}}2" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}2' class='bindplayimg'></cover-image>
+                </video>            
+                <!-- 删除附件按钮 -->
+                <cover-image src="/images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+              </view>
+              <view class="upload">
+                <image src="/images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+              </view>
+            </view>
+          </view>
+          <!-- 按钮 -->
+          <view class='double-btn'>
+            <button hover-class="button-hover" data-id='1' bindtap='Reply'>同意</button>            
+            <button hover-class="button-hover" data-id='2' bindtap='Reply'>不同意</button>            
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</view>

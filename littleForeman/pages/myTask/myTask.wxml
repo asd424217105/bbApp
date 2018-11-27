@@ -1,0 +1,29 @@
+<!--pages/ConstructionCompany/pages/myTask/myTask.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}"><text>我发布的</text></view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}"><text>我负责的</text></view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}"><text>我协助的</text></view>
+      </view>
+      <view class='tasklist'>
+        <view bindtap='toTaskDetails' data-id='5'>
+          <text class='strong'>人人物名</text>
+          <text>2018-06-02</text>
+          <text>完成</text>
+        </view>
+        <view>
+          <text class='strong'>人人物名</text>
+          <text>2018-06-02</text>
+          <text>完成</text>
+        </view>
+        <view>
+          <text class='strong'>人人物名</text>
+          <text>2018-06-02</text>
+          <text>完成</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

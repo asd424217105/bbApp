@@ -1,0 +1,46 @@
+<!--pages/index/pages/evaluate/evaluate.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab yellow'>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">被评价</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">评价</view>
+      </view>
+      <!-- 评价列表 -->
+      <view class='check-box' wx:for='{{list}}' wx:for-item="items" wx:for-index="ids" wx:key="key">
+        <view class='check-between'>
+          <text wx:if="{{items.integral==3}}">分数：优</text>
+          <text wx:if="{{items.integral==2}}">分数：良</text>
+          <text wx:if="{{items.integral==1}}">分数：差</text>
+          <text>{{items.ctime}}</text>
+        </view>
+        <view class='check-item' wx:if="{{idx == 2}}">被评价人：{{items.eval_username}}</view>
+        <view class='check-minbox'>
+          <view class='strong'>评价内容：</view>
+          <view>{{items.content}}</view>
+        </view>
+         <!-- 附件 -->
+        <view class='check-minbox' wx:if="{{items.file_list.length>0}}">
+          <view class='file-body'>
+            <!-- 附件循环列表 -->
+            <view class='file-body-item' wx:for="{{items.file_list}}" wx:key="*this">
+              <!-- 数组里的图片 -->
+              <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage1"></image>
+              <!-- 数组里的视频 -->
+              <video wx:if="{{item.fileType == 5}}" id="video-{{ids}}1" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+              </video>
+            </view>  
+          </view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无此评价</view>
+      <!-- 添加评价 -->
+      <view class='add-project' bindtap='addThing'> 
+        <image src='/images/add_red.png' wx:if="{{usertype>0}}"></image>
+        <image src='/images/add_yellow.png' wx:if="{{usertype == 0}}"></image>
+      </view>
+    </view>
+  </view>
+</view>

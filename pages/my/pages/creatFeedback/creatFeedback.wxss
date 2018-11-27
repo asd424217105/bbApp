@@ -1,0 +1,13 @@
+/* pages/my/pages/creatFeedback/creatFeedback.wxss */
+@import "/pages/common/lib/upload.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+.container{display: block;}  
+.container .feedbackContent{width:710rpx;margin:0 auto;}
+.container .feedbackContent .content{margin-top:50rpx;margin-bottom:150rpx;}
+.container .feedbackContent .content textarea{width:666rpx;min-height:300rpx;font-size:30rpx;border:2rpx solid #BBBBBB;color: #BBBBBB;padding:20rpx;}
+.page-foot{text-align: right;padding-right:30rpx;}
+.container .page-foot button::after{border: none;padding:0;margin:0;color: #000000;}
+.container .page-foot button{width: 160rpx;height: 60rpx;background-color: #ffffff;padding:0;margin:30rpx auto 0rpx auto;font-size: 28rpx;color: #000000;letter-spacing: 2rpx;line-height: 60rpx;display: inline-block;text-align: center;}
+.container .page-foot .submit{border: 2rpx solid #C3C3C3;}

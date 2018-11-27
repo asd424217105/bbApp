@@ -1,0 +1,79 @@
+/* pages/index/pages/evaluate/evaluate.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+
+.box1{
+  margin-top: 100rpx;
+}
+
+.box2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 90rpx;
+  padding: 40rpx 20rpx;
+}
+.box2>image{
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 20rpx;
+}
+.people-box{
+  width: 130rpx;
+  height: 110rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20rpx;
+  font-size: 28rpx;
+}
+.people-box image{
+  width: 50rpx;
+  height: 50rpx;
+  margin-bottom: 20rpx;
+}
+
+.box3{
+  margin-top: 90rpx;
+  padding: 30rpx;
+}
+.box3 .input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.box3 .input input{
+  border: 1rpx solid #ccc;
+  width: 400rpx;
+  height: 60rpx;
+  margin-left: -60rpx;
+  padding-left: 15rpx;
+}
+.box3 .input text.red{
+  color:#FE3F44;
+}
+.box3 .msg{
+  padding-top: 50rpx;
+  font-size: 28rpx;
+}
+.box3 .msg view{
+  margin-bottom: 30rpx;
+}
+
+.page-section .button-hover{
+  background-color: gainsboro;
+}
+.one-btn{
+  position: fixed;
+  bottom: 20rpx;
+  width: 90%;
+  margin-left: 5%;
+  height: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  border-radius: 12rpx;
+  font-size: 30rpx;
+  color: #fff;
+  background-color: #FE3F44;
+}

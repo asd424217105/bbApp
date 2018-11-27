@@ -1,0 +1,13 @@
+/* pages/index/pages/news/news.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+rich-text {width: 700rpx;padding: 25rpx 0;}
+
+.rich-text-wrp {padding: 0 25rpx;background-color: #fff;}
+
+.page-section{width: 100%;margin-bottom: 60rpx;}
+
+.page-section:last-child{margin-bottom: 0;}
+
+.page-section-title{font-size: 46rpx;font-weight: bold;letter-spacing: 1px;color: #000000;/* margin-bottom: 10rpx; */padding-left: 30rpx;padding-right: 30rpx;}

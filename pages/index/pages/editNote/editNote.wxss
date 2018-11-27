@@ -1,0 +1,9 @@
+/* pages/index/pages/editNote/editNote.wxss */
+@import "/pages/common/lib/upload.wxss";
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";   
+.page-section-spacing{
+  padding: 20rpx;
+}
+.voucher-box>view:nth-child(1){font-size:30rpx}

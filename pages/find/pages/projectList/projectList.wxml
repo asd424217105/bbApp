@@ -1,0 +1,26 @@
+<!--pages/ConstructionCompany/pages/projectList/projectList.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}}">审核中</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">进行中</view>
+        <view bindtap='switchTab' data-id='5' class="{{idx==5?'selected':''}}">已完成</view>
+      </view>
+      <!-- 项目列表 -->
+      <view class='project-list'>
+        <view wx:if="{{list.length != 0}}" class='project-item' data-id='{{item.id}}' bindtap='toDetails' wx:for="{{list}}" wx:key="*this">
+          <view class='strong'>{{item.projectName}}</view>
+          <view>任务工期：{{item.workTime}}天  <text>地点：{{item.cityName}}</text></view>
+        </view>
+        <view wx:if="{{list.length == 0}}" class='no-message'>暂无项目</view>
+      </view>
+      <!-- 添加项目 -->
+      <view class='add-project' bindtap='addProject'> 
+        <image src='/images/add_blue.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

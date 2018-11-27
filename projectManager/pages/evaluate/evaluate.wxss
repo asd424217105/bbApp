@@ -1,0 +1,16 @@
+/* pages/index/pages/evaluate/evaluate.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+
+.check-box{
+  width: 85%;
+  background-color: #f1f1f1;
+  margin: 0 auto 20rpx;
+  border-bottom: none;
+  border-radius: 14rpx;
+}
+.check-box:nth-child(2){
+  margin-top: 108rpx;
+}
+.check-box .check-between text:nth-child(2){
+  color: #666;
+}

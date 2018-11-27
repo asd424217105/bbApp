@@ -1,0 +1,74 @@
+/* pages/ConstructionCompany/pages/reviseStation/reviseStation.wxss */
+@import "/pages/common/blue.wxss";
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 新增岗位框 */
+.search-input{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  font-size: 28rpx;
+}
+.search-input input{
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  width: 440rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  color: #666;
+}
+.search-input button{
+  background-color: #1c97e5;
+  color: #ffffff;
+  font-size: 28rpx;
+  width: 130rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  margin-left: 50rpx;
+}
+
+/* 岗位列表 */
+.revise-list{
+  font-size: 28rpx;
+  border-top: 1rpx solid #ccc;
+}
+.revise-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100rpx;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.revise-item view:nth-child(2){
+  display: flex;
+  flex-direction: row;
+}
+.revise-item button{
+  font-size: 28rpx;
+  width: 110rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0;
+  margin: 0; 
+  color: #fff;
+}
+.revise-item button:nth-child(1){
+  background: #1c97e5;
+}
+.revise-item button:nth-child(2){
+  margin-left: 25rpx;
+  background: #e51c23;
+}

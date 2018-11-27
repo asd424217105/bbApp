@@ -1,0 +1,37 @@
+<!--pages/ConstructionCompany/pages/reviseStation/reviseStation.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='search-input'>
+        <input value='' bindinput="bindKeyInput" placeholder='请输入岗位名称' placeholder-style='color:#ccc'></input>
+        <button bindtap='addStation'>新增</button>
+      </view>
+      <view class='revise-list'>
+        <view class='revise-item' data-id='{{item.id}}' wx:for="{{list}}" wx:key="*this">
+          <view>{{item.stationName}}</view>
+          <view>
+            <button data-id='{{item.stationId}}' bindtap='editStation'>编辑</button>
+            <button data-id='{{item.stationId}}' bindtap='delStation'>删除</button>
+          </view>
+        </view>
+      </view>
+      <!-- 编辑岗位弹窗 -->
+      <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+      <view class="modal-dialog" wx:if="{{showModal}}">
+        <form bindsubmit="formSubmit">
+          <view class="modal-content">
+            <view class='modal-item'>
+              <text>岗位名称：</text>
+              <input value='{{editValue.stationName}}' name="stationName"></input>
+            </view>
+            <input hidden value='{{editValue.id}}' name='id'></input>
+          </view>
+          <view class="modal-footer">
+            <button class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</button>
+            <button class="btn-confirm" bindtap="onConfirm" data-status="confirm" formType="submit">确定</button>
+          </view>
+        </form>
+      </view>
+    </view>
+  </view>
+</view>

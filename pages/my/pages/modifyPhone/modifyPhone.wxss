@@ -1,0 +1,5 @@
+/* pages/my/pages/modifyPhone/modifyPhone.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+.form-box{margin-top:60rpx;}

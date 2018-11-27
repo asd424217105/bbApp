@@ -1,0 +1,22 @@
+<!--pages/index/pages/workerDailyList/workerDailyList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 带班列表 -->
+      <view class='list-box'>
+        <view class='list-item' wx:for="{{list}}" wx:key="*this" bindtap='toLook' data-id='{{item.id}}'>
+          <view>
+            <image src='/foreman/images/people.png'></image>
+            <text>{{item.realName}}</text>
+            <text>{{item.mobile}}</text>
+          </view>
+          <button catchtap='edit' data-item='{{item}}' wx:if="{{item.userStatus==0}}">离岗</button>
+          <button catchtap='edit' data-item='{{item}}' wx:if="{{item.userStatus==1}}" class='green'>在岗</button>
+          <button catchtap='del' data-id='{{item.id}}'>移除</button>
+        </view>
+        <view class='no-message' wx:if="{{list.length == 0}}">暂无带班</view>
+        <button class='one-btn' bindtap='addTeams'>添加带班</button>
+      </view>
+    </view>
+  </view>
+</view>

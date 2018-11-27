@@ -1,0 +1,137 @@
+<!--pages/foreman/pages/findWorkers/findWorkers.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <form bindsubmit="formSubmit">
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>招工标题：</text>
+            <input placeholder='请输入招工标题' placeholder-style='color:#ccc' name="taskName"></input>
+          </view>
+        </view>
+        <view class='check-box'>   
+          <view class='check-between'>
+            <text>公布方式：</text>
+            <picker bindchange="bindIsOpen" range="{{isOpenArray}}" range-key="text">
+              <view wx:if="{{isOpen == ''}}" style='color:#ccc'>请选择公布方式</view>
+              <view wx:else>{{isOpen.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>所需工种(可多选)：</text>
+            <picker bindchange="bindworkkind" range="{{workkindArray}}" range-key="kind_name" class='workkind'>
+              <view wx:if="{{workkind.length == 0}}" style='color:#ccc'>请选择所需工种</view>
+              <view>
+                <text wx:for="{{workkind}}" wx:key="*this">{{item.kind_name}}</text>
+              </view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>结算方式：</text>
+            <picker bindchange="bindPickerChange" data-type='settlementType' range="{{settlementTypeArray}}" range-key="text">
+              <view wx:if="{{settlementType == ''}}" style='color:#ccc'>请选择结算方式</view>
+              <view wx:else>{{settlementType.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between wages'>
+            <text>工资（元）：</text>
+            <view>
+              <input placeholder='请输入工资' placeholder-style='color:#ccc' name="taskUnitPrice" type='digit'></input>
+              <picker wx:if="{{settlementType.code>0}}" class='unit' bindchange="bindPickerChange" data-type='settlementUnit' range="{{settlementUnitArray}}" range-key="text">
+                <view wx:if="{{settlementUnit == ''}}" style='color:#ccc'>请选择单位</view>
+                <view wx:else>每{{settlementUnit.text}}</view>
+              </picker>
+            </view>
+          </view>
+          <view class='check-between' wx:if="{{settlementType.code>0}}">
+            <text>工程总量：</text>
+            <input placeholder='请输入工程总量' placeholder-style='color:#ccc' name="taskTotal" type='number'></input>{{settlementUnit.text}}
+          </view>
+          <view class='check-between'>
+            <text>工程金额（元）：</text>
+            <input placeholder='请输入工程金额' placeholder-style='color:#ccc' name="totalAmount" type='digit'></input>
+          </view>
+          <view class='check-between'>
+            <text>需要人数：</text>
+            <input placeholder='请输入需要人数' placeholder-style='color:#ccc' name="personCount" type='digit'></input>
+          </view>
+        </view>
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>任务编号：</text>
+            <input placeholder='请输入任务编号' placeholder-style='color:#ccc' name="taskSn"></input>
+          </view>
+          <!-- <view class='check-between'>
+            <text>联系邮箱：</text>
+            <input placeholder='请输入邮箱' placeholder-style='color:#ccc' name="email"></input>
+          </view> -->
+          <!-- 开工日期 -->
+          <view class='check-between'>
+            <text>开工日期：</text>
+            <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+              <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择开工日期</view>
+              <view wx:else>{{date1}}</view>
+            </picker>
+          </view>
+          <!-- 竣工日期 -->
+          <view class='check-between'>
+            <text>竣工日期：</text>
+            <picker mode="date" value="{{date2}}" data-type='date2' bindchange="bindDateChange">
+              <view wx:if="{{date2 == ''}}" style='color:#ccc'>请选择竣工日期</view>
+              <view wx:else>{{date2}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>工程地址：</text>
+              <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" >
+                <view wx:if="{{cityValue == ''}}" style='color:#ccc'>请选择工程地址</view>
+                <view wx:else>{{cityValue.name_path_level}}</view>
+              </picker>
+          </view>
+          <view class='check-between'>
+            <text>工程详细地址：</text>
+            <input placeholder='请输入工程详细地址' placeholder-style='color:#ccc' name="address" value='{{address}}'></input>
+          </view>
+          <view class='check-minbox'>
+            <view>工作描述：</view>
+            <textarea placeholder="请输入工作描述..." placeholder-style="color:#ccc;" maxlength="-1" name="content"></textarea>
+          </view>
+          <!-- 上传附件 -->
+          <view class="voucher-box">
+            <view>添加附件：</view>
+            <view class="voucher">
+              <view class="upload" wx:for="{{imglist}}" wx:for-item="imgsrc" wx:for-index="idx" wx:key="key">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{imgsrc.fileType == 3}}" src="{{imgsrc.url}}" data-src="{{imgsrc.url}}" bindtap="previewImage" class="uploadimg"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{imgsrc.fileType == 5}}" id='myVideo' id="video-{{idx}}" bindplay="bindplay" src="{{imgsrc.url}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='../../../../images/videoplayimg.png' hidden="{{videoBtnHidden}}" bindtap='bindplayimg' data-idname='video-{{idx}}' class='bindplayimg'></cover-image>
+                </video>            
+                <!-- 删除附件按钮 -->
+                <cover-image src="../../../../images/close.png" hidden="{{videoBtnHidden}}" data-idx="{{idx}}" bindtap="deleteImage" class="close"></cover-image> 
+              </view>
+              <view class="upload">
+                <image src="../../../../images/upload.png" bindtap="chooseImageTap" class="uploadimg"></image>
+              </view>
+            </view>
+          </view>
+          <input hidden value='{{projectId}}' name="projectId">项目id</input>
+          <input hidden value='{{isOpen.id}}' name="isOpen">公布方式</input>
+          <input hidden wx:if="{{settlementType.code == 0}}" value='0' name="taskTotal">工程总量</input>
+          <input hidden value='{{settlementType.code}}' name="settlementType">结算方式</input>
+          <input hidden wx:if="{{settlementType.code == 0}}" value='0' name="taskJilUnit">单位</input>
+          <input hidden wx:if="{{settlementType.code != 0}}" value='{{settlementUnit.code}}' name="taskJilUnit">单位</input>
+          <input hidden value='{{date1}}' name="begindate">开工时间</input>
+          <input hidden value='{{date2}}' name="enddate">竣工时间</input>
+          <input hidden value='{{cityValue.id}}' name="cityId">工程地址</input>
+          <input hidden value='{{file_code}}' name="fileCode">图片编号</input>
+          <!-- 按钮 -->
+          <view class='one-btn'>
+            <button hover-class="button-hover" formType="submit">提交</button>                 
+          </view>
+        </view>
+      </form>  
+    </view>
+  </view>
+</view>
+

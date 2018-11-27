@@ -1,0 +1,31 @@
+<!--pages/index/pages/workPointsList/addWorkPoints/addWorkPoints.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <form bindsubmit="formSubmit">
+        <view class='check-between'>
+          <text>工分：</text>
+          <input placeholder="请输入工分" placeholder-style="color:#ccc;" type='number' name="workIntegral"></input>
+        </view>
+        <view class='check-between'>
+          <text>计价金额：</text>
+          <input placeholder="请输入计价金额" placeholder-style="color:#ccc;" type='number' name="amount"></input>
+        </view>
+        <view class='check-between'>
+          <text>扣减金额：</text>
+          <input placeholder="请输入扣减金额" placeholder-style="color:#ccc;" type='number' name="reduceAmount"></input>
+        </view>
+        <view class='check-minbox'>
+          <view>备注(选填)：</view>
+          <textarea placeholder="请输入备注..." placeholder-style="color:#ccc;" name="memo"></textarea>
+        </view>
+        <input hidden name="ids" value='{{userId}}'></input>
+        <input hidden name="callId" value='{{targetId}}'></input>
+        <!-- 提交按钮 -->
+        <view class='one-btn'>
+          <button hover-class="button-hover" formType="submit">提交</button>                 
+        </view>
+      </form>
+    </view>
+  </view>
+</view>

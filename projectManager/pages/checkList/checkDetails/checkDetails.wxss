@@ -1,0 +1,9 @@
+/* pages/ConstructionCompany/pages/checkDetails/checkDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";
+.check-box{
+  border-bottom: none;
+}
+.double-btn button{
+  background-color: #FE3F44;
+}

@@ -1,0 +1,19 @@
+<!--pages/index/pages/news/news.wxml-->
+<view class="container {{theme}}">
+  <view class="page-body">
+    <view class="page-section">
+      <view class="page-section-title">{{news_title}}</view>
+      <view class="timeAndFrom">
+        <view class="time">{{ctime}}</view>
+        <view class="newsFrom">{{newsFrom}}</view>
+      </view>
+      <view class="rich-text-wrp">
+        <rich-text nodes="{{news_content}}" bindtap="tap" wx:if="{{!news_exturl}}"></rich-text>
+        <web-view src="{{news_exturl}}" wx:if="{{news_exturl}}"></web-view>
+      </view>
+    </view>
+    <!-- <view class="page-section">
+
+    </view> -->
+  </view>
+</view>

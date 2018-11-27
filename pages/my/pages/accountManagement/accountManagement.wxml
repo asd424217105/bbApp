@@ -1,0 +1,16 @@
+<view class="container {{theme}} gray">
+  <view class="page_body">
+    <view class="page_section">
+      <navigator open-type="navigate" url="../modifyPhone/modifyPhone" hover-class='none'>
+        <view class="page_block">
+          <view class="page_left">
+            <span>修改手机号</span>
+          </view>
+          <view class="page_right">
+            <image src="../../resources/pic/right.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+  </view>
+</view>

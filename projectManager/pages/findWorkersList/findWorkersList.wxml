@@ -1,0 +1,46 @@
+<!--pages/foreman/pages/findWorkersList/findWorkersList.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='1' class="{{callStatus==1?'selected':''}}">筹备中</view>
+        <view bindtap='switchTab' data-id='2' class="{{callStatus==2?'selected':''}}">进行中</view>
+      </view>
+      <!-- 招工列表  班组长 -->
+      <view class='find-worker-list' wx:if="{{usertype == 1}}">
+        <view class='find-worker-item' wx:for="{{list}}" wx:for-item="item" wx:key="item" bindtap='toDetail' data-id='{{item.callId}}'>
+          <view wx:if="{{item.callName}}">{{item.callName}}</view>
+          <view>
+            <text wx:if="{{item.totalAmount}}">工资：{{item.totalAmount}}</text>
+            <text>地点：{{item.cityName}}</text>
+          </view>
+          <view>
+              <button catchtap='applicationList' data-id='{{item.callId}}'>报名列表</button>
+              <button catchtap='InvitationedList' data-id='{{item.callId}}'>邀约列表</button>
+          </view>
+        </view>
+      </view>
+      <!-- 招工列表  项目部-->
+      <view class='find-worker-list' wx:if="{{usertype == 2 || usertype == 3}}">
+        <view class='find-worker-item' wx:for="{{list}}" wx:for-item="item" wx:key="item" bindtap='toDetail' data-id='{{item.id}}'>
+          <view wx:if="{{item.taskName}}">{{item.taskName}}</view>
+          <view>
+            <text wx:if="{{item.workTime}}">工期：{{item.workTime}}天</text>
+            <text>地点：{{item.cityName}}</text>
+          </view>
+          <view>
+              <button catchtap='applicationList' data-id='{{item.id}}'>报名列表</button>
+              <button catchtap='InvitationedList' data-id='{{item.id}}'>邀约列表</button>
+              <button catchtap='comeIn' data-id='{{item.id}}'>待进场人员</button>
+          </view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无招工信息</view>
+      <!-- 发布动态 -->
+      <view class='add-project' bindtap='addThing'> 
+        <image src='/images/add_red.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

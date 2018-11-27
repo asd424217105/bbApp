@@ -1,0 +1,34 @@
+/* pages/index/pages/changeProject/changeProject.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 任务列表 */
+.tasklist{
+  margin-top: 90rpx;
+}
+.tasklist .task-item{
+  border-bottom: 1rpx solid #cccccc;
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 5rpx 20rpx;
+}
+.tasklist .task-item text{
+  width: 49%;
+  padding: 20rpx 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+.tasklist .task-item text.w100{
+  width: 100%;
+}
+.selectblue{
+  color: #0077C1;
+}
+.no-message{
+  text-align: center;
+  font-size: 32rpx;
+  margin-top: 150rpx;
+}

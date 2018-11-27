@@ -1,0 +1,38 @@
+<!--pages/community/community.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- <navigator url='pages/nomsg/nomsg'>
+        <view class='community-item'>
+          <image src='resources/pic/c_workmate.png'></image>
+          <text>留言板</text>
+        </view>
+      </navigator> -->
+      <navigator url='pages/information/information'>
+        <view class='community-item'>
+          <image src='resources/pic/c_information.png'></image>
+          <text>资讯</text>
+        </view>
+      </navigator>
+      <navigator url='pages/nomsg/nomsg'>
+        <view class='community-item'>
+          <image src='resources/pic/c_video.png'></image>
+          <text>技能培训视频</text>
+        </view>
+      </navigator>
+      <navigator url='pages/nomsg/nomsg'>
+        <view class='community-item'>
+          <image src='resources/pic/c_database.png'></image>
+          <text>资料库</text>
+        </view>
+      </navigator>
+      <!-- <navigator url='pages/nomsg/nomsg'>
+        <view class='community-item'>
+          <image src='resources/pic/c_video.png'></image>
+          <text>曝光台</text>
+        </view>
+      </navigator>
+      还没有内容哦！ -->
+    </view>
+  </view>
+</view>

@@ -1,0 +1,23 @@
+<!--pages/index/pages/evaluate/evaluate.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class='box1' wx:if="{{list.length != 0}}">
+        <view class='people-box' wx:for="{{list}}" wx:key="*this">
+          <image src='/foreman/images/people.png'></image>
+          <text>{{item.workerName}}</text>
+          <text class='tichu' data-id='{{item.id}}' bindtap='tichu'>剔除</text>
+        </view>
+      </view>
+      <view class='box2'>
+        <view class='people-box' wx:for="{{userNames}}" wx:key="*this">
+          <image src='/foreman/images/people.png'></image>
+          <text>{{item}}</text>
+        </view>
+        <image src='/images/add_red.png' bindtap='addThing'></image>
+      </view>
+      <!-- 按钮 -->
+      <button class='one-btn' bindtap='toOk'>确定</button>                 
+    </view>
+  </view>
+</view>

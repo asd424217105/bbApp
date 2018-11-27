@@ -1,0 +1,50 @@
+<view class="container {{theme}} post">
+  <view class="page_head team_head">
+    <view class="search_box">
+      <image src="../../resources/pic/search.png"></image>
+      <input placeholder='请输入姓名或手机号' placeholder-style='color:#ccc' value="{{nameOrPhone}}" name="nameOrPhone" bindinput="searchInput" maxlength="11"></input>
+      <button class="clearBtn" bindtap="clearSearch" hidden="{{clear}}">
+        <image src="../../resources/pic/clear.png"></image>
+      </button>
+    </view>
+    <button bindtap="search">搜索</button>
+    <!-- <button bindtap="outPut">导出花名册</button> -->
+  </view>
+  <view class="page_body">
+    <view class="noPost" wx:if="{{list.length<=0}}">
+      <!-- <image src="../../resources/pic/noPost.png"></image> -->
+      <view class="text">您还没有班组，快去加入班组吧</view>
+    </view>
+
+    <!-- 队伍 -->
+    <view class='team-box' wx:elif="{{list.length>0}}">
+      <view class="teamNum">班组长姓名：{{leaderName}}</view>
+      <view class="teamNum">班组工种类型：{{leaderKind}}</view>
+      <view class="teamNum">班组长电话：{{leaderPhone}}</view>
+      <view class="teamNum">班组总人数：{{list.length}}人</view>
+      <view class='team-list' wx:for="{{list}}" wx:for-item="items" wx:key="items" wx:for-index="idx">
+        <view class="info {{isMy==items.userId?'isMy':''}}" bindtap="workerInfo" data-id="{{items.userId}}">
+          <image src="../../resources/pic/people.png"></image>
+          <view class="name">{{items.realName}}</view>
+          <view class="phone">{{items.mobile}}</view>
+        </view>
+        <!-- <button bindtap="deleteWorker" data-id="{{items.userId}}">删除</button> -->
+      </view>
+    </view>
+    <!-- <view class="centerCircleBtn" animation="{{animationData}}">
+      <button hover-class="none" bindtap="add" open-type="getUserInfo" data-userid="{{userId}}">+</button>
+      <span>添加业绩</span>
+    </view> -->
+    <!-- <view class="oneCenterBtnLong">
+      <button class="" bindtap="deletes">批量删除</button>
+    </view> -->
+    <view wx:if="{{list.length>0}}" class="oneCenterBtnLong"  animation="{{animationData}}">
+      <button class="" bindtap="leaveTeam">退出班组</button>
+    </view>
+    <!-- <view class="oneCenterBtnLong">
+      
+    </view> -->
+
+
+  </view>
+</view>

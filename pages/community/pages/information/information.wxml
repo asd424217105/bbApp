@@ -1,0 +1,32 @@
+<!--pages/community/pages/information/information.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <!-- 资讯圈 -->
+    <view class='workmate-box'>
+      <view class='workmate-list' wx:for="{{list}}" wx:for-item="items" wx:key="items" wx:for-index="idx" data-id='{{items.id}}' bindtap='toDetil'>
+        <view class='workmate-list-right'>
+          <!-- 内容 -->
+          <view class='workmate-msg'>{{items.news_title}}
+            <view class='workmate-msg-img' wx:if="{{items.file_list.length>0}}">
+              <!-- 附件循环列表 -->
+              <view class='workmate-msg-item' wx:for="{{items.file_list}}" wx:for-item="item" wx:key="item" wx:for-index="idz">
+                <!-- 数组里的图片 -->
+                <image wx:if="{{item.fileType == 3}}" src='{{item.newFilename}}' data-list="{{items.file_list}}" data-src="{{item.newFilename}}" bindtap="previewImage"></image>
+                <!-- 数组里的视频 -->
+                <video wx:if="{{item.fileType == 5}}" id="video-{{idx}}{{idz}}" bindplay="bindplay" src="{{item.newFilename}}" controls='{{videoBtnHidden}}' show-center-play-btn="{{false}}" class='uploadimg' bindfullscreenchange="bindfullscreenchange">
+                  <cover-image src='/images/videoplayimg.png' wx:if="{{item.fileType == 5}}" bindtap='bindplayimg' data-idname='video-{{idx}}' hidden='{{videoBtnHidden}}'></cover-image> 
+                </video>
+              </view>  
+            </view>
+          </view>
+          <!-- 时间 -->
+          <view class='workmate-time'>
+            <text>{{items.ctime}}</text>
+            <text>分享</text>
+          </view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无资讯</view>
+    </view>
+  </view>
+</view>

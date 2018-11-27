@@ -1,0 +1,76 @@
+/* pages/index/pages/teamList/Daily/Daily.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.page-section-spacing{
+  padding: 0;
+}
+.personlists{
+  font-size: 30rpx;
+  margin-top: 20rpx;
+}
+.persontitle{
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 30rpx;
+}
+.personlist{
+  padding-left: 20rpx;
+  padding-right: 20rpx;
+}
+.personlist swiper-item{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.personlist swiper-item>view{
+  width: 142rpx;
+  height: 170rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.personlist image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.personlist .blue image{
+  box-shadow: 0rpx 0rpx 25rpx 5rpx rgba(28, 151, 229, 0.5);
+}
+.personlist .blue text{
+  color: #1c97e5;
+}
+
+.dailylist{
+  font-size: 30rpx;
+}
+.dailyitem{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  background-color: #ecebeb;
+  margin-bottom: 20rpx;
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.signin image{
+  width: 40rpx;
+  height: 40rpx;
+}
+.signin{
+  background-color: #ecebeb;
+  padding-left: 40rpx;
+  padding-right: 40rpx;
+  margin-bottom: 25rpx;
+  border-radius: 12rpx;
+}
+.no-message{
+  margin-top: 60rpx;
+}
+.check-between{
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.check-between text{
+  font-size: 30rpx;
+}

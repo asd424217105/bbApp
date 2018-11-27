@@ -1,0 +1,38 @@
+<!--pages/ConstructionCompany/pages/check/check.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab blue'>
+        <view bindtap='switchTab' data-id='0' class="{{idx==0?'selected':''}}">每天验收</view>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">阶段验收</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">完工验收</view>
+      </view>
+      <!-- 验收列表 -->
+      <view class='check-box' wx:for='{{list}}' wx:key="*this" data-id="{{item.id}}" bindtap='toCheckDetails'>
+        <view class='check-between'>
+          <text>申请时间：{{item.ctime}}</text>
+          <text wx:if='{{item.acceptStatus==0}}' style='color:blue'>待验</text>
+          <text wx:if='{{item.acceptStatus==1}}' style='color:green'>已通过</text>
+          <text wx:if='{{item.acceptStatus==2}}' style='color:red'>未通过</text>
+        </view>
+        <view class='check-item'>报验人：{{item.createName}}</view>
+        <view class='check-item' wx:if="{{item.projectName}}">报验项目：{{item.projectName}}</view>
+        <view class='check-item'>报验类型：
+          <text wx:if='{{item.acceptType==0}}'>每天验收</text>
+          <text wx:if='{{item.acceptType==1}}'>阶段验收</text>
+          <text wx:if='{{item.acceptType==2}}'>完工验收</text>
+        </view>
+        <view class='check-minbox'>
+          <view class='strong'>报验内容：</view>
+          <view>{{item.content}}</view>
+        </view>
+      </view>
+      <view class='no-message' wx:if="{{list.length == 0}}">暂无此类型验收</view>
+      <!-- 发布动态 -->
+      <view class='add-project' bindtap='addThing' wx:if="{{typeid == 0}}"> 
+        <image src='/images/add_red.png'></image>
+      </view>
+    </view>
+  </view>
+</view>

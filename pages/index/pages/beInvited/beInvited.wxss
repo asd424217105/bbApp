@@ -1,0 +1,55 @@
+/* pages/foreman/pages/beInvited/beInvited.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 班组模块------------------------------------------*/
+.b-find{
+  font-size: 26rpx;
+}
+.b-find .find-box{
+  border-top: 1rpx solid #999;
+  font-size: 26rpx;
+}
+.b-find .find-item{
+  display: flex;
+  flex-direction: row;
+  padding-left: 20rpx;
+  border-bottom: 1rpx solid #999;
+  padding: 20rpx 0rpx 10rpx 30rpx;
+}
+.b-find .find-item-left{
+  width: 450rpx;
+}
+.b-find .find-item-left>view{
+  margin-bottom: 15rpx;
+}
+.b-find .find-item-left>view:nth-last-child(1){
+  margin-bottom: 5rpx;
+}
+.b-find .find-item-left>view:nth-child(1){
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.b-find .find-item-right{
+  width:270rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+.b-find .find-item-right>button:nth-child(1){
+  width: 150rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background-color: #e51c23;
+  border-radius: 10rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  text-align: center;
+  margin: 0;
+  margin-left: 50rpx;
+  padding: 0;
+}
+.b-find .find-item-right.yellow>button:nth-child(1){
+  background-color: #ff9800;
+}

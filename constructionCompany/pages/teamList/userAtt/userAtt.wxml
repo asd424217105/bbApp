@@ -1,0 +1,46 @@
+<!--pages/index/pages/teamList/Daily/Daily.wxml-->
+<view class="container">
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <view class="container">
+        <view class='page-body'>
+          <view class='page-section page-section-spacing'>
+            <view class='personlists'>
+              <view class='persontitle strong'>工人列表：({{workerNum}}人)</view>
+              <view class='personlist'>
+                <swiper style="height:{{lists[0].length>5?'420rpx':'210rpx'}}" indicator-dots="{{indicatorDots}}" duration="{{duration}}">
+                  <block wx:for="{{lists}}" wx:for-index="idx" wx:for-item="itemx" wx:key="itemx">
+                    <swiper-item>
+                      <view class="{{workerId == items.userId?'blue':''}}" wx:for="{{itemx}}" wx:for-index="ids" wx:for-item="items"  wx:key="items" bindtap='togglePeople' data-id='{{items.userId}}'>
+                        <image src='/images/headpic.png'></image>
+                        <text>{{items.realName}}</text>
+                      </view>
+                    </swiper-item>
+                  </block>
+                </swiper>
+              </view>
+              <view class='no-message' wx:if="{{lists.length == 0}}">暂无工人</view>
+            </view>
+            <!-- 开始日期 -->
+            <view class='check-between'>
+              <text class='strong'>签到日期：</text>
+              <picker mode="date" value="{{date1}}" data-type='date1' bindchange="bindDateChange">
+                <view wx:if="{{date1 == ''}}" style='color:#ccc'>请选择签到日期</view>
+                <view wx:else>{{date1}}</view>
+              </picker>
+            </view>
+            <view class='dailylist' wx:if="{{lists.length != 0}}">
+              <view class='persontitle strong'>考勤列表：</view>
+              <!-- 签到列表 -->
+              <view class='signin check-between' wx:for='{{list}}' wx:key="*this" data-id="{{item.id}}">
+                <text>{{item.time}}</text>
+                <image src='/images/address.png' bindtap='weizhi' data-item='{{item}}'></image>
+              </view>
+              <view class='no-message' wx:if="{{list.length == 0}}">暂无签到</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,6 @@
+/* pages/foreman/pages/progressReportDetails/progressReportDetails.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+@import "/pages/common/lib/upload.wxss";
+.check-box{
+  border-bottom: none;
+}

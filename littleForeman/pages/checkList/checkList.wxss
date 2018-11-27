@@ -1,0 +1,29 @@
+/* pages/ConstructionCompany/pages/check/check.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+
+/* toptab切换 */
+.toptab{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #fff;
+  border-bottom: 1rpx solid #ccc;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  box-sizing: border-box;
+  font-size: 32rpx;
+  font-weight: 600;
+  z-index: 99;
+}
+.toptab .selected{
+  color: #1c97e5;
+}
+
+.check-box:nth-child(2){
+  margin-top: 90rpx;
+}

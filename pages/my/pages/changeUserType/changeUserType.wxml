@@ -1,0 +1,40 @@
+<view class="container {{theme}} my">
+    <view class="page_body">
+      <view class="page_section" >
+        <view open-type="navigate" bindtap="goDB" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="../../resources/pic/workerLeader.png"></image>
+              <span>带班</span>
+            </view>
+            <view class="page_right">
+              <image src="../../resources/pic/right.png"></image>
+            </view>
+          </view>
+        </view>
+        <view open-type="navigate" bindtap="goBZ" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="../../resources/pic/foreman.png"></image>
+              <span>班组长</span>
+            </view>
+            <view class="page_right">
+              <image src="../../resources/pic/right.png"></image>
+            </view>
+          </view>
+        </view>
+        <view open-type="navigate" bindtap="goGR" hover-class='none'>
+          <view class="page_block">
+            <view class="page_left">
+              <image src="../../resources/pic/work.png"></image>
+              <span>工人</span>
+            </view>
+            <view class="page_right">
+              <image src="../../resources/pic/right.png"></image>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  
+</view>

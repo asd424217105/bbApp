@@ -1,0 +1,6 @@
+/* pages/my/pages/myTeam/codeAddWork/codeAddWork.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss";
+.container {display: block;}
+/* .container.red .page-foot{} */

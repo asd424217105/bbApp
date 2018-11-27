@@ -1,0 +1,59 @@
+/* pages/foreman/pages/admission/admission.wxss */
+.page-section-spacing{
+  padding: 24rpx 30rpx;
+}
+
+.worker-title{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 32rpx;
+  margin-bottom: 20rpx;
+}
+.worker-title text:nth-child(2){
+  color: #FE3F44;
+}
+
+.worker-list{
+  font-size: 28rpx;
+}
+.worker-list .all{
+  margin-bottom: 20rpx;
+  padding-left: 20rpx;
+}
+.worker-list .checkboxitem{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: #ecebeb;
+  border-radius: 10rpx;
+  padding: 20rpx 0 20rpx 20rpx;
+}
+.worker-list .checkboxitem .checkbox2{
+  display: flex;
+  flex-direction: row;
+}
+.worker-list .checkboxitem .checkbox2 .headimg{
+  width: 88rpx;
+  height: 88rpx;
+  margin-right: 20rpx;
+  border-radius: 10rpx;
+}
+.worker-list .checkboxitem>navigator{
+  width: 88rpx;
+  height: 88rpx;
+}
+.worker-list .checkboxitem>navigator image{
+  width: 88rpx;
+  height: 88rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-width: 400rpx;
+}
+.worker-list .checkbox2 .checkboxitem-msg .time{
+  color: #666;
+  font-size: 26rpx;
+}

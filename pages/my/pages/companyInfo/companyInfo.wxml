@@ -1,0 +1,56 @@
+<view class="container {{theme}} gray">
+  <view class="page-body">
+    <form bindsubmit="submit">
+      <view class="achienement-box">
+        <view class='check-box'>
+          <view class='check-between'>
+            <text>公司名称：</text>
+            <input placeholder='公司名称' placeholder-style='color:#ccc' name="corpName"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{corpName}}"></input>
+          </view>
+          <view class='check-between'>
+            <text>单位性质：</text>
+            <picker bindchange="bindPickerChange" data-type='CORP_TYPE' range="{{CORP_TYPEArray}}" value="{{sCorpType}}" range-key="text" disabled="{{corp_state==0?'disabled': ''}}">
+              <view wx:if="{{CORP_TYPE == ''}}" style='color:#ccc'>请选择单位性质</view>
+              <view wx:else>{{CORP_TYPE.text}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>企业所在区域：</text>
+            <picker mode="multiSelector" bindchange="bindCityPickerChange" bindcolumnchange="bindCityColumnChange" value="{{multiIndex}}" range="{{cityNameArray}}" disabled="{{corp_state==0?'disabled': ''}}" >
+              <view wx:if="{{cityValue == ''}}" style='color:#ccc'>请选择企业所在区域</view>
+              <view wx:else>{{cityValue.name_path_level}}</view>
+            </picker>
+          </view>
+          <view class='check-between'>
+            <text>组织机构代码：</text>
+            <input placeholder='组织机构代码' placeholder-style='color:#ccc' name="corpCode" disabled="{{corp_state==0?'disabled': ''}}" value="{{corpCode}}"></input>
+          </view>
+          <view class='check-between'>
+            <text>法人姓名：</text>
+            <input placeholder='法人姓名' placeholder-style='color:#ccc' name="legalPerson"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPerson}}"></input>
+          </view>
+          <view class='check-between'>
+            <text>法人证件号：</text>
+            <input placeholder='法人证件号' placeholder-style='color:#ccc' name="legalPersonIdentify"maxlength="18" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPersonIdentify}}"></input>
+          </view>
+          <view class='check-between'>
+            <text>法人手机号：</text>
+            <input placeholder='法人手机号' placeholder-style='color:#ccc' name="legalPersonMobile"maxlength="11" disabled="{{corp_state==0?'disabled': ''}}" value="{{legalPersonMobile}}"></input>
+          </view>
+          <!-- <view class='check-between'>
+            <text>法人证件：</text>
+          </view>
+          <view class="imageView">
+            <image wx:if="{{legalPersonImg}}" class="legalPersonImg" src="{{legalPersonImg}}" bindtap="previewImage" data-src="{{legalPersonImg}}"></image>
+          </view> -->
+          <view class='check-between'>
+            <text>营业执照：</text>
+          </view>
+          <view class="imageView">
+            <image wx:if="{{licenseImg}}" class="licenseImg" src="{{licenseImg}}" bindtap="previewImage" data-src="{{licenseImg}}"></image>
+          </view>
+        </view>
+      </view>
+    </form>
+  </view>
+</view>

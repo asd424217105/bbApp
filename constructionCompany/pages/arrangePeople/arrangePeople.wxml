@@ -1,0 +1,19 @@
+<!--pages/ConstructionCompany/pages/arrangePeople/arrangePeople.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- 招工列表 -->
+      <view class='find-worker-list'>
+        <view class='find-worker-item' wx:for="{{list}}" wx:for-item="items" wx:key="items" data-id='{{item.callId}}'>
+          <view>
+            <text>{{items.stationName}}</text>
+            <button bindtap='applicationList' data-id='{{items.stationId||items.id}}'>指派</button>
+          </view>
+          <view class='people-list'>
+            <view wx:for="{{items.user}}" wx:for-item="item" wx:key="item">{{item.realName}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

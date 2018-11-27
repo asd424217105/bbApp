@@ -1,0 +1,3 @@
+@import "../../../common/yellow.wxss";
+.container{min-height: auto;}
+.page-head{padding: 70rpx 132rpx 100rpx;}

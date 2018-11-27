@@ -1,0 +1,61 @@
+/* pages/ConstructionCompany/pages/myTask/myTask.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+/* tab切换 */
+.toptab{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  border-bottom: 1rpx solid #cccccc;
+  display: flex;
+  flex-direction: row;
+  background-color: #ffffff;
+  z-index: 5;
+}
+.toptab view{
+  width: 33%;
+  height: 70rpx;
+  line-height: 70rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  text-align: center;
+  border-right: 1rpx solid #cccccc;
+}
+.toptab view:nth-last-child(1){
+  border-right: none;
+}
+.toptab text{
+  display: inline-block;
+  height: 90%;
+  padding-left: 6rpx;
+  padding-right: 6rpx;
+}
+.toptab .selected text{
+  border-bottom: 4rpx solid red;
+  color: red;
+}
+
+
+/* 任务列表 */
+.tasklist{
+  margin-top: 70rpx;
+}
+.tasklist>view{
+  border-bottom: 1rpx solid #cccccc;
+  font-size: 26rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 5rpx 20rpx;
+}
+.tasklist>view text{
+  width: 33%;
+  padding: 20rpx 6rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+}
+.tasklist>view text:nth-child(3){
+  text-align: center;
+}

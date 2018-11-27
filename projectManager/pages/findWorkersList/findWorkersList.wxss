@@ -1,0 +1,35 @@
+/* pages/foreman/pages/findWorkersList/findWorkersList.wxss */
+.page-section-spacing{
+  padding: 0;
+}
+
+.find-worker-list{
+  margin-top: 90rpx;
+}
+.find-worker-item{
+  padding: 15rpx 20rpx 10rpx;
+  border-bottom: 1rpx solid #999;
+  font-size: 28rpx;
+}
+.find-worker-item>view{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 66rpx;
+}
+.find-worker-item>view:nth-child(1){
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.find-worker-item>view:nth-child(3) button{
+  width: 30%;
+  height: 55rpx;
+  line-height: 55rpx;
+  color: #fff;
+  font-size: 28rpx;
+  background-color: #FE3F44;
+  border-radius: 6rpx;
+  text-align: center;
+  margin: 0;
+}

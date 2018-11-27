@@ -1,0 +1,42 @@
+<!--pages/index/pages/evaluate/evaluate.wxml-->
+<view class='container'>
+  <view class='page-body'>
+    <view class='page-section page-section-spacing'>
+      <!-- tab切换 -->
+      <view class='toptab'>
+        <view bindtap='switchTab' data-id='1' class="{{idx==1?'selected':''}}">二维码添加</view>
+        <view bindtap='switchTab' data-id='2' class="{{idx==2?'selected':''}}">从队伍中添加</view>
+        <view bindtap='switchTab' data-id='3' class="{{idx==3?'selected':''}}">手机号添加</view>
+      </view>
+      <!-- 内容 -->
+      <view class='box1' wx:if="{{idx==1}}">
+        暂无此功能
+      </view>
+      <view class='box2' wx:if="{{idx==2}}">
+        <view class='people-box' wx:for="{{userNames}}" wx:key="*this">
+          <image src='/foreman/images/people.png'></image>
+          <text>{{item}}</text>
+        </view>
+        <image src='/images/add_red.png' bindtap='addThing'></image>
+      </view>
+      <view class='box3' wx:if="{{idx==3}}">
+        <view class='input'>
+          <text>电话：</text> 
+          <input value='' placeholder="请输入电话..." placeholder-style="color:#ccc;" bindinput="bindKeyInput"></input> 
+          <text class='red' bindtap='search'>搜索</text>
+        </view>
+        <view class='msg' wx:if="{{msg}}">
+          <view>姓名：{{msg.realName}}</view>
+          <view>民族：{{msg.national}}</view>
+          <view>工种：{{msg.kindName}}</view>
+          <view>年龄：{{msg.age}}</view>
+          <view>工龄：{{msg.workYear}}</view>
+          <view>队伍人数：{{msg.personCount}}</view>
+          <view>意向区域：{{msg.cityName}}</view>
+        </view>
+      </view>
+      <!-- 按钮 -->
+      <button class='one-btn' bindtap='toOk'>确定</button>                 
+    </view>
+  </view>
+</view>

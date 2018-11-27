@@ -1,0 +1,84 @@
+/* pages/index/pages/teamList/teamList.wxss */
+@import "/pages/common/blue.wxss";
+.page-section-spacing{
+  padding: 0;
+}
+
+/* 搜索人员框 */
+.search-input{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 120rpx;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #ccc;
+  background: #fff;
+}
+.search-input input{
+  border: 2rpx solid #ccc;
+  border-radius: 10rpx;
+  width: 440rpx;
+  height: 60rpx;
+  padding-left: 10rpx;
+  padding-right: 10rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  color: #666;
+}
+.search-input button{
+  background-color: #1c97e5;
+  color: #ffffff;
+  font-size: 28rpx;
+  width: 130rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  margin-left: 50rpx;
+}
+
+/* 部门列表 */
+.revise-list{
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+.revise-item{
+  padding: 10rpx 30rpx;
+  border-bottom: 1rpx solid #ccc;
+}
+.revise-item view:nth-child(1){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 70rpx;
+  font-size: 26rpx;
+}
+.revise-item view:nth-child(1) text:nth-child(1){
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.revise-item view:nth-child(2){
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 80rpx;
+}
+.revise-item button{
+  font-size: 28rpx;
+  width: 110rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  padding: 0;
+  margin: 0; 
+  color: #fff;
+}
+.revise-item button{
+  background: #1c97e5;
+}

@@ -1,0 +1,9 @@
+/* pages/foreman/pages/findWorkersDetail/findWorkersDetail.wxss */
+@import "/pages/common/lib/comCheck.wxss";
+.color-red{
+  color: #e51c23;
+  font-size: 26rpx;
+}
+.double-btn button{
+  background-color: #e51c23;
+}

@@ -1,0 +1,80 @@
+/* pages/index/index.wxss */
+@import "/pages/common/yellow.wxss";
+@import "/pages/common/red.wxss";
+@import "/pages/common/blue.wxss"; 
+.page-section-spacing{
+  padding: 0;
+  width: 750rpx;
+  min-height:40rpx;
+  margin-bottom:0rpx;
+}
+.page-section-title{
+  padding: 0;
+  margin-top: 60rpx;
+  position: relative;
+}
+.swiper{
+  margin-top:20rpx;
+}
+swiper-item navigator{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+swiper-item .viewButton{
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+swiper-item .viewButton .tipsNum{
+  position: absolute;
+  right: 0;
+  top: -18rpx;
+  width: 36rpx;
+  height: 36rpx;
+  background-color: red;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 24rpx;
+}
+.swiper-item{
+  display: block;
+  height: 300rpx;
+  width: 750rpx;
+}
+
+.swiper-item-tab{
+  display: block;
+  min-height: 300rpx;
+  width: 750rpx;
+}
+
+.platformNumBox{
+  background: #e1e1e1;
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+}
+.platformNumTitle{
+  background: #fff;
+  padding: 20rpx 20rpx 0; 
+  font-size: 30rpx;
+}
+.platformNum{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 15rpx 20rpx 0;
+  width: 100%;
+  background: #fff;
+  font-size: 28rpx;
+}
+.platformNum view{
+  width: 33%;
+  margin-bottom: 20rpx;
+}
+.platformNum text{
+  color: #1c97e5;
+}
+
+

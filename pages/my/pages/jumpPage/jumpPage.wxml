@@ -1,0 +1,15 @@
+<view class="container yellow {{theme}}">
+  <view class="page-head">
+    <image class="logo" src="../../resources/pic/logo.png"></image>
+  </view>
+  <view class="page-body">
+    <view class="content-box">
+      <rich-text nodes="{{content}}"></rich-text>
+    </view>
+  </view>
+  <view class="page_foot">
+    <view class="oneCenterBtnLong">
+      <button class="" bindtap="addUs">加入我们</button>
+    </view>
+  </view>
+</view>

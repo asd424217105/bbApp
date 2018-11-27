@@ -1,0 +1,56 @@
+<view class="container {{theme}} gray">
+  <view class="page_body">
+    <view class="page_section">
+      <navigator open-type="navigate" url="../accountManagement/accountManagement" hover-class='none'>
+        <view class="page_block">
+          <view class="page_left">
+            <span>帐号管理</span>
+          </view>
+          <view class="page_right">
+            <image src="../../resources/pic/right.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="page_section">
+      <navigator open-type="navigate" url="../aboutUs/aboutUs" hover-class='none'>
+        <view class="page_block">
+          <view class="page_left">
+            <span>关于我们</span>
+          </view>
+          <view class="page_right">
+            <image src="../../resources/pic/right.png"></image>
+          </view>
+        </view>
+      </navigator>
+      <navigator open-type="navigate" url="" hover-class='none'>
+      <!-- url="/pages/my/pages/jumpPage/jumpPage?code=1709751260" -->
+        <view class="page_block">
+          <view class="page_left">
+            <span>联系我们</span>
+          </view>
+          <view class="page_right">
+            <image src="../../resources/pic/right.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+
+    <view class="page_section">
+      <navigator open-type="navigate" url="../version/version" hover-class='none'>
+        <view class="page_block">
+          <view class="page_left">
+            <span>版本号</span>
+          </view>
+          <view class="page_right">
+            <image src="../../resources/pic/right.png"></image>
+          </view>
+        </view>
+      </navigator>
+    </view>
+    <view class='page-foot'>
+      <button class="oneCenterBtn" bindtap="loginOut">退出登录</button>
+    </view>
+  </view>
+</view>
